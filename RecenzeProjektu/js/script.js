@@ -5,9 +5,9 @@ function potvrzeni(){
 	var review=document.getElementById('recenze').value;
 	if(rate != 0 && user !="" && review !=""){
 		var html=
-		"<h4>User: <label class='text-primary'>" + user + "</label></h4>"
-		+"<h4>Rating: <label class='text-primary'>" + rate + "</label></h4>"
-		+"<h4>Review</h4>"
+		"<h4>Uzivatel: <label class='text-primary'>" + user + "</label></h4>"
+		+"<h4>Hodnoceni: <label class='text-primary'>" + rate + "</label></h4>"
+		+"<h4>Komentar</h4>"
 		+"<p>"+review+"</p>"
 		+"<hr style='border-top:1px solid #000;'/>";
 		document.getElementById('vysledek').innerHTML+=html;
