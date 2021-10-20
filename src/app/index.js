@@ -6,12 +6,6 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.json());
 
-
-const dbController = require(path.join(__dirname, 'controllers', 'dbController'));
-var router = express.Router();
-app.use('/', router);
-
-router.get('/', dbController.main);
-router.get('/upload', dbController.upload);
+app.use('/', require(path.join(__dirname, 'routers', 'dbRouter')));
 
 module.exports = app;
