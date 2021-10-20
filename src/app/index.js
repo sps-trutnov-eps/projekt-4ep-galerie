@@ -12,5 +12,6 @@ var router = express.Router();
 app.use('/', router);
 
 router.get('/', dbController.main);
+router.get('/upload', dbController.upload);
 
 module.exports = app;
