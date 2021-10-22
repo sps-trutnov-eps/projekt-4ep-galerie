@@ -1,12 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tagy_zkouska</title>
+    <link rel="stylesheet" href="global_tagy.css">
+    <script src="js/script_tagy.js"></script>
 </head>
+
 <body>
+    <div id="containerSTlacitky">
+        <button class="tlacitko active" onclick="vybratFiltr('vse')"> Všechno</button>
+        <button class="tlacitko" onclick="vybratFiltr('4.EP')"> 4.EP</button>
+        <button class="tlacitko" onclick="vybratFiltr('4.IT')"> 4.IT</button>
+        <button class="tlacitko" onclick="vybratFiltr('3.EP')"> 3.EP</button>
+        <button class="tlacitko" onclick="vybratFiltr('3.IT')"> 3.IT</button>
+    </div>
     
+    <div class="container">
+        <div class="filtrDiv 4.IT">Projekt od 4.IT</div>
+        <div class="filtrDiv 4.EP">Projekt od 4.EP</div>
+        <div class="filtrDiv 3.EP 3.IT">Projekt od 3.EP a 3.IT</div>
+        <div class="filtrDiv 3.EP">Projekt od 3.EP</div> 
+        <div class="filtrDiv 3.IT">Projekt od 3.IT</div>
+    </div>
 </body>
+
 </html>
