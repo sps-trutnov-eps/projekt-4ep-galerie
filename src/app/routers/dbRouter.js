@@ -5,5 +5,6 @@ const router = express.Router();
 
 router.get('/', controller.main);
 router.get('/upload', controller.upload);
+router.get('/admin',controller.admin);
 
 module.exports = router;

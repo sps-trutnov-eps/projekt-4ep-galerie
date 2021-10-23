@@ -10,3 +10,7 @@ exports.main = (req, res) => {
 exports.upload = (req, res) => {
     res.render('upload_form');
 }
+
+exports.admin = (req, res) => {
+    res.render('admin_page');
+}
