@@ -14,3 +14,24 @@ exports.upload = (req, res) => {
 exports.admin = (req, res) => {
     res.render('admin_page');
 }
+
+exports.adminEdit = (req, res) => {
+    res.render('admin/edit');
+}
+
+exports.getArticleData = (req, res) => {
+    var name = `ID_${req.params.article}`;
+    var data = dbModel.nacist(name);
+    res.send(data);
+}
+
+exports.editArticle = (req, res) => {
+    var id = req.body[0];
+    var items = req.body[1];
+    dbModel.editArticle(id, items);
+}
+
+exports.deleteArticle = (req, res) => {
+    var id = req.body.ID;
+    dbModel.deleteArticle(id);
+}

@@ -10,7 +10,6 @@ exports.nacistVse = () => {
     return db.JSON();
 }
 
-
 exports.editArticle = (id, items) => {
     var Article = db.get(id);
     Article.autor = (items?.autor===undefined?Article.autor:items.autor);
@@ -21,4 +20,12 @@ exports.editArticle = (id, items) => {
     Article.popis_full = (items?.popis_full===undefined?Article.popis_full:items.popis_full);
     Article.tagy = (items?.tagy===undefined?Article.tagy:items.tagy);
     db.set(id, Article);
+}
+
+exports.getArticleNames = () => {
+    return Object.keys(db.JSON());
+}
+
+exports.deleteArticle = (id) => {
+    return db.delete(id);
 }
