@@ -24,14 +24,14 @@ exports.editArticle = (id, items) => {
 }
 
 exports.newDbItem = (name, desc_short, desc_full, author, mail, tags) => {
-    db.set('ID_' + Object.keys(db.JSON()).length + 1 , {
+    db.set(`ID_${Object.keys(db.JSON()).length + 1}`  , {
         "autor": [
             {
                 "jmeno": author,
                 "e-mail": mail
             }
         ],
-        "datum": new Date.now(),
+        "datum": new Date().toLocaleDateString(),
         "viditelny": false,
         "nadpis": name,
         "popis_short": desc_short,

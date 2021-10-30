@@ -7,6 +7,6 @@ router.get('/', controller.main);
 router.get('/upload', controller.upload);
 router.get('/admin',controller.admin);
 
-router.post('/',controller.uploadGame);
+router.post('/newArticle',controller.uploadArticle);
 
 module.exports = router;

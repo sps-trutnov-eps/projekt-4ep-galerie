@@ -62,17 +62,20 @@
     </footer>
     <script>
         function SendInfo(){
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST",'/' ,true);
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.send(JSON.stringify({
+            fetch('/newArticle', {
+               method: 'POST',
+               headers: {
+                'Content-Type': 'application/json'
+               },
+               body:JSON.stringify({
                 name: name.value,
                 desc_short: desc_short.value,
                 desc_full: desc_full.value,
                 author: author.value,
                 mail: mail.value,
                 tags: tags.value
-            }));
+               }),
+            });
         }
     </script>
 </body>

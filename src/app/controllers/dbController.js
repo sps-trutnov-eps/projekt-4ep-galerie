@@ -15,7 +15,7 @@ exports.admin = (req, res) => {
     res.render('admin_page');
 }
 
-exports.uploadGame = (req, res) => {
+exports.uploadArticle = (req, res) => {
     let name = req.body.name;
     let desc_short = req.body.desc_short;
     let desc_full = req.body.desc_full;
