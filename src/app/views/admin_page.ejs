@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin page</title>
 </head>
+
 <body>
     <header>
 
     </header>
     <main>
-        <div>
-            <p style="font-size: 26px;">Admin page</p>
-        </div>
-        <nav>
-            <a href="/upload">Upload</a>
-            <a href="/">Edit</a>
-        </nav>
-        <div id="login">
-            <label for="name">Name</label>
-            <input type="text" id="name" style="margin-left: 23px;"> <br>
-            <label for="password">Password</label>
-            <input type="text" id="password">
+        <div style=" border-bottom: black solid 2px; margin: 0 auto; margin-top: 200px; text-align: center; width: 400px; height: 400px;">
+            <div>
+                <p style="font-size: 26px; border-top: black solid 2px; padding-top: 50px; font-weight: bold;">Admin page</p>
+            </div>
+            <nav>
+                <a href="/upload" ><button style="font-size: 15pt;">Upload</button></a>
+                <a href="/" style="margin-right: 125px;"><button style="font-size: 15pt;">Edit</button></a>
+            </nav>
+            <div id="login" style="padding-top: 20px;">
+                <label for="name" ></label>
+                <input type="text" id="name" placeholder="Name.." style="font-size: 15pt; padding: 5px;"> <br>
+                <label for="password"></label>
+                <input type="password" id="password" placeholder="Password.." style="font-size: 15pt; padding: 5px;" >
+            </div>
+            <a href="" style="margin-right: 170px;"><button style="margin-top: 10px; font-size: 15pt;">Submit</button></a>
         </div>
     </main>
     <footer>
 
     </footer>
 </body>
+
 </html>
