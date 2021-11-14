@@ -29,9 +29,26 @@ exports.editArticle = (req, res) => {
     var id = req.body[0];
     var items = req.body[1];
     dbModel.editArticle(id, items);
+    res.send({"msg":"Clanek zmenen"});
 }
 
 exports.deleteArticle = (req, res) => {
     var id = req.body.ID;
-    dbModel.deleteArticle(id);
+    var odpoved = dbModel.deleteArticle(id);
+    var msg = {};
+    switch(odpoved) {
+        case true: {
+            msg = {"msg":"Clanek byl vymazan uspesne."};
+            break;
+        }
+        case undefined: {
+            msg = {"msg":"Clanek nenalezen."};
+            break;
+        }
+        default: {
+            msg = {"msg":"Neznama chyba"};
+            break;
+        }
+    }
+    res.send(msg);
 }

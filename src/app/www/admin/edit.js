@@ -100,17 +100,19 @@ window.onload = () => {
         document.getElementById('tagy').innerHTML = data.tagy;
     }
 
-    async function sendData(data) {
+    function sendData(data) {
         fetch('/admin/editArticle', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(data)
+        }).then((res) => res.json()).then((data) => {
+            console.log(data);
         }).catch((error) => {
             document.getElementById('stats').innerHTML =  document.getElementById('stats').innerHTML = `<span style="font-weight: bold; color: red;">CHYBA POSILANI DAT NA SERVER.</span>`;
         })
     }
 
-    document.getElementById('saveButton').addEventListener('click', async () => {
+    document.getElementById('saveButton').addEventListener('click', () => {
         var items = {"autor":JSON.parse(document.getElementById('autor').innerHTML),
                      "datum":document.getElementById('datum').innerHTML,
                      "viditelny":document.getElementById('viditelny').innerHTML === 'true',
@@ -121,7 +123,7 @@ window.onload = () => {
         console.log(items);
         var data = [`${document.getElementById('articleHeader').innerHTML}`, items];
         if (document.getElementById('articleHeader').innerHTML === "") return;
-        await sendData(data);
+        sendData(data);
     });
 
     document.getElementById('dltButton').addEventListener('click', () => {
@@ -131,6 +133,9 @@ window.onload = () => {
             method: 'POST',
             headers: {'Content-Type':'application/json'},
             body: JSON.stringify(data)
+        }).then((res)=>res.json()).then((data)=>{
+            //změnit vizuálně
+            alert(data.msg);
         }).catch((error) => {
             document.getElementById('stats').innerHTML = `<span style="color: red; font-weight:bold;">CHYBA MAZÁNÍ ČLÁNKU ZE SERVERU</span>`;
         })

@@ -3,11 +3,13 @@ const JSONdb = require('simple-json-db');
 const db = new JSONdb(path.join(__dirname, '..', '..', '..', 'data', 'clanky.json'));
 
 exports.nacist = (id) => {
-    return db.get(id);
+    var clanek = db.get(id);
+    return clanek;
 }
 
 exports.nacistVse = () => {
-    return db.JSON();
+    var clanky = db.JSON();
+    return clanky;
 }
 
 exports.editArticle = (id, items) => {
@@ -27,5 +29,6 @@ exports.getArticleNames = () => {
 }
 
 exports.deleteArticle = (id) => {
-    return db.delete(id);
+    var odpoved = db.delete(id);
+    return odpoved;
 }
