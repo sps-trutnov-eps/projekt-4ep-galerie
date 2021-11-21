@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="src/style.css">
+    <script src="src/script_index.js"></script>
     <!-- 
     <link rel="stylesheet" href="src/forDusan.css">
     -->
@@ -44,67 +45,16 @@
 
 
 
-        <div id="container">
-            <div id="column1">
-                <div class="post">
-                    <h3>nadpis</h3><br/>
-                    <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio ratione, est libero tempora in sunt nesciunt deserunt repudiandae porro fugit doloremque quasi quaerat recusandae eum officiis dolore quam praesentium ea?
-                    </p>
-                </div>
-                <div class="post">
-                    <h3>nadpis</h3><br/>
-                    <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio ratione, est libero tempora in sunt nesciunt deserunt repudiandae porro fugit doloremque quasi quaerat recusandae eum officiis dolore quam praesentium ea?
-                    </p>
-                </div>
-                <div class="post">
-                    <h3>nadpis</h3><br/>
-                    <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio ratione, est libero tempora in sunt nesciunt deserunt repudiandae porro fugit doloremque quasi quaerat recusandae eum officiis dolore quam praesentium ea?
-                    </p>
-                </div>
-            </div>
-            <div id="column2">
-                <div class="post">
-                    <h3>nadpis</h3><br/>
-                    <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio ratione, est libero tempora in sunt nesciunt deserunt repudiandae porro fugit doloremque quasi quaerat recusandae eum officiis dolore quam praesentium ea?
-                    </p>
-                </div>
-                <div class="post">
-                    <h3>nadpis</h3><br/>
-                    <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio ratione, est libero tempora in sunt nesciunt deserunt repudiandae porro fugit doloremque quasi quaerat recusandae eum officiis dolore quam praesentium ea?
-                    </p>
-                </div>
-                <div class="post">
-                    <h3>nadpis</h3><br/>
-                    <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio ratione, est libero tempora in sunt nesciunt deserunt repudiandae porro fugit doloremque quasi quaerat recusandae eum officiis dolore quam praesentium ea?
-                    </p>
-                </div>
-            </div>
-            <div id="column3">
-                <div class="post">
-                    <h3>nadpis</h3><br/>
-                    <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio ratione, est libero tempora in sunt nesciunt deserunt repudiandae porro fugit doloremque quasi quaerat recusandae eum officiis dolore quam praesentium ea?
-                    </p>
-                </div>
-                <div class="post">
-                    <h3>nadpis</h3><br/>
-                    <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio ratione, est libero tempora in sunt nesciunt deserunt repudiandae porro fugit doloremque quasi quaerat recusandae eum officiis dolore quam praesentium ea?
-                    </p>
-                </div>
-                <div class="post">
-                    <h3>nadpis</h3><br/>
-                    <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio ratione, est libero tempora in sunt nesciunt deserunt repudiandae porro fugit doloremque quasi quaerat recusandae eum officiis dolore quam praesentium ea?
-                    </p>
-                </div>
-            </div>
+        <div id="containerSTlacitky">
+            <button class="tlacitko active" onclick="vybratFiltr('vse')"> Všechno</button>
+            <button class="tlacitko" onclick="vybratFiltr('EP')"> EP</button>
+            <button class="tlacitko" onclick="vybratFiltr('IT')"> IT</button>
+        </div>
+        <!--Tohle jsou články! Ke každému článku se musí nastavit class (jako je to zde nastavené), jinak to nebude fungovat!-->
+        <div class="container">
+            <div class="filtrDiv IT">Projekt od IT</div>
+            <div class="filtrDiv EP">Projekt od EP</div>
+            <div class="filtrDiv 3.EP 3.IT">Projekt od EP a IT</div>
         </div>
     </main>
     <footer>

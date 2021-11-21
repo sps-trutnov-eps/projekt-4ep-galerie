@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tagy_zkouska</title>
+    <link rel="stylesheet" href="global_tagy.css">
+    <script src="js/script_tagy.js"></script>
+</head>
+
+<body>
+    <div id="containerSTlacitky">
+        <button class="tlacitko active" onclick="vybratFiltr('vse')"> Všechno</button>
+        <button class="tlacitko" onclick="vybratFiltr('EP')"> EP</button>
+        <button class="tlacitko" onclick="vybratFiltr('IT')"> IT</button>
+    </div>
+    <!--Tohle jsou články! Ke každému článku se musí nastavit class (jako je to zde nastavené), jinak to nebude fungovat!-->
+    <div class="container">
+        <div class="filtrDiv IT">Projekt od IT</div>
+        <div class="filtrDiv EP">Projekt od EP</div>
+        <div class="filtrDiv 3.EP 3.IT">Projekt od EP a IT</div>
+    </div>
+</body>
+
+</html>
