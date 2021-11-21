@@ -32,3 +32,25 @@ exports.deleteArticle = (id) => {
     var odpoved = db.delete(id);
     return odpoved;
 }
+// docasne, mozna se pozdeji smaze ¯\_(ツ)_/¯
+exports.mainPageArticles = () => {
+    var clanky = this.getArticleNames();
+    var vybraneClanky = []
+    if (clanky.length > 2) {
+        for (var i = 0; i < 3; i++) {
+            var nahoda = Math.floor(Math.random() * clanky.length);
+            while (vybraneClanky.includes(nahoda)) {
+                nahoda = Math.floor(Math.random() * clanky.length);
+            }
+            vybraneClanky.push(nahoda)
+        }
+        for (var i = 0; i < 3; i++) {
+            var cislo = vybraneClanky[i];
+            vybraneClanky[i] = clanky[cislo];
+        }
+    }
+    else {
+        vybraneClanky = clanky
+    }
+    return vybraneClanky;
+}
