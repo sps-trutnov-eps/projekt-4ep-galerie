@@ -8,5 +8,5 @@ router.get('/upload', controller.upload);
 router.get('/admin',controller.admin);
 
 router.post('/newArticle',controller.uploadArticle);
-
+router.post('/loginInfo', controller.postLoginInfo);
 module.exports = router;

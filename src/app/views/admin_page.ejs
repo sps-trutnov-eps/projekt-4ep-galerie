@@ -6,32 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin page</title>
-    <script>
-
-        var login_udaje = {
-            "users": [
-                {
-                    "username": "admin",
-                    "password": "admin"
-                }
-            ]
-        }
-        function submit(){
-            var input_username = document.getElementById("username").value;
-            var input_password = document.getElementById('password').value;
-            if(input_username == login_udaje.users[0].username && input_password == login_udaje.users[0].password){
-                window.location.href = "/";
-            }
-            else{
-                alert("Wrong username or password")
-                window.location.href = "/admin";
-            }
-            console.log(input_username);
-            console.log(input_password);
-
-        }
-    </script>
-</head>
+   </head>
 
 <body>
     <header>
@@ -53,12 +28,26 @@
                 <label for="password"></label>
                 <input type="password" id="password" placeholder="Password.." style="font-size: 15pt; padding: 5px;" required>
             </div>
-            <button onclick="submit()">Submit</button></a>
+            <button onclick="SendLoginInfo()">Submit</button></a>
         </div>
     </main>
     <footer>
 
     </footer>
+    <script>
+        function SendLoginInfo(){
+            fetch('/loginInfo', {
+               method: 'POST',
+               headers: {
+                'Content-Type': 'application/json'
+               },
+               body:JSON.stringify({
+                username: username.value,
+                password: password.value, 
+               }),
+            });
+        }
+    </script>
 </body>
 
 </html>
