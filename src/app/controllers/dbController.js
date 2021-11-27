@@ -18,26 +18,18 @@ exports.admin = (req, res) => {
 exports.postLoginInfo = (req, res) => {
     let username = req.body.username;
     let password = req.body.password;
-    var login_udaje = {
-        "users": [
-            {
-                "username": "admin",
-                "password": "admin"
-            }
-        ]
-    }
-    
+    var login_udaje = dbModel.nacistUdaje();
     
     var input_username = username;
     var input_password = password;
-    if(input_username == login_udaje.users[0].username && input_password == login_udaje.users[0].password){
-        //window.location.href = "/";
+    if(input_username == login_udaje.admin[0].username && input_password == login_udaje.admin[0].password){
+
         console.log("Correct");
 
     }
     else{
         console.log("Wrong username or password");
-        //res.redirect('/upload_form');
+
     }
     
 }

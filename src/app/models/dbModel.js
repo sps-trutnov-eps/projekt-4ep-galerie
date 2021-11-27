@@ -1,7 +1,7 @@
 const path = require('path');
 const JSONdb = require('simple-json-db');
 const db = new JSONdb(path.join(__dirname, '..', '..', '..', 'data', 'clanky.json'));
-
+const udaje = new JSONdb(path.join(__dirname, '..', '..', '..', 'data', 'udaje.json'));
 exports.nacist = (id) => {
     return db.get(id);
 }
@@ -10,6 +10,9 @@ exports.nacistVse = () => {
     return db.JSON();
 }
 
+exports.nacistUdaje = () => {
+    return udaje.JSON();
+}
 
 exports.editArticle = (id, items) => {
     var Article = db.get(id);
