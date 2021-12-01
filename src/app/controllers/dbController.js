@@ -1,3 +1,4 @@
+const bcrypt = require("bcrypt");
 const dbModel = require(require('path').join(__dirname, '..', 'models', 'dbModel'));
 
 exports.main = (req, res) => {
@@ -16,21 +17,30 @@ exports.admin = (req, res) => {
 }
 
 exports.postLoginInfo = (req, res) => {
+
     let username = req.body.username;
     let password = req.body.password;
-    var login_udaje = dbModel.nacistUdaje();
+    let login_udaje = dbModel.nacistUdaje();
+    // hashovaní hesla
+    bcrypt.hash(login_udaje.admin[0].password, 5, function (err, hash) {
+        console.log(hash);
+        // porovnávání hashem s heslem
+        bcrypt.compare(password, hash, function (err, result) {
+          console.log("heslo prošlo:", result);
+
+          // porovnaní údajů
+          if(username == login_udaje.admin[0].username && result == true){
+              console.log("Correct");
+
+          }
+          else{
+              console.log("Wrong username or password");
+
+          }
+        });
+
+    });
     
-    var input_username = username;
-    var input_password = password;
-    if(input_username == login_udaje.admin[0].username && input_password == login_udaje.admin[0].password){
-
-        console.log("Correct");
-
-    }
-    else{
-        console.log("Wrong username or password");
-
-    }
     
 }
 
