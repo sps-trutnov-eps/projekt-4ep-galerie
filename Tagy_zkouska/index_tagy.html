@@ -9,16 +9,52 @@
 </head>
 
 <body>
-    <div id="containerSTlacitky">
-        <button class="tlacitko active" onclick="vybratFiltr('vse')"> Všechno</button>
-        <button class="tlacitko" onclick="vybratFiltr('EP')"> EP</button>
-        <button class="tlacitko" onclick="vybratFiltr('IT')"> IT</button>
+    <div class="dropdown">
+        <button class="dropbtn">Obor</button>
+        <div class="containerSTlacitky">
+            <a onclick="vybratFiltr('EP')"> EP</a>
+            <a onclick="vybratFiltr('IT')"> IT</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Ročník</button>
+        <div class="containerSTlacitky">
+            <a onclick="vybratFiltr('1.')"> 1.</a>
+            <a onclick="vybratFiltr('2.')"> 2.</a>
+            <a onclick="vybratFiltr('3.')"> 3.</a>
+            <a onclick="vybratFiltr('4.')"> 4.</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Jazyk</button>
+        <div class="containerSTlacitky">
+            <a onclick="vybratFiltr('C#')"> C#</a>
+            <a onclick="vybratFiltr('Python')"> Python</a>
+            <a onclick="vybratFiltr('Lua')"> Lua</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Typ</button>
+        <div class="containerSTlacitky">
+            <a onclick="vybratFiltr('nic')"> 1.</a>
+            <a onclick="vybratFiltr('nic')"> 2.</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Rok</button>
+        <div class="containerSTlacitky">
+            <a onclick="vybratFiltr('2020')"> 2020</a>
+            <a onclick="vybratFiltr('2021')"> 2021</a>
+        </div>
     </div>
     <!--Tohle jsou články! Ke každému článku se musí nastavit class (jako je to zde nastavené), jinak to nebude fungovat!-->
     <div class="container">
-        <div class="filtrDiv IT">Projekt od IT</div>
-        <div class="filtrDiv EP">Projekt od EP</div>
-        <div class="filtrDiv 3.EP 3.IT">Projekt od EP a IT</div>
+        <div class="filtrDiv IT 2020">Projekt od IT</div>
+        <div class="filtrDiv EP 2020 C#">Projekt od 4. EP</div>
+        <div class="filtrDiv 3. EP 3. IT">Projekt od 3.EP a 3.IT</div>
+        <div class="filtrDiv 2. EP Python">Projekt od 2.EP</div>
+        <div class="filtrDiv 4. IT">Projekt od 4.IT</div>
+        <div class="filtrDiv 4. EP">Projekt od 4.EP</div>
     </div>
 </body>
 

@@ -1,3 +1,6 @@
+vybratFiltr("vse")
+
+
 function vybratFiltr(filtr) {
     var x, i;
     x = document.getElementsByClassName("filtrDiv");
