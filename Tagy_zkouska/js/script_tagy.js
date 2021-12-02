@@ -1,7 +1,20 @@
-vybratFiltr("vse")
+
+document.querySelectorAll(".containerSTlacitky").forEach(element => 
+  console.log(element),
+  document.querySelectorAll("input[type=checkbox]").forEach(checkboxy => checkboxy.addEventListener("change", (event)=> {
+
+    console.log(checkboxy.value);
 
 
-function vybratFiltr(filtr) {
+  }))
+
+);
+
+ 
+
+
+
+/*function vybratFiltr(filtr) {
     var x, i;
     x = document.getElementsByClassName("filtrDiv");
     if (filtr == "vse") filtr = "";
@@ -51,3 +64,5 @@ for (var i = 0; i < btns.length; i++) {
     this.className += " active";
   });
 }
+*/
+

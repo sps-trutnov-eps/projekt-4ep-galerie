@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <title>Tagy_zkouska</title>
     <link rel="stylesheet" href="global_tagy.css">
-    <script src="js/script_tagy.js"></script>
+
 </head>
 
 <body>
-    <div class="dropdown">
+<!--    <div class="dropdown">
         <button class="dropbtn">Obor</button>
         <div class="containerSTlacitky">
             <a onclick="vybratFiltr('EP')"> EP</a>
@@ -47,7 +47,7 @@
             <a onclick="vybratFiltr('2021')"> 2021</a>
         </div>
     </div>
-    <!--Tohle jsou články! Ke každému článku se musí nastavit class (jako je to zde nastavené), jinak to nebude fungovat!-->
+    
     <div class="container">
         <div class="filtrDiv IT 2020">Projekt od IT</div>
         <div class="filtrDiv EP 2020 C#">Projekt od 4. EP</div>
@@ -56,6 +56,52 @@
         <div class="filtrDiv 4. IT">Projekt od 4.IT</div>
         <div class="filtrDiv 4. EP">Projekt od 4.EP</div>
     </div>
+-->
+
+<div class="dropdown">
+    <button class="dropbtn">Obor</button>
+    <div id="obor" class="containerSTlacitky">
+        <input value="EP" type="checkbox"><label for="">EP</label><br>
+        <input value="IT" type="checkbox"><label for="">IT</label>
+    </div>
+</div>
+<div class="dropdown">
+    <button class="dropbtn">Ročník</button>
+    <div id="rocnik" class="containerSTlacitky">
+        <input type="checkbox"><label for="">1.</label><br>
+        <input type="checkbox"><label for="">2.</label><br>
+        <input type="checkbox"><label for="">3.</label><br>
+        <input type="checkbox"><label for="">4.</label>
+    </div>
+</div>
+<div class="dropdown">
+    <button class="dropbtn">Jazyk</button>
+    <div id="jazyk" class="containerSTlacitky">
+        <input type="checkbox"><label for="">C#</label><br>
+        <input type="checkbox"><label for="">Lua</label><br>
+        <input type="checkbox"><label for="">Python</label>
+    </div>
+</div>
+<div class="dropdown">
+    <button id="typ" class="dropbtn">Typ</button>
+    <div class="containerSTlacitky">
+        <input type="checkbox"><label for="">NIC</label><br>
+        <input type="checkbox"><label for="">NIC</label>
+    </div>
+</div>
+<div class="dropdown">
+    <button class="dropbtn">Rok</button>
+    <div id="rok" class="containerSTlacitky">
+        <input type="checkbox"><label for="">2020</label><br>
+        <input type="checkbox"><label for="">2021</label>
+    </div>
+</div>
+
+<div class="container">
+
+</div>
+
+<script src="js/script_tagy.js"></script>
 </body>
 
 </html>
