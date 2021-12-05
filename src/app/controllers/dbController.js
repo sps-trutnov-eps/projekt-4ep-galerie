@@ -25,11 +25,19 @@ exports.getArticleData = (req, res) => {
     res.send(data);
 }
 
+exports.getArticleNames = (req, res) => {
+    res.send(dbModel.getArticleNames());
+}
+
+exports.getArticleTitles = (req, res) => {
+    res.send(dbModel.getArticleTitles());
+}
+
 exports.editArticle = (req, res) => {
     var id = req.body[0];
     var items = req.body[1];
     dbModel.editArticle(id, items);
-    res.send({"msg":"Clanek zmenen"});
+    res.send({"msg":"Článek změněn!"});
 }
 
 exports.deleteArticle = (req, res) => {

@@ -8,6 +8,8 @@ router.get('/upload', controller.upload);
 router.get('/admin',controller.admin);
 router.get('/admin/edit', controller.adminEdit);
 router.get('/admin/edit/:article', controller.getArticleData)
+router.get('/admin/getArticleNames', controller.getArticleNames);
+router.get('/admin/getArticleTitles', controller.getArticleTitles);
 
 router.post('/admin/editArticle', controller.editArticle);
 router.post('/admin/deleteArticle', controller.deleteArticle);

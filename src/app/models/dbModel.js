@@ -28,6 +28,18 @@ exports.getArticleNames = () => {
     return Object.keys(db.JSON());
 }
 
+exports.getArticleTitles = () => {
+    var data = [];
+    var articles = db.JSON();
+    for (var i = 0; i < Object.keys(articles).length; i++) {
+        var name = Object.keys(articles)[i];
+        var obj = {};
+        obj[name] = Object.values(articles)[i].nadpis;
+        data.push(obj);
+    }
+    return data;
+}
+
 exports.deleteArticle = (id) => {
     var odpoved = db.delete(id);
     return odpoved;
