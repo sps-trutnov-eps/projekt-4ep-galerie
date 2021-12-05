@@ -15,7 +15,7 @@
 
     </header>
     <main style="width:500px; margin:0 auto">
-        <form id="myForm">
+        <form id="myForm" enctype="multipart/form-data">
             <label for="nadpis">Jméno projektu</label>
             <input type="text" id="projectName" class="form-control" required>
             <div>
@@ -53,7 +53,7 @@
             </div>
             <div>
                 <label for="pics">Vložte obrázky</label>
-                <input class="form-control" type="file" id="formFileMultiple" multiple required>
+                <input class="form-control" type="file" name="image" id="formFileMultiple" multiple required>
             </div>
             <div>
                 <input type="checkbox" id="viditelny" class="form-check-input">
