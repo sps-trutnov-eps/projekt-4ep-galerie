@@ -1,4 +1,17 @@
 const dbModel = require(require('path').join(__dirname, '..', 'models', 'dbModel'));
+const { Console } = require('console');
+const multer = require('multer');
+
+const fileStorageEngine = multer.diskStorage({
+    destination: (req, file, res) => {
+        res(null, '../img')
+    },
+    filename: (req, file, res) => {
+        res(null, file.originalname)
+    }
+})
+
+const upload = multer({storage: fileStorageEngine});
 
 exports.main = (req, res) => {
     var data = dbModel.nacistVse();
@@ -13,4 +26,16 @@ exports.upload = (req, res) => {
 
 exports.admin = (req, res) => {
     res.render('admin_page');
+}
+
+exports.uploadArticle = (req, res) => {
+    let name = req.body.name;
+    let desc_short = req.body.desc_short;
+    let desc_full = req.body.desc_full;
+    let author = req.body.author;
+    let mail = req.body.mail;
+    let tags = req.body.tags;
+
+    upload.single("image");
+    dbModel.newDbItem(name, desc_short, desc_full, author, mail, tags);
 }

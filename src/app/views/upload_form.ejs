@@ -15,7 +15,17 @@
 
     </header>
     <main style="width:500px; margin:0 auto">
-        <form>
+        <form id="myForm" enctype="multipart/form-data">
+            <label for="nadpis">Jméno projektu</label>
+            <input type="text" id="projectName" class="form-control" required>
+            <div>
+                <label for="popis_short">Krátký popis</label>
+                <textarea id="desc_short" class="form-control" required></textarea>
+            </div>
+            <div>
+                <label for="popis_full">Dlouhý popis</label>
+                <textarea id="desc_full" class="form-control" required></textarea>
+            </div>
             <div id="vytvoril" class="row">
                 <div class="col">
                     <label for="author">Autor</label>
@@ -26,18 +36,6 @@
                     <input type="text" id="mail" placeholder="E-mail" class="form-control">
                 </div>
             </div>
-            <label for="nadpis">Jméno projektu</label>
-            <input type="text" id="nadpis" class="form-control" required>
-            <div id="popisy" class="row">
-                <div class="col">
-                    <label for="popis_short">Krátký popis</label>
-                    <input type="text" id="popis_short" class="form-control" required>
-                </div>
-                <div class="col">
-                    <label for="popis_full">Dlouhý popis</label>
-                    <input type="text" id="popis_full" class="form-control">
-                </div>
-            </div>
             <div id="tagy" class="row">
                 <div class="col">
                     <label for="tags">Tagy</label>
@@ -45,7 +43,7 @@
                 </div>
                 <div class="col">
                     <label for="tags"> </label>
-                    <select id="tags" class="form-control">
+                    <select class="form-control">
                         <option> </option>
                         <option value="1">Zkušební možnost 1</option>
                         <option value="2">Zkušební možnost 2</option>
@@ -53,14 +51,51 @@
                     </select>
                 </div>
             </div>
-            <input type="checkbox" id="viditelny">
-            <label for="viditelny">Vidět</label> <br>
-            <button type="submit" class="btn btn-primary">Založit</button>
+            <div>
+                <label for="pics">Vložte obrázky</label>
+                <input class="form-control" type="file" name="image" id="formFileMultiple" multiple required>
+            </div>
+            <div>
+                <input type="checkbox" id="viditelny" class="form-check-input">
+                <label for="viditelny">Vidět</label> <br>
+            </div>
+            <a href="/" class="btn btn-secondary">Zrušit</a>
+            <button type="submit" class="btn btn-primary" onclick="SendInfo()">Založit</button>
         </form>
+
+
     </main>
     <footer>
 
     </footer>
 </body>
+<script>
+    function SendInfo() {
+        let allAreFilled = true;
+        document.getElementById("myForm").querySelectorAll("[required]").forEach(function (i) {
+            if (!allAreFilled) return;
+            if (!i.value) allAreFilled = false;
+        })
+        if (!allAreFilled) {
+            
+        }
+        if (allAreFilled){
+            fetch('/newArticle', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: projectName.value,
+                        desc_short: desc_short.value,
+                        desc_full: desc_full.value,
+                        author: author.value,
+                        mail: mail.value,
+                        tags: tags.value
+                    }),
+                });
+        }
+    }
+</script>
 
 </html>
