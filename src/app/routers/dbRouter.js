@@ -14,4 +14,6 @@ router.get('/admin/getArticleTitles', controller.getArticleTitles);
 router.post('/admin/editArticle', controller.editArticle);
 router.post('/admin/deleteArticle', controller.deleteArticle);
 
+router.post('/newArticle',controller.uploadArticle);
+
 module.exports = router;
