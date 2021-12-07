@@ -15,9 +15,9 @@
 
     </header>
     <main style="width:500px; margin:0 auto">
-        <form>
+        <form id="myForm" enctype="multipart/form-data">
             <label for="nadpis">Jméno projektu</label>
-            <input type="text" id="name" class="form-control" required>
+            <input type="text" id="projectName" class="form-control" required>
             <div>
                 <label for="popis_short">Krátký popis</label>
                 <textarea id="desc_short" class="form-control" required></textarea>
@@ -51,33 +51,51 @@
                     </select>
                 </div>
             </div>
-            <input type="checkbox" id="viditelny">
-            <label for="viditelny">Vidět</label> <br>
+            <div>
+                <label for="pics">Vložte obrázky</label>
+                <input class="form-control" type="file" name="image" id="formFileMultiple" multiple required>
+            </div>
+            <div>
+                <input type="checkbox" id="viditelny" class="form-check-input">
+                <label for="viditelny">Vidět</label> <br>
+            </div>
             <a href="/" class="btn btn-secondary">Zrušit</a>
             <button type="submit" class="btn btn-primary" onclick="SendInfo()">Založit</button>
         </form>
+
+
     </main>
     <footer>
 
     </footer>
-    <script>
-        function SendInfo(){
-            fetch('/newArticle', {
-               method: 'POST',
-               headers: {
-                'Content-Type': 'application/json'
-               },
-               body:JSON.stringify({
-                name: name.value,
-                desc_short: desc_short.value,
-                desc_full: desc_full.value,
-                author: author.value,
-                mail: mail.value,
-                tags: tags.value
-               }),
-            });
-        }
-    </script>
 </body>
+<script>
+    function SendInfo() {
+        let allAreFilled = true;
+        document.getElementById("myForm").querySelectorAll("[required]").forEach(function (i) {
+            if (!allAreFilled) return;
+            if (!i.value) allAreFilled = false;
+        })
+        if (!allAreFilled) {
+            
+        }
+        if (allAreFilled){
+            fetch('/newArticle', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: projectName.value,
+                        desc_short: desc_short.value,
+                        desc_full: desc_full.value,
+                        author: author.value,
+                        mail: mail.value,
+                        tags: tags.value
+                    }),
+                });
+        }
+    }
+</script>
 
 </html>
