@@ -86,3 +86,16 @@ exports.newDbItem = (name, desc_short, desc_full, author, mail, tags) => {
         "tagy": []
     });
 }
+
+
+/*
+what is this
+exports.envData = ()     => {
+    db.connect({
+    username: process.env.ADMIN_USERNAME,
+    password: process.env.ADMIN_PASSWORD
+    });
+    console.log(username)
+    console.log(password)
+}
+*/

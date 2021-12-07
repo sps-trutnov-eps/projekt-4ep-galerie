@@ -1,3 +1,5 @@
+const express = require('express');
+const session = require('express-session');
 const bcrypt = require("bcrypt");
 const dbModel = require(require('path').join(__dirname, '..', 'models', 'dbModel'));
 const { Console } = require('console');
@@ -98,7 +100,6 @@ exports.postLoginInfo = (req, res) => {
           // porovnaní údajů
           if(username == login_udaje.admin[0].username && result == true){
               console.log("Correct");
-
           }
           else{
               console.log("Wrong username or password");
@@ -110,8 +111,8 @@ exports.postLoginInfo = (req, res) => {
 }
 exports.adminVerify = (req, res) => {
     sess = req.session;
-    console.log();
-    if (sess == "admin") {
+    console.log(sess.username);
+    if(sess) {
         console.log("yeeet");
         return res.redirect('/admin/edit');
     }
