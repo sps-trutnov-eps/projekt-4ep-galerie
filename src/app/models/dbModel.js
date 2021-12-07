@@ -85,3 +85,4 @@ exports.newDbItem = (name, desc_short, desc_full, author, mail, tags) => {
         "popis_full": desc_full,
         "tagy": []
     });
+}

@@ -95,7 +95,6 @@ exports.postLoginInfo = (req, res) => {
         // porovnávání hashem s heslem
         bcrypt.compare(password, hash, function (err, result) {
           console.log("heslo prošlo:", result);
-
           // porovnaní údajů
           if(username == login_udaje.admin[0].username && result == true){
               console.log("Correct");
@@ -107,7 +106,15 @@ exports.postLoginInfo = (req, res) => {
           }
         });
 
-    });
-    
-    
+    }); 
+}
+exports.adminVerify = (req, res) => {
+    sess = req.session;
+    console.log();
+    if (sess == "admin") {
+        console.log("yeeet");
+        return res.redirect('/admin/edit');
+    }
+    else 
+        console.log("stinky");
 }
