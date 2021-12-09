@@ -4,24 +4,27 @@ window.onload = () => {
         onAutocomplete: function(e) {
             var start = performance.now();
             var end;
-            (document.getElementById('article').hidden)?document.getElementById('article').hidden = false:null;
             var input = document.getElementById('autocomplete-input');
             var text = e.match(/\w{0,}/)[0];
             input.value = "";
+
             var articles = fetch(`/admin/edit/${text.slice(3)}`).then(res=>res.json()).then((data)=>{
-    
-                document.getElementById('articleID').innerHTML = text;
-                document.getElementById('autor').innerHTML = JSON.stringify(data.autor);
-                document.getElementById('datum').innerHTML = data.datum;
-                document.getElementById('viditelny').innerHTML = data.viditelny;
-                document.getElementById('nadpis').innerHTML = data.nadpis;
-                document.getElementById('popis_short').innerHTML = data.popis_short;
-                document.getElementById('popis_full').innerHTML = data.popis_full;
-                document.getElementById('tagy').innerHTML = data.tagy;
-                
-                end = performance.now();
-                document.getElementById('stats').innerHTML = `Tato akce trvala <span style="font-weight: bold;" class="red-text bold">${end-start} ms</span>`
-            }).catch(e=>console.log(e))
+                if (typeof(data) === 'object') {
+                    (document.getElementById('article').hidden)?document.getElementById('article').hidden = false:null;
+                    document.getElementById('articleID').innerHTML = text;
+                    document.getElementById('autor').innerHTML = JSON.stringify(data.autor);
+                    document.getElementById('datum').innerHTML = data.datum;
+                    document.getElementById('viditelny').innerHTML = data.viditelny;
+                    document.getElementById('nadpis').innerHTML = data.nadpis;
+                    document.getElementById('popis_short').innerHTML = data.popis_short;
+                    document.getElementById('popis_full').innerHTML = data.popis_full;
+                    document.getElementById('tagy').innerHTML = data.tagy;
+                    end = performance.now();
+                    document.getElementById('stats').innerHTML = `Tato akce trvala <span style="font-weight: bold;" class="red-text bold">${end-start} ms</span>`
+                }
+            }).catch(e=>{
+                M.toast({html: `<span class="red-text lighten-2" style="font-weight:bold;">${e}</span><button class="btn-flat toast-action" onclick="location.reload()">REFRESH</button>`});
+            })
         }
     }
 
@@ -30,6 +33,10 @@ window.onload = () => {
 
     var modal = document.querySelectorAll('.modal');
     var modalInstance = M.Modal.init(modal);
+
+    var nav = document.querySelectorAll('.dropdown-trigger');
+    var navInstance = M.Dropdown.init(nav);
+
 
     var titles = fetch('/admin/getArticleTitles').then(res => res.json()).then(data=>{
         for (var i = 0; i < data.length; i++) {
