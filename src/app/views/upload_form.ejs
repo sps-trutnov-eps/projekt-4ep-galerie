@@ -15,7 +15,7 @@
 
     </header>
     <main style="width:500px; margin:0 auto">
-        <form id="myForm" enctype="multipart/form-data">
+        <form id="myForm" action="/sendImg" method="post" enctype="multipart/form-data">
             <label for="nadpis">Jméno projektu</label>
             <input type="text" id="projectName" class="form-control" required>
             <div>
@@ -93,7 +93,7 @@
                         mail: mail.value,
                         tags: tags.value
                     }),
-                });
+            })
         }
     }
 </script>

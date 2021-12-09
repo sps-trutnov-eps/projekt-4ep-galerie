@@ -15,5 +15,6 @@ router.post('/admin/editArticle', controller.editArticle);
 router.post('/admin/deleteArticle', controller.deleteArticle);
 
 router.post('/newArticle',controller.uploadArticle);
+router.post('/sendImg', controller.uploadImg)
 
 module.exports = router;
