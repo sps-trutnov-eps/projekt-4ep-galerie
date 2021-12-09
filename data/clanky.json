@@ -1,0 +1,16 @@
+{
+    "ID_1": {
+        "autor": [
+            {
+                "jmeno": "",
+                "e-mail": ""
+            }
+        ],
+        "datum": "",
+        "viditelny": false,
+        "nadpis": "",
+        "popis_short": "",
+        "popis_full": "",
+        "tagy": []
+    }
+}
