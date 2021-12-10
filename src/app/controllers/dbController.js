@@ -49,3 +49,8 @@ exports.uploadImg = (req, res) => {
         }
     });
 }
+
+exports.detail = (rq, res) =>
+{
+    res.render('detail');
+}

@@ -6,6 +6,7 @@ const router = express.Router();
 router.get('/', controller.main);
 router.get('/upload', controller.upload);
 router.get('/admin',controller.admin);
+router.get('/detail', controller.detail);
 
 router.post('/newArticle',controller.uploadArticle);
 router.post('/sendImg', controller.uploadImg)
