@@ -19,12 +19,60 @@ window.onload = () => {
                     document.getElementById('popis_short').innerHTML = data.popis_short;
                     document.getElementById('popis_full').innerHTML = data.popis_full;
                     document.getElementById('tagy').innerHTML = data.tagy;
+                    setSources(data);
                     end = performance.now();
                     document.getElementById('stats').innerHTML = `Tato akce trvala <span style="font-weight: bold;" class="red-text bold">${end-start} ms</span>`
                 }
             }).catch(e=>{
                 M.toast({html: `<span class="red-text lighten-2" style="font-weight:bold;">${e}</span><button class="btn-flat toast-action" onclick="location.reload()">REFRESH</button>`});
             })
+        }
+    }
+
+    var setSources = (data) => {
+        var target = document.getElementById('pics');
+        target.innerHTML = "";
+        
+        for (var i = 0; i < data.zdroje.length; i++) {
+            var card = document.createElement('div')
+            card.classList.add('card');
+            card.style.width = "25vw";
+            var cardImg = document.createElement('div');
+            cardImg.classList.add('card-image');
+            cardImg.classList.add('waves-effect');
+            cardImg.classList.add('waves-block');
+            cardImg.classList.add('waves-light');
+            var img = document.createElement('img');
+            img.src = `/img/${data.zdroje[i]["picture"]["source"]}`;
+            img.alt = data.zdroje[i]["picture"]["title"];
+            var cardContent = document.createElement('div');
+            cardContent.classList.add('card-content');
+            var span = document.createElement('span');
+            span.classList.add('card-title');
+            span.classList.add('activator');
+            span.classList.add('grey-text');
+            span.classList.add('text-darken-4');
+            span.innerHTML = `${data.zdroje[i]["picture"]["title"]}<i class="material-icons right">more_vert</i>`
+            var cardReveal = document.createElement('div');
+            cardReveal.classList.add('card-reveal');
+            var inTitle = document.createElement('span');
+            inTitle.classList.add('card-title');
+            inTitle.classList.add('grey-text');
+            inTitle.classList.add('text-darken-4');
+            inTitle.innerHTML = `PODROBNOSTI<i class="material-icons right">close</i>`;
+            var dltButton = document.createElement('button');
+            dltButton.classList.add('btn');
+            dltButton.classList.add('red');
+            dltButton.innerHTML = "DELETE";
+
+            card.appendChild(cardImg);
+            cardImg.appendChild(img);
+            card.appendChild(cardContent);
+            cardContent.appendChild(span);
+            card.appendChild(cardReveal);
+            cardReveal.appendChild(inTitle);
+            cardReveal.appendChild(dltButton);
+            target.appendChild(card)
         }
     }
 
