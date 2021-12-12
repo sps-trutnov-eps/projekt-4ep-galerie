@@ -10,7 +10,17 @@ const storage = multer.diskStorage({
 })
 
 const upload = multer({
-    storage: storage
+    storage: storage,
+    fileFilter: function(req, file, cb){
+        const fileTypes = /jpeg|jpg|png/;
+        const mimeType = fileTypes.test(file.mimetype);
+        if(mimeType){
+            cb(null, true);
+        } 
+        else {
+            cb('error');
+        }
+    }
 }).single('image');
 
 exports.main = (req, res) => {
@@ -42,7 +52,7 @@ exports.uploadArticle = (req, res) => {
 exports.uploadImg = (req, res) => {
     upload(req, res, (err) => {
         if(err){
-
+            res.send('FCKING ERROR MATE');
         }else {
             console.log(req.file);
             res.send('test');
