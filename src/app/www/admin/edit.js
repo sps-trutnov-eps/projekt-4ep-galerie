@@ -1,4 +1,5 @@
 window.onload = () => {
+    var zdroje = []
     options = {
         data: {},
         onAutocomplete: function(e) {
@@ -19,6 +20,9 @@ window.onload = () => {
                     document.getElementById('popis_short').innerHTML = data.popis_short;
                     document.getElementById('popis_full').innerHTML = data.popis_full;
                     document.getElementById('tagy').innerHTML = data.tagy;
+                    for (var i = 0; i < data.zdroje.length; i++) {
+                        zdroje.push(data["zdroje"][i])
+                    }
                     setSources(data);
                     end = performance.now();
                     document.getElementById('stats').innerHTML = `Tato akce trvala <span style="font-weight: bold;" class="red-text bold">${end-start} ms</span>`
@@ -64,6 +68,22 @@ window.onload = () => {
             dltButton.classList.add('btn');
             dltButton.classList.add('red');
             dltButton.innerHTML = "DELETE";
+            dltButton.onclick = (e) => {
+                for (var i = 0; i < zdroje.length; i++) {
+                    if (zdroje[i]['picture']['source']==e.target.parentElement.parentElement.children[0].children[0].src.split('/')[4]) {
+                        zdroje.splice(i,1);
+                        e.target.parentElement.parentElement.remove()
+                        var dataImg = [document.getElementById('articleID').innerHTML, {"zdroje":zdroje}]
+                        fetch('/admin/editArticle', {
+                            method: 'POST',
+                            headers: {'Content-Type': 'application/json'},
+                            body: JSON.stringify(dataImg)
+                        }).then(res=>res.json()).then(data=>{
+                            M.toast({html: `<span class="light-green-text lighten-2" style="font-weight:bold;">${data.msg}</span>`});
+                        }).catch(e=>console.log(e));
+                    }
+                }
+            }
 
             card.appendChild(cardImg);
             cardImg.appendChild(img);
