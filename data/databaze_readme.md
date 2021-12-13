@@ -24,5 +24,10 @@
 /reviews/delete
 }
 
+do složky `/src` doplnit soubor `.env` obsahující text
+
+    > ADMIN_USERNAME=a
+    > ADMIN_PASSWORD=a
+
 
 
