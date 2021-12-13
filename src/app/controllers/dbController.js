@@ -39,9 +39,6 @@ exports.getArticleData = (req, res) => {
     var data = dbModel.nacist(name);
     res.send(data);
 }
-exports.adminVerify = (req, res) => {
-    res.send(dbModel.adminVerify(req,res));
-}
 exports.getArticleNames = (req, res) => {
     res.send(dbModel.getArticleNames());
 }
@@ -87,7 +84,16 @@ exports.uploadArticle = (req, res) => {
     dbModel.newDbItem(name, desc_short, desc_full, author, mail, tags);
 }
 exports.postLoginInfo = (req, res) => {
-    let username = req.body.username;
-    let password = req.body.password;
-    dbModel.porovnaniUdaju(username, password, req, res);
+    req.session.username = req.body.username;
+    req.session.password = req.body.password;
+    console.log('loginAdmin Sekce --------------------')
+    console.log(req.session.username);
+    console.log(req.session.password);
+    res.redirect('admin/compare');
+}
+exports.compareAdmin = (req, res, next) => {
+    if(dbModel.compareAdmin(req, res, next))
+        res.redirect('admin/edit');
+    else
+        res.send({"msg":"Not Working"});
 }
