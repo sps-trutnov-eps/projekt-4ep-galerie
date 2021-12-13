@@ -89,19 +89,16 @@ exports.newDbItem = (name, desc_short, desc_full, author, mail, tags) => {
     });
 }
 exports.compareAdmin = (req, res, next) => {
-    // hashovaní hesla
     console.log('compareAdmin Sekce --------------------')
-    console.log(req.session.username);
-    console.log(req.session.password);
     bcrypt.hash(process.env.ADMIN_PASSWORD, 5, function (err, hash) {
         // porovnávání hashem s heslem
         bcrypt.compare(req.session.password, hash, function (err, result) {
           // porovnaní údajů
           if(req.session.username == process.env.ADMIN_USERNAME && result == true){
             req.session.userid = 'admin';
-            console.log(req.session);
             console.log("admin je prihlasen");
-            next();
+            console.log(req.session);
+            res.redirect('/admin/edit');
           }
           else{
               console.log("Wrong username or password/ Admin neni prihlasen");

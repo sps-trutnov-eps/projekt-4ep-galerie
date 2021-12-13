@@ -87,13 +87,8 @@ exports.postLoginInfo = (req, res) => {
     req.session.username = req.body.username;
     req.session.password = req.body.password;
     console.log('loginAdmin Sekce --------------------')
-    console.log(req.session.username);
-    console.log(req.session.password);
     res.redirect('admin/compare');
 }
 exports.compareAdmin = (req, res, next) => {
-    if(dbModel.compareAdmin(req, res, next))
-        res.redirect('admin/edit');
-    else
-        res.send({"msg":"Not Working"});
+    dbModel.compareAdmin(req, res, next);
 }

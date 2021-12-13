@@ -6,8 +6,8 @@ const verify = require('../middleware/admin-auth')
 router.get('/', controller.main);
 router.get('/upload', controller.upload);
 router.get('/admin',controller.admin);
-router.get('/admin/edit', verify, (req,res) => {controller.adminEdit;});
-router.get('/admin/edit/:article', controller.getArticleData)
+router.get('/admin/edit', verify, controller.adminEdit);
+router.get('/admin/edit/:article',verify, controller.getArticleData)
 router.get('/admin/getArticleNames', controller.getArticleNames);
 router.get('/admin/getArticleTitles', controller.getArticleTitles);
 router.get('/admin/compare', controller.compareAdmin);
@@ -17,5 +17,6 @@ router.post('/admin/deleteArticle', controller.deleteArticle);
 
 router.post('/newArticle',controller.uploadArticle);
 router.post('/loginInfo', controller.postLoginInfo);
+
 
 module.exports = router;

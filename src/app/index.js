@@ -9,7 +9,10 @@ app.use('/', session({
     secure: false,
     resave: false,
     saveUninitialized: false,
-    cookie: { sameSite: true },
+    cookie: { 
+        sameSite: true,
+        expires: 300000 //5 minut 60000 = 1 minuta
+    },
 }));
 
 app.set('view engine', 'ejs');
