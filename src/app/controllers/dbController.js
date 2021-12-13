@@ -23,7 +23,6 @@ const upload = multer({
         }
     }
 }).array('image');
-
 exports.main = (req, res) => {
     var data = dbModel.nacistVse();
     //dbModel.editArticle("ID_1", {"autor":[{"jmeno":"", "e-mail":""}], "datum":"", "viditelny":false, "nadpis":"", "popis_short":"", "popis_full":"", "tagy": []});

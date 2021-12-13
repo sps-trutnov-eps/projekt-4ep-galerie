@@ -1,27 +1,98 @@
 window.onload = () => {
+    var zdroje = []
     options = {
         data: {},
         onAutocomplete: function(e) {
             var start = performance.now();
             var end;
-            (document.getElementById('article').hidden)?document.getElementById('article').hidden = false:null;
             var input = document.getElementById('autocomplete-input');
             var text = e.match(/\w{0,}/)[0];
             input.value = "";
+
             var articles = fetch(`/admin/edit/${text.slice(3)}`).then(res=>res.json()).then((data)=>{
-    
-                document.getElementById('articleID').innerHTML = text;
-                document.getElementById('autor').innerHTML = JSON.stringify(data.autor);
-                document.getElementById('datum').innerHTML = data.datum;
-                document.getElementById('viditelny').innerHTML = data.viditelny;
-                document.getElementById('nadpis').innerHTML = data.nadpis;
-                document.getElementById('popis_short').innerHTML = data.popis_short;
-                document.getElementById('popis_full').innerHTML = data.popis_full;
-                document.getElementById('tagy').innerHTML = data.tagy;
-                
-                end = performance.now();
-                document.getElementById('stats').innerHTML = `Tato akce trvala <span style="font-weight: bold;" class="red-text bold">${end-start} ms</span>`
-            }).catch(e=>console.log(e))
+                if (typeof(data) === 'object') {
+                    (document.getElementById('article').hidden)?document.getElementById('article').hidden = false:null;
+                    document.getElementById('articleID').innerHTML = text;
+                    document.getElementById('autor').innerHTML = JSON.stringify(data.autor);
+                    document.getElementById('datum').innerHTML = data.datum;
+                    document.getElementById('viditelny').innerHTML = data.viditelny;
+                    document.getElementById('nadpis').innerHTML = data.nadpis;
+                    document.getElementById('popis_short').innerHTML = data.popis_short;
+                    document.getElementById('popis_full').innerHTML = data.popis_full;
+                    document.getElementById('tagy').innerHTML = data.tagy;
+                    for (var i = 0; i < data.zdroje.length; i++) {
+                        zdroje.push(data["zdroje"][i])
+                    }
+                    setSources(data);
+                    end = performance.now();
+                    document.getElementById('stats').innerHTML = `Tato akce trvala <span style="font-weight: bold;" class="red-text bold">${end-start} ms</span>`
+                }
+            }).catch(e=>{
+                M.toast({html: `<span class="red-text lighten-2" style="font-weight:bold;">${e}</span><button class="btn-flat toast-action" onclick="location.reload()">REFRESH</button>`});
+            })
+        }
+    }
+
+    var setSources = (data) => {
+        var target = document.getElementById('pics');
+        target.innerHTML = "";
+        
+        for (var i = 0; i < data.zdroje.length; i++) {
+            var card = document.createElement('div')
+            card.classList.add('card');
+            card.style.width = "25vw";
+            var cardImg = document.createElement('div');
+            cardImg.classList.add('card-image');
+            cardImg.classList.add('waves-effect');
+            cardImg.classList.add('waves-block');
+            cardImg.classList.add('waves-light');
+            var img = document.createElement('img');
+            img.src = `/img/${data.zdroje[i]["picture"]["source"]}`;
+            img.alt = data.zdroje[i]["picture"]["title"];
+            var cardContent = document.createElement('div');
+            cardContent.classList.add('card-content');
+            var span = document.createElement('span');
+            span.classList.add('card-title');
+            span.classList.add('activator');
+            span.classList.add('grey-text');
+            span.classList.add('text-darken-4');
+            span.innerHTML = `${data.zdroje[i]["picture"]["title"]}<i class="material-icons right">more_vert</i>`
+            var cardReveal = document.createElement('div');
+            cardReveal.classList.add('card-reveal');
+            var inTitle = document.createElement('span');
+            inTitle.classList.add('card-title');
+            inTitle.classList.add('grey-text');
+            inTitle.classList.add('text-darken-4');
+            inTitle.innerHTML = `PODROBNOSTI<i class="material-icons right">close</i>`;
+            var dltButton = document.createElement('button');
+            dltButton.classList.add('btn');
+            dltButton.classList.add('red');
+            dltButton.innerHTML = "DELETE";
+            dltButton.onclick = (e) => {
+                for (var i = 0; i < zdroje.length; i++) {
+                    if (zdroje[i]['picture']['source']==e.target.parentElement.parentElement.children[0].children[0].src.split('/')[4]) {
+                        zdroje.splice(i,1);
+                        e.target.parentElement.parentElement.remove()
+                        var dataImg = [document.getElementById('articleID').innerHTML, {"zdroje":zdroje}]
+                        fetch('/admin/editArticle', {
+                            method: 'POST',
+                            headers: {'Content-Type': 'application/json'},
+                            body: JSON.stringify(dataImg)
+                        }).then(res=>res.json()).then(data=>{
+                            M.toast({html: `<span class="light-green-text lighten-2" style="font-weight:bold;">${data.msg}</span>`});
+                        }).catch(e=>console.log(e));
+                    }
+                }
+            }
+
+            card.appendChild(cardImg);
+            cardImg.appendChild(img);
+            card.appendChild(cardContent);
+            cardContent.appendChild(span);
+            card.appendChild(cardReveal);
+            cardReveal.appendChild(inTitle);
+            cardReveal.appendChild(dltButton);
+            target.appendChild(card)
         }
     }
 
@@ -30,6 +101,10 @@ window.onload = () => {
 
     var modal = document.querySelectorAll('.modal');
     var modalInstance = M.Modal.init(modal);
+
+    var nav = document.querySelectorAll('.dropdown-trigger');
+    var navInstance = M.Dropdown.init(nav);
+
 
     var titles = fetch('/admin/getArticleTitles').then(res => res.json()).then(data=>{
         for (var i = 0; i < data.length; i++) {
