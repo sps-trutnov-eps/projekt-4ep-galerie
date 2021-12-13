@@ -1,9 +1,9 @@
 const express = require('express');
 const session = require('express-session');
-const bcrypt = require("bcrypt");
 const dbModel = require(require('path').join(__dirname, '..', 'models', 'dbModel'));
 const { Console } = require('console');
 const multer = require('multer');
+const { ESRCH } = require('constants');
 
 const fileStorageEngine = multer.diskStorage({
     destination: (req, file, res) => {
@@ -39,11 +39,12 @@ exports.getArticleData = (req, res) => {
     var data = dbModel.nacist(name);
     res.send(data);
 }
-
+exports.adminVerify = (req, res) => {
+    res.send(dbModel.adminVerify(req,res));
+}
 exports.getArticleNames = (req, res) => {
     res.send(dbModel.getArticleNames());
 }
-
 exports.getArticleTitles = (req, res) => {
     res.send(dbModel.getArticleTitles());
 }
@@ -86,38 +87,7 @@ exports.uploadArticle = (req, res) => {
     dbModel.newDbItem(name, desc_short, desc_full, author, mail, tags);
 }
 exports.postLoginInfo = (req, res) => {
-
     let username = req.body.username;
     let password = req.body.password;
-    // hashovaní hesla
-    bcrypt.hash(process.env.ADMIN_PASSWORD, 5, function (err, hash) {
-        console.log(hash);
-        // porovnávání hashem s heslem
-        bcrypt.compare(password, hash, function (err, result) {
-          console.log("heslo prošlo:", result);
-          // porovnaní údajů
-          if(username == process.env.ADMIN_USERNAME && result == true){
-              console.log("Correct");
-          }
-          else{
-              console.log("Wrong username or password");
-
-          }
-        });
-
-    }); 
-}
-//poté přesunout do modelu, a zjistit proč to tam nefunguje
-exports.adminVerify = (req, res) => {
-    sess = req.session;
-    sess.username = process.env.ADMIN_USERNAME;
-    sess.password = process.env.ADMIN_PASSWORD;
-    console.log(sess.username);
-    console.log(sess.password);
-    if(sess.username) {
-        console.log("yeeet");
-        return res.redirect('/admin/edit');
-    }
-    else 
-        console.log("stinky");
+    dbModel.porovnaniUdaju(username, password, req, res);
 }

@@ -1,19 +1,15 @@
-const { strict } = require('assert/strict');
 const express = require('express');
 const session = require('express-session');
+const env = require('dotenv').config()
 const path = require('path');
 const app = express();
-const key = require('dotenv').config();
-
-app.use('/admin', session({
-    resave: false,
-    secure: false,
-    saveUninitialized: false,
+const key = process.env.SECRET_KEY;
+app.use('/', session({
     secret: key,
-    cookie: {
-        sameSite: 'strict',
-        expires: 600000,
-    }
+    secure: false,
+    resave: false,
+    saveUninitialized: false,
+    cookie: { sameSite: true },
 }));
 
 app.set('view engine', 'ejs');

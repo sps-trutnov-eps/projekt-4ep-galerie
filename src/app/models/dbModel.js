@@ -1,5 +1,6 @@
 const path = require('path');
 const JSONdb = require('simple-json-db');
+const bcrypt = require("bcrypt");
 const db = new JSONdb(path.join(__dirname, '..', '..', '..', 'data', 'clanky.json'));
 const udaje = new JSONdb(path.join(__dirname, '..', '..', '..', 'data', 'udaje.json'));
 exports.nacist = (id) => {
@@ -85,4 +86,34 @@ exports.newDbItem = (name, desc_short, desc_full, author, mail, tags) => {
         "popis_full": desc_full,
         "tagy": []
     });
+}
+exports.porovnaniUdaju = (username,password, req, res) => {
+    // hashovaní hesla
+    bcrypt.hash(process.env.ADMIN_PASSWORD, 5, function (err, hash) {
+        // porovnávání hashem s heslem
+        bcrypt.compare(password, hash, function (err, result) {
+          console.log("heslo prošlo:", result);
+          // porovnaní údajů
+          if(username == process.env.ADMIN_USERNAME && result == true){
+            req.session.userid = 'admin';
+            console.log(req.session);
+            res.redirect('/admin/verify');
+          }
+          else{
+              console.log("Wrong username or password");
+          }
+        });
+
+    }); 
+}
+exports.adminVerify = (req, res) => {
+    console.log('adminVerify sekce');
+    if(req.session.userid == 'admin') {
+        console.log('admin je prihlasen');
+        //res.cookie('expires:' + 10);
+        res.redirect('edit');
+    }
+    else {
+        console.log('admin neni prihlasen');
+    }
 }
