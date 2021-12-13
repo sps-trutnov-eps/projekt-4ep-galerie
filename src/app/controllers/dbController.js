@@ -21,7 +21,7 @@ const upload = multer({
             cb('error');
         }
     }
-}).single('image');
+}).array('image');
 
 exports.main = (req, res) => {
     var data = dbModel.nacistVse();
@@ -55,7 +55,7 @@ exports.uploadImg = (req, res) => {
             res.send('FCKING ERROR MATE');
         }else {
             console.log(req.file);
-            res.send('test');
+            res.send('Soubor poslán');
         }
     });
 }
