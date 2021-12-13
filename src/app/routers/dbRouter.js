@@ -11,10 +11,11 @@ router.get('/admin/edit/:article', controller.getArticleData)
 router.get('/admin/getArticleNames', controller.getArticleNames);
 router.get('/admin/getArticleTitles', controller.getArticleTitles);
 
+router.post('/newArticle',controller.uploadArticle);
+router.post('/sendImg', controller.uploadImg);
 router.post('/admin/editArticle', controller.editArticle);
 router.post('/admin/deleteArticle', controller.deleteArticle);
 
 router.post('/newArticle',controller.uploadArticle);
-router.post('/sendImg', controller.uploadImg)
-
+router.post('/loginInfo', controller.postLoginInfo);
 module.exports = router;
