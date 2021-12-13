@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+  <nav></nav>
+  <h4>ARTICLE</h4>
+    <div class="row">
+        <div class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="text" id="autocomplete-input" placeholder="ID_" class="autocomplete">
+              <label for="autocomplete-input">Article</label>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <table id="article" class="highlight" hidden>
+      <thead>
+        <tr>
+            <th id="articleID" style="font-size: 1.5em;"></th>
+            <th class="center">DATA</th>
+            <th class="right"><a id="articleDelete" href="#modal1" style="font-weight: lighter;" class="waves-effect waves-light btn red modal-trigger">DELETE</a></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>AUTOR</strong></td>
+          <td id="autor"></td>
+          <td class="right"><a href="#editModal" class="waves-effect waves-light btn-small blue darken-2 modal-trigger iEditable">EDIT</a></td>
+        </tr>
+        <tr>
+          <td><strong>DATUM</strong></td>
+          <td id="datum"></td>
+          <td class="right"><a href="#editModal" class="waves-effect waves-light btn-small blue darken-2 modal-trigger iEditable">EDIT</a></td>
+        </tr>
+        <tr>
+          <td><strong>VIDITELNY</strong></td>
+          <td id="viditelny"></td>
+          <td class="right"><a class="waves-effect waves-light btn-small amber iChangable">CHANGE</a></td>
+        </tr>
+        <tr>
+          <td><strong>NADPIS</strong></td>
+          <td id="nadpis"></td>
+          <td class="right"><a href="#editModal" class="waves-effect waves-light btn-small blue darken-2 modal-trigger iEditable">EDIT</a></td>
+        </tr>
+        <tr>
+          <td><strong>POPIS_SHORT</strong></td>
+          <td id="popis_short"></td>
+          <td class="right"><a href="#editModal" class="waves-effect waves-light btn-small blue darken-2 modal-trigger iEditable">EDIT</a></td>
+        </tr>
+        <tr>
+          <td><strong>POPIS_FULL</strong></td>
+          <td id="popis_full"></td>
+          <td class="right"><a href="#editModal" class="waves-effect waves-light btn-small blue darken-2 modal-trigger iEditable">EDIT</a></td>
+        </tr>
+        <tr>
+          <td><strong>TAGY</strong></td>
+          <td id="tagy"></td>
+          <td class="right"><a href="#editModal" class="waves-effect waves-light btn-small blue darken-2 modal-trigger iEditable">EDIT</a></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>&nbsp;</td>
+          <td class="center"><a id="sendChangedArticle" class="waves-effect waves-light btn-large">ODESLAT</a></td>
+          <td>&nbsp;</td>
+        </tr>
+      </tfoot>
+    </table>
+    <p id="stats" class="center"></p>
+      
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h4 class="center">UPOZORNĚNÍ</h4>
+        <p class="flow-text center">Právě se chystáte odebrat článek <span id="modalArticle" class="red pulse card-panel" style="user-select: none;"></span></p>
+        <br>
+        <p class="center">Pokud opravdu chcete tento článek odebrat, napište zde jeho celý název: </p>
+        <input type="text" id="inputArticleDelete" class="center" style="font-size: 2em; text-transform: uppercase;">
+      </div>
+      <div class="modal-footer">
+        <a href="#!" id="confirmArticleDelete" class="modal-close waves-effect waves-green btn-flat red white-text">POTVRDIT</a>
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">ZRUŠIT</a>
+      </div>
+    </div>
+
+    <div id="editModal" class="modal">
+      <div class="modal-content">
+        <h4 id="editingItem" class="center"></h4>
+        <br>
+        <div class="input-field col s12">
+          <textarea id="editingText" class="materialize-textarea"></textarea>
+          <label for="editingText">Text</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a class="waves-effect waves-red btn-flat modal-close">ZRUŠIT</a>
+        <a id="editingApply" class="waves-effect waves-light green btn modal-close">POTVRDIT</a>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="/admin/edit.js"></script>
+</body>
+</html>
