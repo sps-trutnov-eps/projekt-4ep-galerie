@@ -27,6 +27,7 @@ exports.editArticle = (id, items) => {
     Article.popis_short = (items?.popis_short===undefined?Article.popis_short:items.popis_short);
     Article.popis_full = (items?.popis_full===undefined?Article.popis_full:items.popis_full);
     Article.tagy = (items?.tagy===undefined?Article.tagy:items.tagy);
+    Article.zdroje = (items?.zdroje===undefined?Article.zdroje:items.zdroje);
     db.set(id, Article);
 }
 
