@@ -3,16 +3,26 @@ const dbModel = require(require('path').join(__dirname, '..', 'models', 'dbModel
 const { Console } = require('console');
 const multer = require('multer');
 
-const fileStorageEngine = multer.diskStorage({
-    destination: (req, file, res) => {
-        res(null, '../img')
-    },
+const storage = multer.diskStorage({
+    destination: './img/',
     filename: (req, file, res) => {
         res(null, file.originalname)
     }
 })
 
-const upload = multer({storage: fileStorageEngine});
+const upload = multer({
+    storage: storage,
+    fileFilter: function(req, file, cb){
+        const fileTypes = /jpeg|jpg|png/;
+        const mimeType = fileTypes.test(file.mimetype);
+        if(mimeType){
+            cb(null, true);
+        } 
+        else {
+            cb('error');
+        }
+    }
+}).array('image');
 
 exports.main = (req, res) => {
     var data = dbModel.nacistVse();
@@ -80,10 +90,18 @@ exports.uploadArticle = (req, res) => {
     let mail = req.body.mail;
     let tags = req.body.tags;
 
-    upload.single("image");
     dbModel.newDbItem(name, desc_short, desc_full, author, mail, tags);
 }
-
+exports.uploadImg = (req, res) => {
+    upload(req, res, (err) => {
+        if(err){
+            res.send('FCKING ERROR MATE');
+        }else {
+            console.log(req.file);
+            res.send('Soubor poslán');
+        }
+    });
+}
 exports.postLoginInfo = (req, res) => {
 
     let username = req.body.username;
@@ -108,6 +126,4 @@ exports.postLoginInfo = (req, res) => {
         });
 
     });
-    
-    
 }
