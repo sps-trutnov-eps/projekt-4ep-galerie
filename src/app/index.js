@@ -10,3 +10,4 @@ app.use(express.urlencoded({ "extended": true }));
 app.use('/', require(path.join(__dirname, 'routers', 'dbRouter')));
 
 module.exports = app;
+app.use(express.static(path.join(__dirname, 'public')));
