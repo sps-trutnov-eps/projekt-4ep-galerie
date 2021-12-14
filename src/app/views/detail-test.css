@@ -1,0 +1,11 @@
+body {
+    font-family: 'Segoe UI', sans-serif; 
+    background-color: skyblue;
+}
+
+.id {
+    width: 900px; 
+    background-color: white; 
+    padding: 20px; 
+    margin: 0 auto;
+}
