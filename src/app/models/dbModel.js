@@ -39,3 +39,10 @@ exports.newDbItem = (name, desc_short, desc_full, author, mail, tags) => {
         "tagy": []
     });
 }
+
+exports.nacistDetail = (id) =>
+{
+    let data = db.get(`ID_${id}`);
+    data.id = id;
+    return data;
+}

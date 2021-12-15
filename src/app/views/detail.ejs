@@ -7,33 +7,31 @@
 <body>
     <header>
         <div>
-            <h1>Název projektu</h1>
-            <p>Datum</p>
+            <h1><%= data.nadpis %></h1>
+            <p>Datum: </p>
         </div>
     </header>
     <main>
         <div>
-            <p>Tagy: </p>
+            <p>Tagy:</p>
+            <% for (let i in data.tagy) { %>
+                <%= data.tagy[i] %>
+            <% } %>
             <img id="obrazek "src="" alt="Hlavní obrázek">
         </div>
         <div>
-            <p>Autoři: </p>
-            <p>Mail: </p>
+            <p>Autoři: </p><p><%= Object.entries(data.autor) %></p>
+            <p>Mail: </p><p><%= data.autor %></p>
         </div>
         <div>
             <h2>Popis</h2>
-            <p>Povídání o projektu</p>
+            <p><%= data.popis_full %></p>
         </div>
         <div>
             <h2>Galerie</h2>
             <img src="" alt="Obrázky">
         </div>
     </main>
-    <footer>
-        <div id="stranky">
-            <p>Web</p>
-            <p>GitHub</p>
-        </div>
         <p>2021 &copy; </p>
     </footer>
 </body>
