@@ -6,7 +6,7 @@ const multer = require('multer');
 const { ESRCH } = require('constants');
 
 const storage = multer.diskStorage({
-    destination: './img/',
+    destination: './app/www/img/' + Object.keys(dbModel.nacistVse()).length,
     filename: (req, file, res) => {
         res(null, file.originalname)
     }
@@ -86,10 +86,9 @@ exports.uploadArticle = (req, res) => {
     let desc_short = req.body.desc_short;
     let desc_full = req.body.desc_full;
     let author = req.body.author;
-    let mail = req.body.mail;
     let tags = req.body.tags;
 
-    dbModel.newDbItem(name, desc_short, desc_full, author, mail, tags);
+    dbModel.newDbItem(name, desc_short, desc_full, author, tags);
 }
 exports.postLoginInfo = (req, res) => {
     req.session.username = req.body.username;
