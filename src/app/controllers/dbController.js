@@ -52,5 +52,7 @@ exports.uploadImg = (req, res) => {
 
 exports.detail = (rq, res) =>
 {
-    res.render('detail');
+    let id = rq.params.id;
+    var data = dbModel.nacistDetail(id);
+    res.render('detail', {data});
 }
