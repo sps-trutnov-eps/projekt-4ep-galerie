@@ -26,15 +26,9 @@
                 <label for="popis_full">Dlouhý popis</label>
                 <textarea id="desc_full" class="form-control" required></textarea>
             </div>
-            <div id="vytvoril" class="row">
-                <div class="col">
-                    <label for="author">Autor</label>
-                    <input type="text" id="author" placeholder="Autoři" class="form-control" required>
-                </div>
-                <div class="col">
-                    <label for="mail">Mail</label>
-                    <input type="text" id="mail" placeholder="E-mail" class="form-control">
-                </div>
+            <div class="col">
+                <label for="author">Autor</label>
+                <input type="text" id="author" placeholder="Autoři" class="form-control" required>
             </div>
             <div id="tagy" class="row">
                 <div class="col">
@@ -53,11 +47,8 @@
             </div>
             <div>
                 <label for="pics">Vložte obrázky</label>
-                <input class="form-control" type="file" accept=".jpg, .jpeg, .png" name="image" id="formFileMultiple" multiple required>
-            </div>
-            <div>
-                <input type="checkbox" id="viditelny" class="form-check-input">
-                <label for="viditelny">Vidět</label> <br>
+                <input class="form-control" type="file" accept=".jpg, .jpeg, .png" name="image" id="formFileMultiple"
+                    multiple required>
             </div>
             <a href="/" class="btn btn-secondary">Zrušit</a>
             <button type="submit" class="btn btn-primary" onclick="SendInfo()">Založit</button>
@@ -77,22 +68,21 @@
             if (!i.value) allAreFilled = false;
         })
         if (!allAreFilled) {
-            
+
         }
-        if (allAreFilled){
+        if (allAreFilled) {
             fetch('/newArticle', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        name: projectName.value,
-                        desc_short: desc_short.value,
-                        desc_full: desc_full.value,
-                        author: author.value,
-                        mail: mail.value,
-                        tags: tags.value
-                    }),
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: projectName.value,
+                    desc_short: desc_short.value,
+                    desc_full: desc_full.value,
+                    author: author.value,
+                    tags: tags.value
+                }),
             })
         }
     }
