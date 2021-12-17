@@ -22,3 +22,4 @@ app.use(express.json());
 app.use(express.urlencoded({ "extended": true }));
 app.use('/', require(path.join(__dirname, 'routers', 'dbRouter')));
 module.exports = app;
+app.use('/styles',express.static(path.join(__dirname, 'styles')));

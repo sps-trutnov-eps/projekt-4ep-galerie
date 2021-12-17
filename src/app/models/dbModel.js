@@ -83,6 +83,13 @@ exports.newDbItem = (name, desc_short, desc_full, author, tags) => {
         "tagy": []
     });
 }
+
+exports.nacistDetail = (id) =>
+{
+    let data = db.get(`ID_${id}`);
+    data.id = id;
+    return data;
+}
 exports.compareAdmin = (req, res, next) => {
     console.log('compareAdmin Sekce --------------------')
     bcrypt.hash(process.env.ADMIN_PASSWORD, 5, function (err, hash) {

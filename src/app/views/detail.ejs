@@ -1,40 +1,48 @@
 <!DOCTYPE html>
 <html lang="cs">
+
 <head>
     <meta charset="UTF-8">
-    <title>Detail</title>
+    <title><%= data.nadpis %></title>
+    <link rel="stylesheet" type="text/css" href="/styles/detail-test.css">
 </head>
+
 <body>
-    <header>
-        <div>
-            <h1>Název projektu</h1>
-            <p>Datum</p>
-        </div>
-    </header>
-    <main>
-        <div>
-            <p>Tagy: </p>
-            <img id="obrazek "src="" alt="Hlavní obrázek">
-        </div>
-        <div>
-            <p>Autoři: </p>
-            <p>Mail: </p>
-        </div>
-        <div>
-            <h2>Popis</h2>
-            <p>Povídání o projektu</p>
-        </div>
-        <div>
-            <h2>Galerie</h2>
-            <img src="" alt="Obrázky">
-        </div>
-    </main>
-    <footer>
-        <div id="stranky">
-            <p>Web</p>
-            <p>GitHub</p>
-        </div>
-        <p>2021 &copy; </p>
-    </footer>
+    <div id="container">
+        <header id="hlavicka">
+            <div>
+                <h1 id="nadpis"><%= data.nadpis %></h1>
+                <p id="datum">Datum: </p>
+            </div>
+        </header>
+        <main id="main">
+            <div id="tagy">
+                <p>Tagy:</p>
+                <% for (let i in data.tagy) { %>
+                <%= data.tagy[i] %>
+                <% } %>
+                <img id="hlavni-obrazek" src="" alt="Hlavní obrázek">
+            </div>
+            <div id="kontakt">
+                <p>Kontakt:</p>
+                <p id="autori">Autoři: </p>
+                <p><%= Object.entries(data.autor) %></p>
+                <p id="mail">Mail: </p>
+                <p><%= data.autor %></p>
+            </div>
+            <div id="popis-div">
+                <h2>Popis</h2>
+                <p id="popis-p"><%= data.popis_full %></p>
+            </div>
+            <div id="galerie-obrazku">
+                <h2>Galerie</h2>
+                <img src="" alt="Obrázky">
+            </div>
+        </main>
+        <footer id="paticka">
+            <p id="copyright">2021 &copy; </p>
+        </footer>
+    </div>
 </body>
+
 </html>
