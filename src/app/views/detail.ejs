@@ -12,47 +12,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-
-<body>
+<Header id="Spslogo">
+    <div>
+        <H1 id="logo">SPŠ Galerie</H1>
+    </div>
+</Header>
+<div id="container">
+    <header id="hlavicka">
+        <div>
+            <h1 id="nadpis">-Test Nazev-<%= data.nadpis %></h1>
+            <img id="hlavni-obrazek" src="img/mqdefault.jpg" alt="Hlavní obrázek">
+        </div>
+    </header>
+<body id="telo">
     <div id="container">
-        <header id="hlavicka">
-            <div>
-                <h1 id="nadpis"><%= data.nadpis %></h1>
-                <p id="datum">Datum: <%= data.datum %></p>
-            </div>
-        </header>
-        <main id="main">
-            <div id="tagy">
+              <div id="tagy">
                 <p>Tagy:</p>
                 <% for (let i in data.tagy) { %>
                 <%= data.tagy[i] %>
                 <% } %>
-                <img id="hlavni-obrazek" src="" alt="Hlavní obrázek">
             </div>
-            <div id="kontakt">
-                <p>Kontakt:</p>
-                <p id="autori">Autoři: </p>
-                <p><%= data.autor %></p>
-            </div>
+        <p id="autori">Autoři: <%= data.autor %> </p>
+        <p id="datum">Datum: <%= data.datum %></p>
+        <main id="main">
             <div id="popis-div">
-                <h2>Popis</h2>
-                <p id="popis-p"><%= data.popis_full %></p>
+                <h2 id="mininadpis">Popis</h2>
+                <p id="popis-p">asjodasdkasndlkandlkashd lahdlkahdlksahdlkashdlskahdlkahglahwndj abdkjlabd lazibw lduab dulkbwdu lashdluiagwliaugbfsl hbuld ahudhlau hguldi gluagdluwha lugduilgbad 
+                    auhsdoiash doua hdou ashdoi ahsiod hasiod hasi<%= data.popis_full %></p>
             </div>
             <div id="galerie-obrazku">
-                <h2>Galerie</h2>
+                <h2 id="mininadpis">Galerie</h2>
                 <img src="" alt="Obrázky">
             </div>
             <div>
-                <h1>Uživatelská recenze</h1>
+                <h1 id="mininadpis">Uživatelská recenze</h1>
                 <br>
-                    <button style="font-size:50px"> <i class="fa fa-thumbs-up"></i></button>
-                    <button style="font-size:50px"> <i class="fa fa-thumbs-down"></i></button>
+                    <button id="like" style="font-size:50px"> <i class="fa fa-thumbs-up"></i></button>
+                    <button id="dislike" style="font-size:50px"> <i class="fa fa-thumbs-down"></i></button>
             </div>
         </main>
-        <footer id="paticka">
-            <p id="copyright">2021 &copy; </p>
-        </footer>
     </div>
 </body>
-
 </html>
