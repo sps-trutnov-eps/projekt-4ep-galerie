@@ -3,7 +3,7 @@ const session = require('express-session');
 const env = require('dotenv').config()
 const path = require('path');
 const app = express();
-const key = process.env.SECRET_KEY;
+const key = process.env;
 app.use('/', session({
     secret: key,
     secure: false,
@@ -21,5 +21,6 @@ app.use(express.static(path.join(__dirname, 'www')));
 app.use(express.json());
 app.use(express.urlencoded({ "extended": true }));
 app.use('/', require(path.join(__dirname, 'routers', 'dbRouter')));
+app.use('/', require(path.join(__dirname, 'routers', 'routery')));
 module.exports = app;
 app.use('/styles',express.static(path.join(__dirname, 'styles')));

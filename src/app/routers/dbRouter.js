@@ -3,7 +3,7 @@ const express = require('express');
 const controller = require(path.join(__dirname, '..', 'controllers', 'dbController'));
 const router = express.Router();
 const verify = require('../middleware/admin-auth')
-router.get('/', controller.main);
+
 router.get('/upload', controller.upload);
 router.get('/admin',controller.admin);
 router.get('/admin/getArticleNames', controller.getArticleNames);
