@@ -18,7 +18,7 @@
         <header id="hlavicka">
             <div>
                 <h1 id="nadpis"><%= data.nadpis %></h1>
-                <p id="datum">Datum: </p>
+                <p id="datum">Datum: <%= data.datum %></p>
             </div>
         </header>
         <main id="main">
@@ -32,8 +32,6 @@
             <div id="kontakt">
                 <p>Kontakt:</p>
                 <p id="autori">Autoři: </p>
-                <p><%= Object.entries(data.autor) %></p>
-                <p id="mail">Mail: </p>
                 <p><%= data.autor %></p>
             </div>
             <div id="popis-div">
