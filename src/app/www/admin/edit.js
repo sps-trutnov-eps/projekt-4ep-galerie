@@ -207,4 +207,8 @@ window.onload = () => {
             }).catch(e=>console.log(e))
         }).catch(e=>console.log(e));
     })
+
+    document.getElementById('logoutBtn').addEventListener('click', (e) => {
+        fetch('/admin/logout', {method:"POST"}).then(res=>res.json()).then(data=>console.log(data)).catch(e=>console.log(e))
+    })
 }
