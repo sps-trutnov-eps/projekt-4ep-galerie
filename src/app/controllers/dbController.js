@@ -94,7 +94,8 @@ exports.postLoginInfo = (req, res) => {
     req.session.username = req.body.username;
     req.session.password = req.body.password;
     console.log('loginAdmin Sekce --------------------')
-    res.redirect('admin/compare');
+    
+    res.send({"status":100})
 }
 exports.compareAdmin = (req, res, next) => {
     dbModel.compareAdmin(req, res, next);

@@ -19,7 +19,7 @@ router.post('/admin/editArticle', controller.editArticle);
 router.post('/admin/deleteArticle', controller.deleteArticle);
 
 router.post('/newArticle',controller.uploadArticle);
-router.post('/loginInfo', controller.postLoginInfo);
+router.post('/admin/loginInfo', controller.postLoginInfo);
 
 
 module.exports = router;
