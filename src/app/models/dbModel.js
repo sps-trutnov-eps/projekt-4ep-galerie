@@ -103,6 +103,7 @@ exports.compareAdmin = (req, res, next) => {
           }
           else{
               console.log("Wrong username or password/ Admin neni prihlasen");
+              res.redirect('/')
           }
         });
 
