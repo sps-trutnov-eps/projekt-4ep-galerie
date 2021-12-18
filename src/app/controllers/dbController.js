@@ -38,7 +38,7 @@ exports.adminEdit = (req, res) => {
 }
 
 exports.getArticleData = (req, res) => {
-    var name = `ID_${req.params.article}`;
+    var name = req.params.article;
     var data = dbModel.nacist(name);
     res.send(data);
 }
@@ -75,15 +75,7 @@ exports.deleteArticle = (req, res) => {
     }
     res.send(msg);
 }
-exports.uploadArticle = (req, res) => {
-    let name = req.body.name;
-    let desc_short = req.body.desc_short;
-    let desc_full = req.body.desc_full;
-    let author = req.body.author;
-    let tags = req.body.tags;
 
-    dbModel.newDbItem(name, desc_short, desc_full, author, tags);
-}
 exports.postLoginInfo = (req, res) => {
     req.session.username = req.body.username;
     req.session.password = req.body.password;
@@ -94,17 +86,36 @@ exports.postLoginInfo = (req, res) => {
 exports.compareAdmin = (req, res, next) => {
     dbModel.compareAdmin(req, res, next);
 }
-exports.uploadImg = (req, res) => {
+exports.pre_upload = (req, res,next) => 
+{
+    next();
+}
+exports.uploadImg = (req, res,next) => {
     upload(req, res, (err) => {
         if(err){
-            res.send('FCKING ERROR MATE');
-        }else {
-            console.log(req.file);
-            res.send('Soubor poslán');
+            
+        }else
+        {   
+            console.log(req.files);
+            res.locals.nazvy_souboru=[];
+            for(let i in req.files)
+                res.locals.nazvy_souboru.push(req.files[i].originalname);  
         }
+        next();
     });
 }
-
+exports.uploadArticle = (req, res,next) => {
+    console.log(res.locals.nazvy_souboru);
+    let name = req.body.nazev;
+    let desc_short = req.body.kratky_popis;
+    let desc_full = req.body.dlouhy_popis;
+    let author = req.body.autori;
+    let tags = req.body.tagy;
+    let obrazky = res.locals.nazvy_souboru;
+    
+    dbModel.newDbItem(name, desc_short, desc_full, author, tags,obrazky);
+    res.send('Vsechno OK!');
+}
 exports.detail = (rq, res) =>
 {
     let id = rq.params.id;

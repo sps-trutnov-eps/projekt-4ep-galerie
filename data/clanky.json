@@ -1,17 +1,14 @@
 {
-    "ID_1": {
-        "autor": [
-            {
-                "jmeno": "",
-                "e-mail": ""
-            }
-        ],
-        "datum": "",
-        "viditelny": false,
-        "nadpis": "",
-        "popis_short": "",
-        "popis_full": "",
-        "tagy": [],
-        "zdroje":[{"picture":{"title":"","source":".jpg"}}]
-    }
+    "1": {
+        "autor": "dsad,dasdas,dsadas",
+        "datum": "12/19/2021",
+        "nadpis": "gfdgfd",
+        "popis_short": "dsa",
+        "popis_full": "das",
+        "tagy": "",
+        "obrazky": [
+            "WallpaperDog-5558057.jpg"
+        ]
+    },
+    "next_id": 2
 }

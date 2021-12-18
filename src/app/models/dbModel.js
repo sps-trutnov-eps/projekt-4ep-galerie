@@ -11,6 +11,7 @@ exports.nacist = (id) => {
 
 exports.nacistVse = () => {
     var clanky = db.JSON();
+    delete clanky["next_id"];
     return clanky;
 }
 
@@ -73,20 +74,23 @@ exports.mainPageArticles = () => {
     }
     return vybraneClanky;
 }
-exports.newDbItem = (name, desc_short, desc_full, author, tags) => {
-    db.set(`ID_${Object.keys(db.JSON()).length + 1}`  , {
+exports.newDbItem = (name, desc_short, desc_full, author, tags,obrazky) => {
+    let id = db.get('next_id')
+    db.set('next_id',db.get('next_id')+1)
+    db.set(id  , {
         "autor": author,
         "datum": new Date().toLocaleDateString(),
         "nadpis": name,
         "popis_short": desc_short,
         "popis_full": desc_full,
-        "tagy": []
+        "tagy": tags,
+        "obrazky": obrazky
     });
 }
 
 exports.nacistDetail = (id) =>
 {
-    let data = db.get(`ID_${id}`);
+    let data = db.get(id);
     data.id = id;
     return data;
 }

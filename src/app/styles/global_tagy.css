@@ -1,3 +1,12 @@
+html
+{
+  height: 100%;
+}
+body
+{
+  height: 100%;
+}
+
 .filtrDiv {
     float: left;
     background-color: #007bff;
@@ -90,6 +99,18 @@ a[class*="filter_btn"].active
 
 .custom_container
 {
-  width: 65%;
+  width: 70%;
   margin: 0 auto;
+  background-color: #007bff;
+  
+  height: 100%;
+  padding: 10px;
+}
+.shadow-block
+{
+  box-shadow: 2px 1px 15px 5px rgba(0,0,0,0.35);
+}
+.m-0-a
+{
+  margin:0 auto;
 }
