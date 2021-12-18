@@ -24,3 +24,4 @@ app.use('/', require(path.join(__dirname, 'routers', 'dbRouter')));
 app.use('/', require(path.join(__dirname, 'routers', 'routery')));
 module.exports = app;
 app.use('/styles',express.static(path.join(__dirname, 'styles')));
+app.use('/scripts',express.static(path.join(__dirname, 'scripts')));

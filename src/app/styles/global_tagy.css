@@ -87,3 +87,9 @@ a[class*="filter_btn"].active
 	{
 	  display: block;
 	}
+
+.custom_container
+{
+  width: 65%;
+  margin: 0 auto;
+}

@@ -6,53 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/global_tagy.css">
     <title>Document</title>
+    <style>
+        .random
+        {
+            color: red;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="dropdown">
-            <button class="dropbtn">Obor</button>
-            <div id="obor" class="containerSTlacitky">
-                <input value="EP" type="checkbox"><label for="">EP</label><br>
-                <input value="IT" type="checkbox"><label for="">IT</label>
+    <div class="custom_container">
+        <header>
+            <div>
+                <a href="\"></a>
             </div>
-        </div>
-        <div class="dropdown">
-            <button class="dropbtn">Ročník</button>
-            <div id="rocnik" class="containerSTlacitky">
-                <input type="checkbox"><label for="">1.</label><br>
-                <input type="checkbox"><label for="">2.</label><br>
-                <input type="checkbox"><label for="">3.</label><br>
-                <input type="checkbox"><label for="">4.</label>
-            </div>
-        </div>
-        <div class="dropdown">
-            <button class="dropbtn">Jazyk</button>
-            <div id="jazyk" class="containerSTlacitky">
-                <input type="checkbox"><label for="">C#</label><br>
-                <input type="checkbox"><label for="">Lua</label><br>
-                <input type="checkbox"><label for="">Python</label>
-            </div>
-        </div>
-        <div class="dropdown">
-            <button id="typ" class="dropbtn">Typ</button>
-            <div class="containerSTlacitky">
-                <input type="checkbox"><label for="">NIC</label><br>
-                <input type="checkbox"><label for="">NIC</label>
-            </div>
-        </div>
-        <div class="dropdown">
-            <button class="dropbtn">Rok</button>
-            <div id="rok" class="containerSTlacitky">
-                <input type="checkbox"><label for="">2020</label><br>
-                <input type="checkbox"><label for="">2021</label>
-            </div>
-        </div>        
-    </header>
-    <main>
+        </header>
+        <main>
+            <% for(var i = 0; i < Object.keys(data).length; i++){ %>
+               <div class="dropdown">
+                   <button class="dropbtn"><%= Object.keys(data)[i] %></button>
+                   <div  class="containerSTlacitky">
+                        <% for(let k = 0;k< data[Object.keys(data)[i]].length;k++) { %>
+                            <input class="random" value="<%=data[Object.keys(data)[i]][k]%>" type="checkbox"><label for=""><%= data[Object.keys(data)[i]][k]%> %></label><br>
+                        <% } %>
+                    </div>
+                </div>
+            <% } %>  
+        </main>
+        <footer>
 
-    </main>
-    <footer>
-
-    </footer>
+        </footer>
+    </div>
+    <script src="scripts\script_tagy.js"></script>
 </body>
 </html>
