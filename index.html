@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="src/style.css">
     <script src="src/script_index.js"></script>
     
-    <title>Document</title>
+    <title>SPŠ projekty</title>
 </head>
 <body>
     
@@ -13,106 +13,89 @@
         <div>
             <img src="src/img/logo-spstrutnov.png" alt="" id="logo">
         </div>
-        <h1 id="hlavni_nadpis">
-            
-        </h1>
-        <nav>
-
-        </nav>
     </header>
+
     <main>
-        <!--
-        <div id="picoviny">
-            
-            <div class="dropdown">
-                <button class="dropbtn"> dropdown </button>
-                <div class="dropdown-content">
-                    <div>něco</div>
-                    <div>něco</div>
-                    <div>něco</div>
-                    <div>něco</div>
-                    <div>něco</div>
-                    <div>něco</div>
-                </div>
-            </div>
+        <table>
 
-            <div id="vyhledvani">
-                <h5>vyhledávání</h5>
-                <input type="text">
-            </div>
-        </div>-->
+            <tr>
+                <td>            
+                    <input class="vyhledavani" type="text" placeholder="Vyhledávání">
+                </td>
 
-        <div id="vyhledvani">
-            <h5>vyhledávání</h5>
-            <input type="text">
-        </div>
+                <td>
+                    <div class="dropdown">
+                        <button class="dropbtn">Obor</button>
+                        <div id="obor" class="containerSTlacitky">
+                            <input value="EP" type="checkbox"><label for="">EP</label><br>
+                            <input value="IT" type="checkbox"><label for="">IT</label>
+                        </div>
+                    </div>
 
-        
-        <div class="dropdown">
-        <button class="dropbtn">Obor</button>
-            <div id="obor" class="containerSTlacitky">
-                <input value="EP" type="checkbox"><label for="">EP</label><br>
-                <input value="IT" type="checkbox"><label for="">IT</label>
-            </div>
-        </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">Ročník</button>
+                        <div id="rocnik" class="containerSTlacitky">
+                            <input type="checkbox"><label for="">1.</label><br>
+                            <input type="checkbox"><label for="">2.</label><br>
+                            <input type="checkbox"><label for="">3.</label><br>
+                            <input type="checkbox"><label for="">4.</label>
+                        </div>
+                    </div>
 
-        <div class="dropdown">
-            <button class="dropbtn">Ročník</button>
-            <div id="rocnik" class="containerSTlacitky">
-                <input type="checkbox"><label for="">1.</label><br>
-                <input type="checkbox"><label for="">2.</label><br>
-                <input type="checkbox"><label for="">3.</label><br>
-                <input type="checkbox"><label for="">4.</label>
-            </div>
-        </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">Jazyk</button>
+                        <div id="jazyk" class="containerSTlacitky">
+                            <input type="checkbox"><label for="">C#</label><br>
+                            <input type="checkbox"><label for="">Lua</label><br>
+                            <input type="checkbox"><label for="">Python</label>
+                        </div>
+                    </div>
 
-        <div class="dropdown">
-            <button class="dropbtn">Jazyk</button>
-            <div id="jazyk" class="containerSTlacitky">
-                <input type="checkbox"><label for="">C#</label><br>
-                <input type="checkbox"><label for="">Lua</label><br>
-                <input type="checkbox"><label for="">Python</label>
-            </div>
-        </div>
+                    <div class="dropdown">
+                        <button id="typ" class="dropbtn">Typ</button>
+                        <div class="containerSTlacitky">
+                            <input type="checkbox"><label for="">NIC</label><br>
+                            <input type="checkbox"><label for="">NIC</label>
+                        </div>
+                    </div>
 
-        <div class="dropdown">
-            <button id="typ" class="dropbtn">Typ</button>
-            <div class="containerSTlacitky">
-                <input type="checkbox"><label for="">NIC</label><br>
-                <input type="checkbox"><label for="">NIC</label>
-            </div>
-        </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">Rok</button>
+                        <div id="rok" class="containerSTlacitky">
+                            <input type="checkbox"><label for="">2020</label><br>
+                            <input type="checkbox"><label for="">2021</label>
+                        </div>
+                    </div>
+                </td>
+            </tr>
 
-        <div class="dropdown">
-            <button class="dropbtn">Rok</button>
-            <div id="rok" class="containerSTlacitky">
-                <input type="checkbox"><label for="">2020</label><br>
-                <input type="checkbox"><label for="">2021</label>
-            </div>
-        </div>
-
-        <div class="container">
-
-    </div>
-
-    <script src="js/script_tagy.js"></script>
-        
+            <tr>
+                <td>             
+                    <div id="containerSTlacitky">
+                        <button class="tlacitko active" onclick="vybratFiltr('vse')"> Všechno</button>
+                        <button class="tlacitko" onclick="vybratFiltr('EP')"> EP</button>
+                        <button class="tlacitko" onclick="vybratFiltr('IT')"> IT</button>
+                    </div>           
+                </td>
+            </tr>
+        </table>
 
 
-        <div id="containerSTlacitky">
-            <button class="tlacitko active" onclick="vybratFiltr('vse')"> Všechno</button>
-            <button class="tlacitko" onclick="vybratFiltr('EP')"> EP</button>
-            <button class="tlacitko" onclick="vybratFiltr('IT')"> IT</button>
-        </div>
+
         <!--Tohle jsou články! Ke každému článku se musí nastavit class (jako je to zde nastavené), jinak to nebude fungovat!-->
-        <div class="container">
-            <div class="filtrDiv IT">Projekt od IT</div>
-            <div class="filtrDiv EP">Projekt od EP</div>
-            <div class="filtrDiv 3.EP 3.IT">Projekt od EP a IT</div>
-        </div>
+        
+        <div class="na_projekty">
+            <p>Místo na projekty, pro Aleše</p>
 
+            <div class="container">
+                <div class="filtrDiv IT">Projekt od IT</div>
+                <div class="filtrDiv EP">Projekt od EP</div>
+                <div class="filtrDiv 3.EP 3.IT">Projekt od EP a IT</div>
+        
+            </div>
+        </div>
     </main>
-    
+
     <footer>
         <div>
 
