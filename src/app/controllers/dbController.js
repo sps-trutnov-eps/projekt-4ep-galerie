@@ -1,7 +1,9 @@
-const bcrypt = require("bcrypt");
+const express = require('express');
+const session = require('express-session');
 const dbModel = require(require('path').join(__dirname, '..', 'models', 'dbModel'));
 const { Console } = require('console');
 const multer = require('multer');
+const { ESRCH } = require('constants');
 
 const storage = multer.diskStorage({
     destination: './img/',
@@ -46,11 +48,9 @@ exports.getArticleData = (req, res) => {
     var data = dbModel.nacist(name);
     res.send(data);
 }
-
 exports.getArticleNames = (req, res) => {
     res.send(dbModel.getArticleNames());
 }
-
 exports.getArticleTitles = (req, res) => {
     res.send(dbModel.getArticleTitles());
 }
@@ -91,6 +91,15 @@ exports.uploadArticle = (req, res) => {
 
     dbModel.newDbItem(name, desc_short, desc_full, author, mail, tags);
 }
+exports.postLoginInfo = (req, res) => {
+    req.session.username = req.body.username;
+    req.session.password = req.body.password;
+    console.log('loginAdmin Sekce --------------------')
+    res.redirect('admin/compare');
+}
+exports.compareAdmin = (req, res, next) => {
+    dbModel.compareAdmin(req, res, next);
+}
 exports.uploadImg = (req, res) => {
     upload(req, res, (err) => {
         if(err){
@@ -99,30 +108,5 @@ exports.uploadImg = (req, res) => {
             console.log(req.file);
             res.send('Soubor poslán');
         }
-    });
-}
-exports.postLoginInfo = (req, res) => {
-
-    let username = req.body.username;
-    let password = req.body.password;
-    let login_udaje = dbModel.nacistUdaje();
-    // hashovaní hesla
-    bcrypt.hash(login_udaje.admin[0].password, 5, function (err, hash) {
-        console.log(hash);
-        // porovnávání hashem s heslem
-        bcrypt.compare(password, hash, function (err, result) {
-          console.log("heslo prošlo:", result);
-
-          // porovnaní údajů
-          if(username == login_udaje.admin[0].username && result == true){
-              console.log("Correct");
-
-          }
-          else{
-              console.log("Wrong username or password");
-
-          }
-        });
-
     });
 }
