@@ -209,6 +209,10 @@ window.onload = () => {
     })
 
     document.getElementById('logoutBtn').addEventListener('click', (e) => {
-        fetch('/admin/logout', {method:"POST"}).then(res=>res.json()).then(data=>console.log(data)).catch(e=>console.log(e))
+        fetch('/admin/logout', {method:"POST"}).then(res=>res.json()).then(data=>{
+            if (data.msg.status == 100) {
+                location.reload()
+            }
+        }).catch(e=>console.log(e))
     })
 }
