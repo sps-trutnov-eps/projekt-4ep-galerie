@@ -4,15 +4,8 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/prehled/style.css">
     <script src="src/script_index.js"></script>
-<<<<<<< HEAD:src/app/views/galerie_prehled.ejs
-    <!-- 
-    doplnit linky na ccsko
-    -->
-    <title>Document</title>
-=======
     
     <title>SPŠ projekty</title>
->>>>>>> New_Main:index.html
 </head>
 <body>
     
@@ -20,35 +13,10 @@
         <div>
             <img src="src/img/logo-spstrutnov.png" alt="" id="logo">
         </div>
-<<<<<<< HEAD:src/app/views/galerie_prehled.ejs
-        <h1 id="hlavni_nadpis">
-            hlavní nadpis
-        </h1>
-        <nav>
-
-        </nav>
-=======
->>>>>>> New_Main:index.html
     </header>
 
     <main>
-<<<<<<< HEAD:src/app/views/galerie_prehled.ejs
-        <div id="vyhledavani">
-            
-            <div class="dropdown">
-                <button class="dropbtn"> dropdown </button>
-                <div class="dropdown-content">
-                    <div>něco</div>
-                    <div>něco</div>
-                    <div>něco</div>
-                    <div>něco</div>
-                    <div>něco</div>
-                    <div>něco</div>
-                </div>
-            </div>
-=======
         <table>
->>>>>>> New_Main:index.html
 
             <tr>
                 <td>            
@@ -118,6 +86,14 @@
         
         <div class="na_projekty">
             <p>Místo na projekty, pro Aleše</p>
+            <% if (clanky.length == 0){%>
+                <% document.getElementById("clanky").innerHTML = "zatím nejsou žádné clanky"%>
+            <%}//else{%>
+                <%// for(i = 0; i < clanky.length; i++){ %>
+                    
+            <div id="clanky">
+                
+            </div>
 
             <div class="container">
                 <div class="filtrDiv IT">Projekt od IT</div>
