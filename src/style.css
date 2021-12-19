@@ -1,3 +1,33 @@
+
+
+#footer{
+  background: #223974;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  height: 100px;
+}
+
+footer p {
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+#zahlavi_logo{
+  background: #223974;
+}
+
+#logo{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 35%;
+  background: #223974;
+
+}
+
+
 .filtrDiv {
   float: left;
   background-color: #007bff;
