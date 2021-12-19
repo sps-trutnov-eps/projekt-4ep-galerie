@@ -17,7 +17,7 @@ router.post('/sendImg', controller.uploadImg);
 router.post('/admin/editArticle',verify, controller.editArticle);
 router.post('/admin/deleteArticle', verify, controller.deleteArticle);
 
-router.post('/loginInfo', controller.postLoginInfo);
+router.post('/admin/loginInfo', controller.postLoginInfo);
 router.post('/admin/logout',verify, controller.logout);
 
 
