@@ -73,16 +73,10 @@ exports.mainPageArticles = () => {
     }
     return vybraneClanky;
 }
-exports.newDbItem = (name, desc_short, desc_full, author, mail, tags) => {
+exports.newDbItem = (name, desc_short, desc_full, author, tags) => {
     db.set(`ID_${Object.keys(db.JSON()).length + 1}`  , {
-        "autor": [
-            {
-                "jmeno": author,
-                "e-mail": mail
-            }
-        ],
+        "autor": author,
         "datum": new Date().toLocaleDateString(),
-        "viditelny": false,
         "nadpis": name,
         "popis_short": desc_short,
         "popis_full": desc_full,
