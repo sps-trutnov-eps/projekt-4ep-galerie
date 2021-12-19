@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title><%= data.nadpis %></title>
     <link rel="stylesheet" type="text/css" href="/styles/detail-test.css">
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="fontawesome/css/all.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -39,19 +39,19 @@
             </div>
             <div id="galerie-obrazku">
                 <h2>Galerie</h2>
-                <% for (let i in data.obrazky) { %>                
+                <% for (let i in data.obrazky) { %>
                 <img src="/img/<%= data.id %>/<%= data.obrazky[i] %>" alt="Obrázky">
                 <% } %>
             </div>
             <div>
                 <h1>Uživatelská recenze</h1>
                 <br>
-                    <button style="font-size:50px"> <i class="fa fa-thumbs-up"></i></button>
-                    <button style="font-size:50px"> <i class="fa fa-thumbs-down"></i></button>
+                <button style="font-size:50px"><i class="fa fa-thumbs-up"></i></button>
+                <button style="font-size:50px"><i class="fa fa-thumbs-down"></i></button>
             </div>
         </main>
         <footer id="paticka">
-            <p id="copyright">2021 &copy; </p>
+            <p id="copyright">2021 &copy;</p>
         </footer>
     </div>
 </body>
