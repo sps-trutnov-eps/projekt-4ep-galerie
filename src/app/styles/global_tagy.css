@@ -60,6 +60,7 @@ body
   font-size: 16px;
   border: none;
   cursor: pointer;
+  margin: 0;
 }
 
 .dropdown{
@@ -73,6 +74,8 @@ body
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  width: 100%;
+  margin: 0;
 }
 
 .containerSTlacitky a:hover {background-color: #bbbbbb}
@@ -97,20 +100,7 @@ a[class*="filter_btn"].active
 	  display: block;
 	}
 
-.custom_container
+.tagy_container
 {
-  width: 70%;
-  margin: 0 auto;
-  background-color: #007bff;
-  
-  height: 100%;
-  padding: 10px;
-}
-.shadow-block
-{
-  box-shadow: 2px 1px 15px 5px rgba(0,0,0,0.35);
-}
-.m-0-a
-{
-  margin:0 auto;
+  background: #223974;
 }

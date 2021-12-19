@@ -120,5 +120,5 @@ exports.detail = (rq, res) =>
 {
     let id = rq.params.id;
     var data = dbModel.nacistDetail(id);
-    res.render('detail', {data});
+    res.render('projekty/detail', {data});
 }

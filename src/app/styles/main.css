@@ -1,0 +1,35 @@
+.custom_container
+{
+  width: 75%;
+  margin: 0 auto;
+  height: 100%;
+}
+main
+{
+    height: 100%;
+    background-color: #002f61;
+    padding: 10px;
+    z-index: 1;
+    box-shadow: 2px 5px 15px 5px rgba(0,0,0,0.35);
+}
+.shadow-block
+{
+  box-shadow: 2px 1px 15px 5px rgba(0,0,0,0.35);
+}
+.m-0-a
+{
+  margin:0 auto;
+}
+.projekt_container
+{
+    padding: 0;
+    margin: 5px;
+    background-color: #005cbe;
+    box-shadow: 2px 1px 15px 5px rgba(0,0,0,0.35);
+}
+.projekt_img_container img
+{
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}

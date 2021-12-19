@@ -11,7 +11,7 @@ router.get('/admin/edit/:article',verify, controller.getArticleData)
 router.get('/admin/edit', verify, controller.adminEdit);
 router.get('/admin/getArticleTitles', controller.getArticleTitles);
 router.get('/admin/compare', controller.compareAdmin);
-router.get('/detail/:id', controller.detail);
+router.get('/projekty/detail/:id', controller.detail);
 
 router.post('/newArticle',controller.uploadArticle);
 router.post('/sendImg',controller.pre_upload ,controller.uploadImg, controller.uploadArticle);
