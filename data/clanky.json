@@ -15,8 +15,8 @@
             "WallpaperDog-5558057.jpg"
         ],
         "id": "1",
-        "dislike": 6,
-        "like": 9
+        "dislike": 14,
+        "like": 21
     },
     "2": {
         "autor": "Tada",
@@ -24,10 +24,16 @@
         "nadpis": "Test",
         "popis_short": "Dobri projekt",
         "popis_full": "Je to fajn",
-        "tagy": ["IT","3"],
+        "tagy": [
+            "IT",
+            "3"
+        ],
         "obrazky": [
             "WallpaperDog-5558057.jpg"
-        ]
+        ],
+        "id": "2",
+        "dislike": null,
+        "like": null
     },
     "3": {
         "autor": "Polikok je gay",
@@ -38,7 +44,10 @@
         "tagy": "",
         "obrazky": [
             "E9P4cBlXsAQg8UD.png"
-        ]
+        ],
+        "id": "3",
+        "dislike": null,
+        "like": null
     },
     "next_id": 4
 }
