@@ -27,7 +27,7 @@
                 <% for (let i in data.tagy) { %>
                 <%= data.tagy[i] %>
                 <% } %>
-                <img id="hlavni-obrazek" src="/img/<%= data.id %>/<%= data.obrazky[0] %>" alt="Hlavní obrázek">
+                <img id="hlavni-obrazek" src="/img/<%= data.id %>/<%= data.obrazky[0] %>" width="900px" alt="Hlavní obrázek">
             </div>
             <div id="kontakt">
                 <p id="autori">Autoři: </p>
@@ -40,7 +40,7 @@
             <div id="galerie-obrazku">
                 <h2>Galerie</h2>
                 <% for (let i in data.obrazky) { %>
-                <img src="/img/<%= data.id %>/<%= data.obrazky[i] %>" alt="Obrázky">
+                <img src="/img/<%= data.id %>/<%= data.obrazky[i] %>" width="900px" alt="Obrázky">
                 <% } %>
             </div>
             <div>
