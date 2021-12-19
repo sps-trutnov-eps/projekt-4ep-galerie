@@ -3,7 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <title><%= data.nadpis %></title>
+    <title>
+        <%= data.nadpis %>
+    </title>
     <link rel="stylesheet" type="text/css" href="/styles/detail-test.css">
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -15,45 +17,73 @@
 
 <body>
     <div id="container">
+
         <header id="hlavicka">
             <div>
-                <h1 id="nadpis"><%= data.nadpis %></h1>
-                <p id="datum">Datum: <%= data.datum %></p>
+                <h1 id="nadpis">
+                    <%= data.nadpis %>
+                </h1>
+                <p id="datum">Datum: <%= data.datum %>
+                </p>
             </div>
         </header>
         <main id="main">
             <div id="tagy">
                 <p>Tagy:</p>
                 <% for (let i in data.tagy) { %>
-                <%= data.tagy[i] %>
-                <% } %>
-                <img id="hlavni-obrazek" src="/img/<%= data.id %>/<%= data.obrazky[0] %>" alt="Hlavní obrázek">
+                    <%= data.tagy[i] %>
+                        <% } %>
+                            <img id="hlavni-obrazek" src="/img/<%= data.id %>/<%= data.obrazky[0] %>"
+                                alt="Hlavní obrázek">
             </div>
             <div id="kontakt">
                 <p id="autori">Autoři: </p>
-                <p><%= data.autor %></p>
+                <p>
+                    <%= data.autor %>
+                </p>
             </div>
             <div id="popis-div">
                 <h2>Popis</h2>
-                <p id="popis-p"><%= data.popis_full %></p>
+                <p id="popis-p">
+                    <%= data.popis_full %>
+                </p>
             </div>
             <div id="galerie-obrazku">
                 <h2>Galerie</h2>
                 <% for (let i in data.obrazky) { %>
-                <img src="/img/<%= data.id %>/<%= data.obrazky[i] %>" alt="Obrázky">
-                <% } %>
+                    <img src="/img/<%= data.id %>/<%= data.obrazky[i] %>" alt="Obrázky">
+                    <% } %>
             </div>
             <div>
                 <h1>Uživatelská recenze</h1>
                 <br>
-                <button style="font-size:50px"><i class="fa fa-thumbs-up"></i></button>
-                <button style="font-size:50px"><i class="fa fa-thumbs-down"></i></button>
+                <button onclick="SendInfo('like')" style="font-size:50px"><i class="fa fa-thumbs-up"></i></button>
+                <button onclick="SendInfo('dislike')" style="font-size:50px"><i class="fa fa-thumbs-down"></i></button>
+                <% var procenta = (data.like/(data.like+data.dislike))*100 %>
+                <%= procenta.toFixed(2) + " %" %>
             </div>
         </main>
         <footer id="paticka">
             <p id="copyright">2021 &copy;</p>
         </footer>
     </div>
+    <script>
+        function SendInfo(hodnoceni) {
+
+                fetch('/hodnoceni', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    id: <%= data.id %>,
+                    hodnoceni: hodnoceni
+                }),
+            })
+
+
+        }
+    </script>
 </body>
 
 </html>
