@@ -30,3 +30,17 @@
   main{
       height: auto;
   }
+  #butt{
+      text-align: center;
+      margin: 1em;
+      padding: auto;
+      
+  }
+  .row{
+      border: 2px solid white;
+      padding: 1em;
+  }
+#videt{
+    text-align: center;
+}
+
