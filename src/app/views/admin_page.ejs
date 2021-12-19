@@ -32,16 +32,25 @@
     </footer>
     <script>
         function SendLoginInfo(){
-            fetch('/loginInfo', {
-               method: 'POST',
-               headers: {
-                'Content-Type': 'application/json'
-               },
-               body:JSON.stringify({
-                username: username.value,
-                password: password.value, 
-               }),
-            });
+            fetch('/admin/loginInfo', {
+                method:"POST",
+                headers: {"Content-type":"application/json"},
+                body:JSON.stringify({   
+                    "username":username.value,
+                    "password":password.value
+                    })
+            }).then(response => response.json()).then(data => {
+                switch(data.status) {
+                   case 100: {
+                       location.href = "/admin/compare"
+                       break;
+                   }
+                   default: {
+                       console.log("error", data.status)
+                       break;
+                   }
+                }
+            })
         }
     </script>
 </body>

@@ -18,7 +18,7 @@ router.post('/admin/editArticle',verify, controller.editArticle);
 router.post('/admin/deleteArticle', verify, controller.deleteArticle);
 
 router.post('/loginInfo', controller.postLoginInfo);
-router.post('/admin/logout', controller.logout);
+router.post('/admin/logout',verify, controller.logout);
 
 
 module.exports = router;
