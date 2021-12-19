@@ -25,7 +25,3 @@
 }
 
 do složky `/src` doplnit do souboru `.env` obsahující text
-
-    > ADMIN_USERNAME=a
-    > ADMIN_PASSWORD=a
-    > SECRET_KEY=něco sem napiš
