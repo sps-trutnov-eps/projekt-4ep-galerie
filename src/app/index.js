@@ -21,4 +21,5 @@ app.use(express.static(path.join(__dirname, 'www')));
 app.use(express.json());
 app.use(express.urlencoded({ "extended": true }));
 app.use('/', require(path.join(__dirname, 'routers', 'dbRouter')));
+app.use('/', require(path.join(__dirname, 'routers', 'AdminRouter')));
 module.exports = app;
