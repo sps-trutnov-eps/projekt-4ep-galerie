@@ -23,7 +23,7 @@ main
 .projekt_container
 {
     padding: 0;
-    margin: 5px;
+    margin: 1px;
     background-color: #005cbe;
     box-shadow: 2px 1px 15px 5px rgba(0,0,0,0.35);
 }

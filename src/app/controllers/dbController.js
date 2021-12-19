@@ -5,33 +5,15 @@ const { Console } = require('console');
 const multer = require('multer');
 const { ESRCH } = require('constants');
 
-const storage = multer.diskStorage({
-    destination: './app/www/img/' + Object.keys(dbModel.nacistVse()).length,
-    filename: (req, file, res) => {
-        res(null, file.originalname)
-    }
-})
 
-const upload = multer({
-    storage: storage,
-    fileFilter: function(req, file, cb){
-        const fileTypes = /jpeg|jpg|png/;
-        const mimeType = fileTypes.test(file.mimetype);
-        if(mimeType){
-            cb(null, true);
-        } 
-        else {
-            cb('error');
-        }
-    }
-}).array('image');
+
 
 exports.upload = (req, res) => {
-    res.render('upload_form');
+    res.render('admin/upload_form');
 }
 
 exports.admin = (req, res) => {
-    res.render('admin_page');
+    res.render('admin/admin_page');
 }
 exports.adminEdit = (req, res) => {
     res.render('admin/edit');
@@ -91,6 +73,24 @@ exports.pre_upload = (req, res,next) =>
     next();
 }
 exports.uploadImg = (req, res,next) => {
+    const upload = multer({
+        storage: multer.diskStorage({
+            destination: './app/www/img/' + dbModel.dalsi_ID(),
+            filename: (req, file, res) => {
+                res(null, file.originalname)
+            }
+        }),
+        fileFilter: function(req, file, cb){
+            const fileTypes = /jpeg|jpg|png/;
+            const mimeType = fileTypes.test(file.mimetype);
+            if(mimeType){
+                cb(null, true);
+            } 
+            else {
+                cb('error');
+            }
+        }
+    }).array('image');
     upload(req, res, (err) => {
         if(err){
             

@@ -9,7 +9,10 @@ h1
 {
     margin: 0 !important;
 }
-
+header a
+{
+    float:right;
+}
 footer
 {
     background: #051640;
