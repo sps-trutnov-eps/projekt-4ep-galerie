@@ -8,7 +8,10 @@ exports.nacist = (id) => {
     var clanek = db.get(id);
     return clanek;
 }
-
+exports.dalsi_ID = () => 
+{
+    return db.JSON()["next_id"];
+}
 exports.nacistVse = () => {
     var clanky = db.JSON();
     delete clanky["next_id"];

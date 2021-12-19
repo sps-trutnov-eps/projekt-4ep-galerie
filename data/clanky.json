@@ -5,10 +5,21 @@
         "nadpis": "gfdgfd",
         "popis_short": "dsa",
         "popis_full": "das",
-        "tagy": "",
+        "tagy": ["2021","C#","4","IT"],
         "obrazky": [
             "WallpaperDog-5558057.jpg"
         ]
     },
-    "next_id": 2
+    "2": {
+        "autor": "Tada",
+        "datum": "12/19/2021",
+        "nadpis": "Test",
+        "popis_short": "Dobri projekt",
+        "popis_full": "Je to fajn",
+        "tagy": ["IT"],
+        "obrazky": [
+            "WallpaperDog-5558057.jpg"
+        ]
+    },
+    "next_id": 3
 }
