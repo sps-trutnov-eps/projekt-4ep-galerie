@@ -105,7 +105,7 @@ exports.uploadImg = (req, res) => {
             res.send('FCKING ERROR MATE');
         }else {
             console.log(req.file);
-            res.send('Soubor poslán');
+            res.redirect('/admin/edit');
         }
     });
 }
