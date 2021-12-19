@@ -112,13 +112,21 @@ exports.uploadArticle = (req, res,next) => {
     let author = req.body.autori;
     let tags = req.body.tagy;
     let obrazky = res.locals.nazvy_souboru;
+    let hodnoceniLike = 0;
+    let hodnoceniDislike = 0;
     
-    dbModel.newDbItem(name, desc_short, desc_full, author, tags,obrazky);
+    dbModel.newDbItem(name, desc_short, desc_full, author, tags,obrazky, hodnoceniLike, hodnoceniDislike);
     res.send('Vsechno OK!');
 }
 exports.detail = (rq, res) =>
 {
     let id = rq.params.id;
     var data = dbModel.nacistDetail(id);
-    res.render('projekty/detail', {data});
+    res.render('projekty/detail', {data, id});
+}
+
+exports.hodnoceni = (rq, res) =>
+{
+    dbModel.aktualizovatHodnoceni(rq.body.id, rq.body.hodnoceni);
+    res.send('Vsechno OK!');
 }
