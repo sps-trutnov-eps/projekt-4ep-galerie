@@ -111,3 +111,10 @@ exports.uploadImg = (req, res) => {
         }
     });
 }
+
+exports.logout = (req, res) => {
+    req.session.username = undefined;
+    req.session.password = undefined;
+    req.session.userid = undefined;
+    return res.send({"msg":{"status":100, "text":"Úspěšně odhlášeno!"}})
+}

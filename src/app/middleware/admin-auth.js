@@ -7,6 +7,6 @@ module.exports = (req,res,next) => {
     }
     else {
         console.log('nejsi admin');
-        res.redirect('/')
+        res.redirect('/admin')
     }
 }
