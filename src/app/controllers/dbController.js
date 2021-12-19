@@ -5,46 +5,22 @@ const { Console } = require('console');
 const multer = require('multer');
 const { ESRCH } = require('constants');
 
-const storage = multer.diskStorage({
-    destination: './app/www/img/' + Object.keys(dbModel.nacistVse()).length,
-    filename: (req, file, res) => {
-        res(null, file.originalname)
-    }
-})
 
-const upload = multer({
-    storage: storage,
-    fileFilter: function(req, file, cb){
-        const fileTypes = /jpeg|jpg|png/;
-        const mimeType = fileTypes.test(file.mimetype);
-        if(mimeType){
-            cb(null, true);
-        } 
-        else {
-            cb('error');
-        }
-    }
-}).array('image');
-exports.main = (req, res) => {
-    var data = dbModel.nacistVse();
-    //dbModel.editArticle("ID_1", {"autor":[{"jmeno":"", "e-mail":""}], "datum":"", "viditelny":false, "nadpis":"", "popis_short":"", "popis_full":"", "tagy": []});
-    //dbModel.editArticle("ID_1", {"datum":"", "viditelny":false});
-    res.render('test', {data});
-}
+
 
 exports.upload = (req, res) => {
-    res.render('upload_form');
+    res.render('admin/upload_form');
 }
 
 exports.admin = (req, res) => {
-    res.render('admin_page');
+    res.render('admin/admin_page');
 }
 exports.adminEdit = (req, res) => {
     res.render('admin/edit');
 }
 
 exports.getArticleData = (req, res) => {
-    var name = `ID_${req.params.article}`;
+    var name = req.params.article;
     var data = dbModel.nacist(name);
     res.send(data);
 }
@@ -81,15 +57,7 @@ exports.deleteArticle = (req, res) => {
     }
     res.send(msg);
 }
-exports.uploadArticle = (req, res) => {
-    let name = req.body.name;
-    let desc_short = req.body.desc_short;
-    let desc_full = req.body.desc_full;
-    let author = req.body.author;
-    let tags = req.body.tags;
 
-    dbModel.newDbItem(name, desc_short, desc_full, author, tags);
-}
 exports.postLoginInfo = (req, res) => {
     req.session.username = req.body.username;
     req.session.password = req.body.password;
@@ -100,20 +68,65 @@ exports.postLoginInfo = (req, res) => {
 exports.compareAdmin = (req, res, next) => {
     dbModel.compareAdmin(req, res, next);
 }
-exports.uploadImg = (req, res) => {
+exports.pre_upload = (req, res,next) => 
+{
+    next();
+}
+exports.uploadImg = (req, res,next) => {
+    const upload = multer({
+        storage: multer.diskStorage({
+            destination: './app/www/img/' + dbModel.dalsi_ID(),
+            filename: (req, file, res) => {
+                res(null, file.originalname)
+            }
+        }),
+        fileFilter: function(req, file, cb){
+            const fileTypes = /jpeg|jpg|png/;
+            const mimeType = fileTypes.test(file.mimetype);
+            if(mimeType){
+                cb(null, true);
+            } 
+            else {
+                cb('error');
+            }
+        }
+    }).array('image');
     upload(req, res, (err) => {
         if(err){
-            res.send('FCKING ERROR MATE');
-        }else {
-            console.log(req.file);
-            res.send('Soubor poslán');
+            
+        }else
+        {   
+            console.log(req.files);
+            res.locals.nazvy_souboru=[];
+            for(let i in req.files)
+                res.locals.nazvy_souboru.push(req.files[i].originalname);  
         }
+        next();
     });
 }
-
+exports.uploadArticle = (req, res,next) => {
+    console.log(res.locals.nazvy_souboru);
+    let name = req.body.nazev;
+    let desc_short = req.body.kratky_popis;
+    let desc_full = req.body.dlouhy_popis;
+    let author = req.body.autori;
+    let tags = req.body.tagy;
+    let obrazky = res.locals.nazvy_souboru;
+    let hodnoceniLike = 0;
+    let hodnoceniDislike = 0;
+    
+    dbModel.newDbItem(name, desc_short, desc_full, author, tags,obrazky, hodnoceniLike, hodnoceniDislike);
+    res.send('Vsechno OK!');
+}
 exports.detail = (rq, res) =>
 {
     let id = rq.params.id;
     var data = dbModel.nacistDetail(id);
-    res.render('detail', {data});
+    res.render('projekty/detail', {data, id});
+}
+
+exports.hodnoceni = (rq, res) =>
+{
+    dbModel.aktualizovatHodnoceni(rq.body.id, rq.body.hodnoceni);
+    res.send('Vsechno OK!');
 }
