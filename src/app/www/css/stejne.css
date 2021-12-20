@@ -5,13 +5,25 @@ header
     z-index: 100;
     box-shadow: 2px 1px 15px 5px rgba(0,0,0,0.35);
 }
+#logo {
+    float: left;
+    width: 200px;
+}
 h1
 {
+    float: initial;
     margin: 0 !important;
+    font-size: 60px;
+    text-align: center;
 }
 header a
 {
     float:right;
+    color:rgb(171,186,223);
+    text-decoration: none;
+}
+a:hover{
+    color: black;
 }
 footer
 {
