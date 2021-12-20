@@ -17,27 +17,27 @@
     <main style="width:500px; margin:0 auto">
         <form id="myForm" action="/sendImg" method="post" enctype="multipart/form-data">
             <label for="nadpis">Jméno projektu</label>
-            <input type="text" id="projectName" class="form-control" required>
+            <input name="nazev" type="text" id="projectName" class="form-control" required>
             <div>
                 <label for="popis_short">Krátký popis</label>
-                <textarea id="desc_short" class="form-control" required></textarea>
+                <textarea name="kratky_popis" id="desc_short" class="form-control" required></textarea>
             </div>
             <div>
                 <label for="popis_full">Dlouhý popis</label>
-                <textarea id="desc_full" class="form-control" required></textarea>
+                <textarea name="dlouhy_popis" id="desc_full" class="form-control" required></textarea>
             </div>
             <div class="col">
                 <label for="author">Autor</label>
-                <input type="text" id="author" placeholder="Autoři" class="form-control" required>
+                <input name="autori" type="text" id="author" placeholder="Autoři" class="form-control" required>
             </div>
             <div id="tagy" class="row">
                 <div class="col">
                     <label for="tags">Tagy</label>
-                    <input type="text" id="tags" class="form-control" readonly>
+                    <input name="tagy" type="text" id="tags" class="form-control" readonly>
                 </div>
                 <div class="col">
                     <label for="tags"> </label>
-                    <select class="form-control">
+                    <select name="moznosti" class="form-control">
                         <option> </option>
                         <option value="1">Zkušební možnost 1</option>
                         <option value="2">Zkušební možnost 2</option>
@@ -51,7 +51,7 @@
                     multiple required>
             </div>
             <a href="/" class="btn btn-secondary">Zrušit</a>
-            <button type="submit" class="btn btn-primary" onclick="SendInfo()">Založit</button>
+            <button type="submit" class="btn btn-primary" >Založit</button>
         </form>
 
 

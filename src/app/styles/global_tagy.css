@@ -1,0 +1,106 @@
+html
+{
+  height: 100%;
+}
+body
+{
+  height: 100%;
+}
+
+.filtrDiv {
+    float: left;
+    background-color: #007bff;
+    color: #ffffff;
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    margin: 2px;
+    display: none;
+  }
+  
+  .show {
+    display: block;
+  }
+  
+  .container {
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  
+  .btn {
+    border: none;
+    outline: none;
+    padding: 12px 16px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color: #ddd;
+  }
+  
+  .btn.active {
+    background-color: #666;
+    color: white;
+  }
+
+.containerSTlacitky{
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropbtn {
+  background-color: #223974;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+}
+
+.dropdown{
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.containerSTlacitky a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+
+.containerSTlacitky a:hover {background-color: #bbbbbb}
+
+.dropdown:hover .containerSTlacitky {
+  display: block;
+}
+
+a[class*="filter_btn"].active 
+	{
+		background-color: #666;
+		color: white;
+	}
+		
+	.ob_filter 
+	{
+		display: none;
+	}
+
+	.ob_show 
+	{
+	  display: block;
+	}
+
+.tagy_container
+{
+  background: #223974;
+}
