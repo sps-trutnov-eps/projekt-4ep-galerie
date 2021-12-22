@@ -1,12 +1,7 @@
 const express = require('express');
 const session = require('express-session');
 const dbModel = require(require('path').join(__dirname, '..', 'models', 'dbModel'));
-const { Console } = require('console');
 const multer = require('multer');
-const { ESRCH } = require('constants');
-
-
-
 
 exports.upload = (req, res) => {
     res.render('admin/upload_form');
