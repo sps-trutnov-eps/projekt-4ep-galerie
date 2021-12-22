@@ -34,12 +34,14 @@ a:hover{
     /*padding: 15px;*/
     z-index: 100;
     box-shadow: 2px 1px 15px 5px rgba(0,0,0,0.35);
-    position: relative;
+    position: fixed;
     bottom: 0;
     color: rgb(78,87,110);
     padding-left: 10px;
     padding-top: 13px;
     padding-bottom: 3px;
+    width: 100%;
+
 
 }
 footer p {
