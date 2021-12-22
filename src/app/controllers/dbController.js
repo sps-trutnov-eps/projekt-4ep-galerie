@@ -111,7 +111,7 @@ exports.uploadArticle = (req, res,next) => {
     let hodnoceniDislike = 0;
     
     dbModel.newDbItem(name, desc_short, desc_full, author, tags,obrazky, hodnoceniLike, hodnoceniDislike);
-    res.send('Vsechno OK!');
+    return res.redirect('/admin/edit')
 }
 exports.detail = (rq, res) =>
 {
