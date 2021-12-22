@@ -145,4 +145,13 @@ window.onload = () => {
             }).catch(e=>console.log(e))
         }).catch(e=>console.log(e));
     })
+
+    document.getElementById('logoutbtn').addEventListener('click', (e) => {
+        console.log(e.target)
+        fetch('/admin/logout', {method:"POST"}).then(res=>res.json()).then(data=>{
+            if (data.msg.status == 100) {
+                location.reload()
+            }
+        }).catch(e=>console.log(e))
+    })
 }

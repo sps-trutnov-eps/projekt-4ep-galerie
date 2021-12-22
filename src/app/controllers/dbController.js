@@ -125,3 +125,10 @@ exports.hodnoceni = (rq, res) =>
     dbModel.aktualizovatHodnoceni(rq.body.id, rq.body.hodnoceni);
     res.send('Vsechno OK!');
 }
+
+exports.logout = (req, res) => {
+    req.session.username = undefined;
+    req.session.password = undefined;
+    req.session.userid = undefined;
+    return res.send({"msg":{"status":100, "text":"Úspěšně odhlášeno!"}})
+}

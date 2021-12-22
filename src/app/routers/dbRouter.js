@@ -21,6 +21,7 @@ router.post('/admin/deleteArticle', controller.deleteArticle);
 
 router.post('/newArticle',controller.uploadArticle);
 router.post('/admin/loginInfo', controller.postLoginInfo);
+router.post('/admin/logout', controller.logout)
 
 router.post('/hodnoceni',controller.hodnoceni);
 
