@@ -12,12 +12,9 @@
   width: 95%;
 
 }
-.sticky-footer{
-  position: sticky;
-  top: 100%;
-}
-body{
-  height: 100vh;
+
+main{
+  width: 500px;
+  margin:0 auto;
 }
 
-  
