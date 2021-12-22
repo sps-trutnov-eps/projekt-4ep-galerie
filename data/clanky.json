@@ -15,8 +15,8 @@
             "WallpaperDog-5558057.jpg"
         ],
         "id": "1",
-        "dislike": 6,
-        "like": 9
+        "dislike": 17,
+        "like": 26
     },
     "2": {
         "autor": "Tada",
@@ -29,7 +29,9 @@
         ],
         "obrazky": [
             "WallpaperDog-5558057.jpg"
-        ]
+        ],
+        "id": "2",
+        "dislike": null
     },
     "3": {
         "autor": "Polikok je gay",
@@ -40,7 +42,9 @@
         "tagy": "",
         "obrazky": [
             "E9P4cBlXsAQg8UD.png"
-        ]
+        ],
+        "id": "3",
+        "like": null
     },
     "next_id": 4
 }
