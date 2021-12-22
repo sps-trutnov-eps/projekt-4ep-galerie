@@ -1,7 +1,6 @@
 const path = require('path');
 const JSONdb = require('simple-json-db');
 const bcrypt = require("bcrypt");
-const { hodnoceni } = require('../controllers/dbController');
 const db = new JSONdb(path.join(__dirname, '..', '..', '..', 'data', 'clanky.json'));
 const udaje = new JSONdb(path.join(__dirname, '..', '..', '..', 'data', 'udaje.json'));
 
