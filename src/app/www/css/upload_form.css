@@ -1,16 +1,16 @@
-#zahlavi_logo{
-    background: #223974;
-  }
-  
-  #logo{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 35%;
-    background: #223974;
-  
-  }
-  #hlavni_nadpis{
-    color: red;
-  }
+#uploadbutts{
+  border-top: 2px solid #223974;
+  padding-top: 1em;
+  margin-top: 1em;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+#zalozit_butt{
+  text-align: right;
+}
+#button1, #button2{
+  width: 95%;
+
+}
+
   

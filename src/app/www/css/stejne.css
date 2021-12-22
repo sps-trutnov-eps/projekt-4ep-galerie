@@ -1,5 +1,6 @@
 header
 {
+    margin-bottom: 2em;
     color: white;
     background: #374e88;
     padding: 30px;
@@ -26,8 +27,9 @@ header a
 a:hover{
     text-decoration: none;
 }
-footer
+#footer
 {
+    margin-top: 2em;
     background: #051640;
     /*padding: 15px;*/
     z-index: 100;
@@ -40,6 +42,11 @@ footer
     padding-bottom: 3px;
 
 }
+footer p {
+    padding: 10px;
+    text-align: center;
+    color: white;
+  }
 
 /*footer,header
 {
