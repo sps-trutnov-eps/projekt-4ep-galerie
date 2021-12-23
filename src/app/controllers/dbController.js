@@ -127,6 +127,10 @@ exports.detail = (rq, res) =>
 
 exports.hodnoceni = (rq, res) =>
 {
-    dbModel.aktualizovatHodnoceni(rq.body.id, rq.body.hodnoceni);
-    res.send('Vsechno OK!');
+    if(rq.headers.cookie != "klik=ano" + rq.body.id)
+    {
+        res.cookie("klik", "ano" + rq.body.id);
+        dbModel.aktualizovatHodnoceni(rq.body.id, rq.body.hodnoceni);
+    }
+    res.send('Vsechno OK!'); 
 }
