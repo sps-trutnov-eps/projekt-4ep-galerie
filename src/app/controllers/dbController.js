@@ -1,12 +1,7 @@
 const express = require('express');
 const session = require('express-session');
 const dbModel = require(require('path').join(__dirname, '..', 'models', 'dbModel'));
-const { Console } = require('console');
 const multer = require('multer');
-const { ESRCH } = require('constants');
-
-
-
 
 exports.upload = (req, res) => {
     res.render('admin/upload_form');
@@ -116,7 +111,7 @@ exports.uploadArticle = (req, res,next) => {
     let hodnoceniDislike = 0;
     
     dbModel.newDbItem(name, desc_short, desc_full, author, tags,obrazky, hodnoceniLike, hodnoceniDislike);
-    res.send('Vsechno OK!');
+    return res.redirect('/admin/edit')
 }
 exports.detail = (rq, res) =>
 {
@@ -133,4 +128,11 @@ exports.hodnoceni = (rq, res) =>
         dbModel.aktualizovatHodnoceni(rq.body.id, rq.body.hodnoceni);
     }
     res.send('Vsechno OK!'); 
+}
+
+exports.logout = (req, res) => {
+    req.session.username = undefined;
+    req.session.password = undefined;
+    req.session.userid = undefined;
+    return res.send({"msg":{"status":100, "text":"Úspěšně odhlášeno!"}})
 }
