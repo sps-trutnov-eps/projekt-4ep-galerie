@@ -5,34 +5,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/admin_page.css">
+    <link rel="stylesheet" href="../css/stejne.css">
     <title>Admin page</title>
    </head>
 
-<body>
+<body class="my_container">
     <header>
-
+        <div id="zahlavi_logo">
+            <div>
+                <img id="logo" src="/imgLogo/logo-spstrutnov-4.svg" alt="">
+            </div>
+            <h1 id="hlavni_nadpis">SPŠ Galerie</h1>
+        </div>
+        
     </header>
     <main>
-        <div style=" border-bottom: black solid 2px; margin: 0 auto; margin-top: 200px; text-align: center; width: 400px; height: 400px;">
+        <div class="container">
             <div>
-                <p style="font-size: 26px; border-top: black solid 2px; padding-top: 50px; font-weight: bold;">Admin
-                    page</p>
+                <p id="name">Admin page</p>
             </div>
             <nav>
-                <a href="/admin/upload"><button style="font-size: 15pt;">Upload</button></a>
-                <a href="/" style="margin-right: 125px;"><button style="font-size: 15pt;">Edit</button></a>
+                <div>
+                    <a href="/admin/upload"><button id="button_upload">Upload</button></a>
+                    <a href="/"><button id="button_edit">Edit</button></a>
             </nav>
-            <div id="login" style="padding-top: 20px;">
-                <label for="name"></label>
-                <input type="text" id="username" placeholder="Username.." style="font-size: 15pt; padding: 5px;" required> <br>
-                <label for="password"></label>
-                <input type="password" id="password" placeholder="Password.." style="font-size: 15pt; padding: 5px;" required>
+            <div id="login">
+                <div>
+                    <div id="text_jmeno_heslo">
+                        <p id="prihlasovaci_jmeno">Jméno:</p>
+                        <label for="name"></label>
+                        <input type="text" id="username" placeholder="Username.."  required> <br>
+                    </div>
+                    <div id="text_jmeno_heslo">
+                        <p id="heslo">Heslo:</p>
+                        <label for="password"></label>
+                        <input type="password" id="password" placeholder="Password.."  required>
+                    </div>
+                </div>
             </div>
-            <button onclick="SendLoginInfo()">Submit</button></a>
+            <div id="button_submit">
+                <button id="submit" onclick="SendLoginInfo()">Submit</button></a>
+            </div>
         </div>
     </main>
-    <footer>
-
+    <footer class="sticky-footer">
+        <div id="footer">
+            <p>By 4.EP 2022 & Jakub Šenkýř</p>
+        </div>
     </footer>
     <script>
         function SendLoginInfo(){
