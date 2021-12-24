@@ -2,13 +2,17 @@ const path = require('path');
 const JSONdb = require('simple-json-db');
 const bcrypt = require("bcrypt");
 const { nextTick } = require('process');
+const { hodnoceni } = require('../controllers/dbController');
 const db = new JSONdb(path.join(__dirname, '..', '..', '..', 'data', 'clanky.json'));
 const udaje = new JSONdb(path.join(__dirname, '..', '..', '..', 'data', 'udaje.json'));
 exports.nacist = (id) => {
     var clanek = db.get(id);
     return clanek;
 }
-
+exports.dalsi_ID = () => 
+{
+    return db.JSON()["next_id"];
+}
 exports.nacistVse = () => {
     var clanky = db.JSON();
     delete clanky["next_id"];
@@ -74,7 +78,7 @@ exports.mainPageArticles = () => {
     }
     return vybraneClanky;
 }
-exports.newDbItem = (name, desc_short, desc_full, author, tags,obrazky) => {
+exports.newDbItem = (name, desc_short, desc_full, author, tags,obrazky, like, dislike) => {
     let id = db.get('next_id')
     db.set('next_id',db.get('next_id')+1)
     db.set(id  , {
@@ -84,7 +88,9 @@ exports.newDbItem = (name, desc_short, desc_full, author, tags,obrazky) => {
         "popis_short": desc_short,
         "popis_full": desc_full,
         "tagy": tags,
-        "obrazky": obrazky
+        "obrazky": obrazky,
+        "Like": like,
+        "Dislike": dislike
     });
 }
 
@@ -113,4 +119,17 @@ exports.compareAdmin = (req, res, next) => {
         });
 
     }); 
+
+
 }
+
+exports.aktualizovatHodnoceni = (id, typ) => {
+    let projekt = db.get(id);
+    if(typ == "like"){
+        projekt.like++;
+    }
+    else{
+        projekt.dislike++;
+    }
+    db.set(id, projekt)
+} 
