@@ -15,8 +15,8 @@
             "WallpaperDog-5558057.jpg"
         ],
         "id": "1",
-        "dislike": 17,
-        "like": 26
+        "dislike": 31,
+        "like": 67
     },
     "2": {
         "autor": "Tada",
@@ -30,10 +30,13 @@
         ],
         "obrazky": [
             "WallpaperDog-5558057.jpg"
-        ]
+        ],
+        "id": "2",
+        "like": 9,
+        "dislike": 6
     },
     "3": {
-        "autor": "Polikok je gay",
+        "autor": "Polik",
         "datum": "19. 12. 2021",
         "nadpis": "asdasda",
         "popis_short": "sadad",
@@ -41,7 +44,10 @@
         "tagy": "",
         "obrazky": [
             "E9P4cBlXsAQg8UD.png"
-        ]
+        ],
+        "id": "3",
+        "like": 1,
+        "dislike": 1
     },
     "next_id": 4
 }
