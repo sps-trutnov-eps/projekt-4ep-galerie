@@ -1,0 +1,242 @@
+html {
+    height: 100%;
+}
+body {
+    font-family: 'Segoe UI', sans-serif; 
+    background-color: white;
+    margin: 0;
+    opacity: 0.999;
+    min-height: 100%;
+    width: 100%;
+}
+
+#logo {
+    height: 75px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    font-size: 35px;
+    font-weight: normal;
+    opacity: 1;
+    background-color: #223974;
+    width: 100%;
+    text-align: left;
+    align-self: left;
+    align-items: left;
+    position: sticky;
+}
+
+#container {
+    width: 900px;
+    background-color: white; 
+    padding: 20px; 
+    margin: 0;
+    opacity: 1;
+    padding-bottom: 0px;
+    margin-bottom: 25px;
+    left: 25%;
+    position: relative;
+    border: darkgrey 2px solid;
+    margin-top: -4px;
+    
+}
+
+#paticka {
+    height: 50px;
+    font-size: 25px;
+    font-weight: normal;
+    opacity: 1;
+    background-color: #223974;
+    width: 1000px;
+    color: white;
+    width: auto;
+    padding-bottom: 0px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#copyright {
+    text-align: center;
+    opacity: 1;
+}
+
+#like{
+    border: 0;  
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+#dislike{
+    border: 0;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+#like:hover{
+    color: green;
+}
+#dislike:hover{
+    color: red;
+}
+
+#like:active{
+    color:green;
+    opacity:1;
+}
+
+#dislike:active{
+    color:red;
+    opacity:1;
+}
+
+#nadpis{
+    padding-left: 18px;
+    color: black;
+    font-size: 40px;
+    font-style: italic;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: -5px;
+    left: 30%;
+    opacity: 1;
+}
+
+#nadpis {
+    animation: color-change 1.5s infinite;
+}
+
+@keyframes color-change {
+    20%{color: black;}
+    40%{color: #3d7eb3;}
+    60%{color: #619ecf;}
+    80%{color: #3d7eb3;}
+    100%{color: black;}
+}
+
+#hlavni-obrazek{
+    opacity: 1;
+    height: 600px;
+    width: 900px;
+    border-radius: 5%;
+}
+
+#datum{
+    margin-top: 0%;
+    padding-left: 35px;
+}
+
+#autori{
+    margin-bottom: 0;
+    padding-left: 125px;
+    font-size: 1.5rem;
+    margin-top: 0;
+    max-width: 800px;
+    text-size-adjust: calc(1);
+}
+
+#popis-p{
+    opacity: 1;
+    width: 800px;
+    margin-left: 50px;
+    padding-left: 5px;
+    padding-top: 5px;
+    border-radius: 1%;
+    min-height: 250px;
+    background-color: lightgray;
+    border: darkgrey 2px solid;
+}
+
+#galerie-obrazku{
+    height: 250px;
+}
+
+#mininadpis{
+    padding-left: 8px;
+}
+
+#tagy{
+    padding-right: 50px;
+    padding-bottom: 25px;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-bottom: 0;
+    padding-left: 125px;
+    font-size: 1.5rem;
+    margin-top: 0;
+}
+
+#tags{
+    margin: 0;
+    font-size: 1rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: 400px;
+}
+
+#popis-div{
+    font-size: 1.75rem;
+    margin: 0;
+    padding-left: 30px;
+}
+
+#galerii{
+    text-align: center;
+}
+
+#obrazekgalerie{
+    max-height: 250px;
+    max-width: 250px;
+    min-width: 250px;
+    min-height: 250px;
+    margin-bottom: 25px;
+    border-radius: 2%;
+    margin-left: 35px;
+}
+
+#recenzce{
+    padding-top: 30px;
+    text-align: center;
+}
+
+#tlacik1{
+    text-align: center;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    margin-left: 250px;
+    margin-bottom: 15px;
+}
+
+#tlacik2{
+    text-align: center;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    margin-left: 250px;
+    margin-bottom: 15px;
+}
+
+#tlacik1:hover{
+    opacity: 0.5;
+    color: green;
+    transition: 2s;
+}
+
+#tlacik1:active{
+    opacity: 1;
+    color: green;
+    transition: 2s;
+}
+
+
+#tlacik2:hover{
+    opacity: 0.5;
+    color: red;
+    transition: 2s;
+
+}
+
+#tlacik2:active{
+    opacity: 1;
+    color: red;
+    transition: 2s;
+}

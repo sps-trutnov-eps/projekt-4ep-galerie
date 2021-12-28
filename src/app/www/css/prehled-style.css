@@ -1,33 +1,3 @@
-
-
-#footer{
-  background: #223974;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  height: 100px;
-}
-
-footer p {
-  padding: 10px;
-  text-align: center;
-  color: white;
-}
-
-#zahlavi_logo{
-  background: #223974;
-}
-
-#logo{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 35%;
-  background: #223974;
-
-}
-
-
 .filtrDiv {
   float: left;
   background-color: #007bff;
@@ -65,6 +35,12 @@ footer p {
   color: white;
 }
 
+<<<<<<< HEAD:src/app/www/prehled/prehled-style.css
+#vyhledavani{
+    margin-top: 500px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+=======
 .containerSTlacitky{
 display: none;
 position: absolute;
@@ -72,6 +48,7 @@ background-color: #f9f9f9;
 min-width: 160px;
 box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 z-index: 1;
+>>>>>>> New_Main:src/style.css
 }
 
 .dropbtn {

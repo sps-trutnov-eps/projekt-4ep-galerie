@@ -1,0 +1,56 @@
+header
+{
+    margin-bottom: 2em;
+    color: white;
+    background: #374e88;
+    padding: 30px;
+    z-index: 100;
+    box-shadow: 2px 1px 15px 5px rgba(0,0,0,0.35);
+}
+#logo {
+    /*float: left;*/
+    width: 200px;
+}
+#nadpis
+{
+    margin: 0 !important;
+    font-size: 80px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+}
+#admin
+{
+    float:right;
+    color:rgb(171,186,223);
+    text-decoration: none;
+    font-size: 15px;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+    color: rgb(171,186,223);
+}
+#footer
+{
+    margin-top: 2em;
+    background: #051640;
+    /*padding: 15px;*/
+    z-index: 100;
+    box-shadow: 2px 1px 15px 5px rgba(0,0,0,0.35);
+    position: fixed;
+    bottom: 0;
+    color: rgb(78,87,110);
+    padding-left: 10px;
+    padding-top: 13px;
+    padding-bottom: 3px;
+    vertical-align: middle;
+}
+footer p {
+    padding: 10px;
+    text-align: center;
+    color: white;
+  }
+

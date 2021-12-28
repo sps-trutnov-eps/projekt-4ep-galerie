@@ -1,16 +1,20 @@
 const path = require('path');
 const JSONdb = require('simple-json-db');
 const bcrypt = require("bcrypt");
-const { nextTick } = require('process');
 const db = new JSONdb(path.join(__dirname, '..', '..', '..', 'data', 'clanky.json'));
 const udaje = new JSONdb(path.join(__dirname, '..', '..', '..', 'data', 'udaje.json'));
+
 exports.nacist = (id) => {
     var clanek = db.get(id);
     return clanek;
 }
-
+exports.dalsi_ID = () => 
+{
+    return db.JSON()["next_id"];
+}
 exports.nacistVse = () => {
     var clanky = db.JSON();
+    delete clanky["next_id"];
     return clanky;
 }
 
@@ -22,12 +26,13 @@ exports.editArticle = (id, items) => {
     var Article = db.get(id);
     Article.autor = (items?.autor===undefined?Article.autor:items.autor);
     Article.datum = (items?.datum===undefined?Article.datum:items.datum);
-    Article.viditelny = (items?.viditelny===undefined?Article.viditelny:items.viditelny);
     Article.nadpis = (items?.nadpis===undefined?Article.nadpis:items.nadpis);
     Article.popis_short = (items?.popis_short===undefined?Article.popis_short:items.popis_short);
     Article.popis_full = (items?.popis_full===undefined?Article.popis_full:items.popis_full);
     Article.tagy = (items?.tagy===undefined?Article.tagy:items.tagy);
-    Article.zdroje = (items?.zdroje===undefined?Article.zdroje:items.zdroje);
+    Article.like = (items?.like===undefined?Article.like:items.like);
+    Article.dislike = (items?.dislike===undefined?Article.dislike:items.dislike);
+    Article.obrazky = (items?.obrazky===undefined?Article.obrazky:items.obrazky);
     db.set(id, Article);
 }
 
@@ -73,20 +78,25 @@ exports.mainPageArticles = () => {
     }
     return vybraneClanky;
 }
-exports.newDbItem = (name, desc_short, desc_full, author, tags) => {
-    db.set(`ID_${Object.keys(db.JSON()).length + 1}`  , {
+exports.newDbItem = (name, desc_short, desc_full, author, tags,obrazky, like, dislike) => {
+    let id = db.get('next_id')
+    db.set('next_id',db.get('next_id')+1)
+    db.set(id  , {
         "autor": author,
         "datum": new Date().toLocaleDateString(),
         "nadpis": name,
         "popis_short": desc_short,
         "popis_full": desc_full,
-        "tagy": []
+        "tagy": tags,
+        "obrazky": obrazky,
+        "Like": like,
+        "Dislike": dislike
     });
 }
 
 exports.nacistDetail = (id) =>
 {
-    let data = db.get(`ID_${id}`);
+    let data = db.get(id);
     data.id = id;
     return data;
 }
@@ -104,8 +114,22 @@ exports.compareAdmin = (req, res, next) => {
           }
           else{
               console.log("Wrong username or password/ Admin neni prihlasen");
+              res.redirect('/')
           }
         });
 
     }); 
+
+
 }
+
+exports.aktualizovatHodnoceni = (id, typ) => {
+    let projekt = db.get(id);
+    if(typ == "like"){
+        projekt.like++;
+    }
+    else{
+        projekt.dislike++;
+    }
+    db.set(id, projekt)
+} 
