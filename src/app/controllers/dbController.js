@@ -1,11 +1,15 @@
 const express = require('express');
 const session = require('express-session');
 const dbModel = require(require('path').join(__dirname, '..', 'models', 'dbModel'));
+const { Ziskej_tagy } = require(require('path').join(__dirname, '..', 'models', 'tagy_model'));
 const multer = require('multer');
 const { Script } = require('vm');
 
 exports.upload = (req, res) => {
-    res.render('admin/upload_form');
+    let data = Ziskej_tagy();
+    res.render('admin/upload_form', {
+        data
+    });
 }
 
 exports.admin = (req, res) => {
