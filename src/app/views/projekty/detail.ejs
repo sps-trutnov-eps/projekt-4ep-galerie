@@ -8,6 +8,7 @@
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="fontawesome/css/all.css" />
+    <link rel="stylesheet" href="../../css/stejne.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -15,16 +16,12 @@
 
 
 <body>
-    <header id="SpsLogo">
-        <a href="../../"><img id="logo"  src="/imgLogo/logo-spstrutnov-4.svg" alt="logo"></a>
-    </header>
+    <%- include("../stejne/hlavicka.ejs") -%>
     <div id="container">
-        <header id="hlavicka">
             <div>
-                <h1 id="nadpis"><%= data.nadpis %></h1>
+                <h1 id="Nadpis"><%= data.nadpis %></h1>
                 <p id="datum"><%= data.datum %></p>
             </div>
-        </header>
         <img id="hlavni-obrazek" src="/img/<%= data.id %>/<%= data.obrazky[0] %>" alt="Hlavní obrázek">
         <div id="kontakt">
             <p id="autori">Autoři: <%= data.autor %></p>
@@ -88,8 +85,6 @@
         }
     </script>
 </body>
-<footer id="paticka">
-    <p id="copyright">2021 &copy;</p>
-</footer>
+<%- include("../stejne/paticka.ejs") -%>
 
 </html>

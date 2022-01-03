@@ -14,15 +14,7 @@
 </head>
 
 <body>
-    <header>
-        <div id="zahlavi_logo">
-            <div>
-                <img id="logo" src="/imgLogo/logo-spstrutnov-4.svg" alt="">
-            </div>
-            <h1 id="hlavni_nadpis">SPŠ Galerie</h1>
-        </div>
-        
-    </header>
+    <%- include("../stejne/hlavicka.ejs") -%>
     <main>
         <form id="myForm" action="/admin/sendImg" method="post" enctype="multipart/form-data">
             <label for="nadpis">Jméno projektu</label>
@@ -71,11 +63,7 @@
 
 
     </main>
-    <footer class="sticky-footer">
-        <div id= "footer">
-            <p>By 4.EP 2022 & Jakub Šenkýř</p>
-        </div>
-    </footer>
+    <%- include("../stejne/paticka.ejs") -%>
 
 </body>
 <script>
