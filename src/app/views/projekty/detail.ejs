@@ -50,11 +50,43 @@
             <div>
                 <h1 id="recenzce">Uživatelská recenze</h1>
                 <br>
-                <button id="tlacik1" style="font-size:50px"><i class="fa fa-thumbs-up"></i></button>
-                <button id="tlacik2" style="font-size:50px"><i class="fa fa-thumbs-down"></i></button>
+                <button id="tlacik1" onclick="SendInfo('like')" style="font-size:50px"><i class="fa fa-thumbs-up"></i></button>
+                <button id="tlacik2" onclick="SendInfo('dislike')" style="font-size:50px"><i class="fa fa-thumbs-down"></i></button>
+                <% var procenta = (data.like/(data.like+data.dislike))*100 %>
+                <%= procenta.toFixed(2) + " %" %>
             </div>
         </main>
     </div>
+
+    <script>
+        function SendInfo(hodnoceni) {
+
+                fetch('/hodnoceni', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    id: <%= data.id %>,
+                    hodnoceni: hodnoceni
+                })
+            }).then(response => response.json()).then(data => {
+                console.log(data.msg.status);
+                switch(data.msg.status) {
+                   case 1: {
+                        location.reload();
+                        break;
+                   }
+                   case 2: {
+                        alert("Již jste hlasoval!");
+                        break;
+                   }
+                   default: {
+                       console.log("Halo");
+                       break;
+                   }
+                }
+            })
+        }
+    </script>
 </body>
 <footer id="paticka">
     <p id="copyright">2021 &copy;</p>

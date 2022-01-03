@@ -2,6 +2,7 @@ const express = require('express');
 const session = require('express-session');
 const dbModel = require(require('path').join(__dirname, '..', 'models', 'dbModel'));
 const multer = require('multer');
+const { Script } = require('vm');
 
 exports.upload = (req, res) => {
     res.render('admin/upload_form');
@@ -122,12 +123,41 @@ exports.detail = (rq, res) =>
 
 exports.hodnoceni = (rq, res) =>
 {
-    if(rq.headers.cookie != "klik=ano" + rq.body.id)
+    var susenky = rozdelitCookie(rq);
+    if(rq.headers.cookie == undefined)
     {
-        res.cookie("klik", "ano" + rq.body.id);
-        dbModel.aktualizovatHodnoceni(rq.body.id, rq.body.hodnoceni);
+        res.cookie(rq.body.id, "zahlasovano" + rq.body.id);      
+            dbModel.aktualizovatHodnoceni(rq.body.id, rq.body.hodnoceni);
+            return res.send({"msg":{"status":1}})
+    }
+    else
+    {
+        for (i in susenky){
+            if(susenky[rq.body.id] != "zahlasovano" + rq.body.id)
+            {
+                res.cookie(rq.body.id, "zahlasovano" + rq.body.id);      
+                dbModel.aktualizovatHodnoceni(rq.body.id, rq.body.hodnoceni);
+                return res.send({"msg":{"status":1}})
+            }
+            else
+            {
+                return res.send({"msg":{"status":2}})
+            }
+        }
     }
     res.send('Vsechno OK!'); 
+}
+
+function rozdelitCookie (request) {
+    var list = {},
+        rc = request.headers.cookie;
+
+    rc && rc.split(';').forEach(function( cookie ) {
+        var parts = cookie.split('=');
+        list[parts.shift().trim()] = decodeURI(parts.join('='));
+    });
+
+    return list;
 }
 
 exports.logout = (req, res) => {
