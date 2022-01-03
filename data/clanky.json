@@ -12,11 +12,17 @@
             "IT"
         ],
         "obrazky": [
-            "WallpaperDog-5558057.jpg"
+            "WallpaperDog-5558057.jpg",
+			"asus_1.jpg",
+			"asus_2.jpg",
+			"asus_3.jpg",
+			"dell_1.jpg",
+			"dell_2.jpg",
+			"dell_3.jpg"
         ],
         "id": "1",
-        "dislike": 32,
-        "like": 69
+        "dislike": 34,
+        "like": 19
     },
     "2": {
         "autor": "Tada",
