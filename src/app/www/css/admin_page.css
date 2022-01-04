@@ -13,6 +13,17 @@
     padding-top: 20px;
 }
 
+#upload{
+    float:right;
+    color:rgb(171,186,223) !important;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+#upload:hover{
+    color:rgb(171,186,223);
+}
+
 #name{
     font-size: 26pt; 
     border-top: black solid 2px; 
