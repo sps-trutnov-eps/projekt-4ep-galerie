@@ -1,12 +1,8 @@
 const express = require('express');
 const session = require('express-session');
 const dbModel = require(require('path').join(__dirname, '..', 'models', 'dbModel'));
-const { Console } = require('console');
 const multer = require('multer');
-const { ESRCH } = require('constants');
-
-
-
+const { Script } = require('vm');
 
 exports.upload = (req, res) => {
     res.render('admin/upload_form');
@@ -116,7 +112,7 @@ exports.uploadArticle = (req, res,next) => {
     let hodnoceniDislike = 0;
     
     dbModel.newDbItem(name, desc_short, desc_full, author, tags,obrazky, hodnoceniLike, hodnoceniDislike);
-    res.send('Vsechno OK!');
+    return res.redirect('/admin/edit')
 }
 exports.detail = (rq, res) =>
 {
@@ -127,6 +123,46 @@ exports.detail = (rq, res) =>
 
 exports.hodnoceni = (rq, res) =>
 {
-    dbModel.aktualizovatHodnoceni(rq.body.id, rq.body.hodnoceni);
-    res.send('Vsechno OK!');
+    var susenky = rozdelitCookie(rq);
+    if(rq.headers.cookie == undefined)
+    {
+        res.cookie(rq.body.id, "zahlasovano" + rq.body.id);      
+            dbModel.aktualizovatHodnoceni(rq.body.id, rq.body.hodnoceni);
+            return res.send({"msg":{"status":1}})
+    }
+    else
+    {
+        for (i in susenky){
+            if(susenky[rq.body.id] != "zahlasovano" + rq.body.id)
+            {
+                res.cookie(rq.body.id, "zahlasovano" + rq.body.id);      
+                dbModel.aktualizovatHodnoceni(rq.body.id, rq.body.hodnoceni);
+                return res.send({"msg":{"status":1}})
+            }
+            else
+            {
+                return res.send({"msg":{"status":2}})
+            }
+        }
+    }
+    res.send('Vsechno OK!'); 
+}
+
+function rozdelitCookie (request) {
+    var list = {},
+        rc = request.headers.cookie;
+
+    rc && rc.split(';').forEach(function( cookie ) {
+        var parts = cookie.split('=');
+        list[parts.shift().trim()] = decodeURI(parts.join('='));
+    });
+
+    return list;
+}
+
+exports.logout = (req, res) => {
+    req.session.username = undefined;
+    req.session.password = undefined;
+    req.session.userid = undefined;
+    return res.send({"msg":{"status":100, "text":"Úspěšně odhlášeno!"}})
 }

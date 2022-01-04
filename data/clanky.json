@@ -12,11 +12,17 @@
             "IT"
         ],
         "obrazky": [
-            "WallpaperDog-5558057.jpg"
+            "WallpaperDog-5558057.jpg",
+			"asus_1.jpg",
+			"asus_2.jpg",
+			"asus_3.jpg",
+			"dell_1.jpg",
+			"dell_2.jpg",
+			"dell_3.jpg"
         ],
         "id": "1",
-        "dislike": 14,
-        "like": 21
+        "dislike": 34,
+        "like": 19
     },
     "2": {
         "autor": "Tada",
@@ -32,11 +38,11 @@
             "WallpaperDog-5558057.jpg"
         ],
         "id": "2",
-        "dislike": null,
-        "like": null
+        "like": 10,
+        "dislike": 6
     },
     "3": {
-        "autor": "Polikok je gay",
+        "autor": "Polik",
         "datum": "19. 12. 2021",
         "nadpis": "asdasda",
         "popis_short": "sadad",
@@ -46,8 +52,8 @@
             "E9P4cBlXsAQg8UD.png"
         ],
         "id": "3",
-        "dislike": null,
-        "like": null
+        "like": 2,
+        "dislike": 1
     },
     "next_id": 4
 }

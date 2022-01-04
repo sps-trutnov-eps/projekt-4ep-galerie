@@ -12,27 +12,26 @@
 <body>
   
   <ul id="dropdown1" class="dropdown-content">
-    <li><a href="#!">ABOUT</a></li>
-    <li><a href="#!">SETTINGS</a></li>
     <li class="divider"></li>
-    <li><a href="#!">LOGOUT</a></li>
+    <li><a href="/admin/upload">UPLOAD</a></li>
+    <li><a href="" id="logoutbtn">LOGOUT</a></li>
   </ul>
 
   <nav style="background-color: #008ACC;">
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo">TITLE</a>
+      <a href="#!" class="brand-logo">ADMIN</a>
       <ul class="right">
         <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">&nbsp;<i class="material-icons left">dehaze</i></a></li>
       </ul>
     </div>
   </nav>
   
-  <h4>ARTICLE</h4>
+  <h5>EDITOVACÍ STRÁNKA</h5>
     <div class="row">
         <div class="col s12">
           <div class="row">
             <div class="input-field col s12">
-              <input type="text" id="autocomplete-input" placeholder="ID_" class="autocomplete">
+              <input type="text" id="autocomplete-input" placeholder="ID ČLÁNKU NEBO NADPIS" class="autocomplete">
               <label for="autocomplete-input">Article</label>
             </div>
           </div>
@@ -59,11 +58,6 @@
           <td class="right"><a href="#editModal" class="waves-effect waves-light btn-small blue darken-2 modal-trigger iEditable">EDIT</a></td>
         </tr>
         <tr>
-          <td><strong>VIDITELNY</strong></td>
-          <td id="viditelny"></td>
-          <td class="right"><a class="waves-effect waves-light btn-small amber iChangable">CHANGE</a></td>
-        </tr>
-        <tr>
           <td><strong>NADPIS</strong></td>
           <td id="nadpis"></td>
           <td class="right"><a href="#editModal" class="waves-effect waves-light btn-small blue darken-2 modal-trigger iEditable">EDIT</a></td>
@@ -81,6 +75,26 @@
         <tr>
           <td><strong>TAGY</strong></td>
           <td id="tagy"></td>
+          <td class="right"><a href="#editModal" class="waves-effect waves-light btn-small blue darken-2 modal-trigger iEditable">EDIT</a></td>
+        </tr>
+        <tr>
+          <td><strong>ID</strong></td>
+          <td id="idclanku" style="color: gray; font-style: italic; font-weight: bold;"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><strong>LIKE</strong></td>
+          <td id="like"></td>
+          <td class="right"><a href="#editModal" class="waves-effect waves-light btn-small blue darken-2 modal-trigger iEditable">EDIT</a></td>
+        </tr>
+        <tr>
+          <td><strong>DISLIKE</strong></td>
+          <td id="dislike"></td>
+          <td class="right"><a href="#editModal" class="waves-effect waves-light btn-small blue darken-2 modal-trigger iEditable">EDIT</a></td>
+        </tr>
+        <tr>
+          <td><strong>OBRAZKY</strong></td>
+          <td id="obrazky"></td>
           <td class="right"><a href="#editModal" class="waves-effect waves-light btn-small blue darken-2 modal-trigger iEditable">EDIT</a></td>
         </tr>
       </tbody>

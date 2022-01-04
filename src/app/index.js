@@ -2,8 +2,8 @@ const express = require('express');
 const session = require('express-session');
 const env = require('dotenv').config()
 const path = require('path');
+const key = process.env.SECRET_KEY;
 const app = express();
-const key = process.env;
 app.use('/', session({
     secret: key,
     secure: false,

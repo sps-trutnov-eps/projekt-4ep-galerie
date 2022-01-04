@@ -21,7 +21,7 @@
             </div>
             <h1 id="hlavni_nadpis">SPŠ Galerie</h1>
         </div>
-        
+
     </header>
     <main>
         <form id="myForm" action="/admin/sendImg" method="post" enctype="multipart/form-data">
@@ -39,19 +39,67 @@
                 <label for="author">Autor</label>
                 <input name="autori" type="text" id="author" placeholder="Autoři" class="form-control" required>
             </div>
-            <div id="tagy" class="row">
-                <div class="col">
-                    <label for="tags">Tagy</label>
-                    <input name="tagy" type="text" id="tags" class="form-control" readonly>
+            <div id="tagy">
+                <div class="row">
+                    <div class="col">
+                        <label for="tags">Tagy</label>
+                        <input name="tagy" type="text" id="tags" class="form-control" value="Obor:" readonly>
+                    </div>
+                    <div class="col">
+                        <label for="tags"> </label>
+                        <select name="moznosti" class="form-control">
+                            <option> </option>
+                            <option value="1">Zkušební možnost 1</option>
+                            <option value="2">Zkušební možnost 2</option>
+                            <option value="3">Zkušební možnost 3</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="col">
-                    <label for="tags"> </label>
-                    <select name="moznosti" class="form-control">
-                        <option> </option>
-                        <option value="1">Zkušební možnost 1</option>
-                        <option value="2">Zkušební možnost 2</option>
-                        <option value="3">Zkušební možnost 3</option>
-                    </select>
+                <div class="row">
+                    <div class="col">
+                        <br>
+                        <input name="tagy" type="text" id="tags" class="form-control" value="Ročník:" readonly>
+                    </div>
+                    <div class="col">
+                        <br>
+                        <select name="moznosti" class="form-control">
+                            <option> </option>
+                            <option value="1">Zkušební možnost 1</option>
+                            <option value="2">Zkušební možnost 2</option>
+                            <option value="3">Zkušební možnost 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <br>
+                        <input name="tagy" type="text" id="tags" class="form-control" value="Programovací jazyk:"
+                            readonly>
+                    </div>
+                    <div class="col">
+                        <br>
+                        <select name="moznosti" class="form-control">
+                            <option> </option>
+                            <option value="1">Zkušební možnost 1</option>
+                            <option value="2">Zkušební možnost 2</option>
+                            <option value="3">Zkušební možnost 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <br>
+                        <input name="tagy" type="text" id="tags" class="form-control" value="Rok vzniku:" readonly>
+                    </div>
+                    <div class="col">
+                        <br>
+                        <select name="moznosti" class="form-control">
+                            <option> </option>
+                            <option value="1">Zkušební možnost 1</option>
+                            <option value="2">Zkušební možnost 2</option>
+                            <option value="3">Zkušební možnost 3</option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <div>
@@ -64,15 +112,15 @@
                     <a href="/admin" class="btn btn-secondary" id="button1">Zrušit</a>
                 </div>
                 <div class="item" id="zalozit_butt">
-                    <button type="submit" class="btn btn-primary" id="button2" >Založit</button> 
-                </div>              
+                    <button type="submit" class="btn btn-primary" id="button2">Založit</button>
+                </div>
             </div>
         </form>
 
 
     </main>
     <footer class="sticky-footer">
-        <div id= "footer">
+        <div id="footer">
             <p>By 4.EP 2022 & Jakub Šenkýř</p>
         </div>
     </footer>
