@@ -175,3 +175,22 @@ button:hover{
   color: #223974;
   font-weight: bold;
 }
+.projektos{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  
+}
+.zobrazovane_projekty > div{
+  width: 100%;
+  text-align: center;
+}
+
+.zobrazovane_projekty{
+  text-align: center;
+  border: red 3px solid; /* pro orientaci */
+  margin-bottom: 0.5em;
+}
+.nazevAzobrazitvice{
+  border: 3px solid purple; /* pro orientaci */
+}
