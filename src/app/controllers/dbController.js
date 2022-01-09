@@ -6,9 +6,8 @@ const multer = require('multer');
 const { Script } = require('vm');
 
 exports.upload = (req, res) => {
-    let data = Ziskej_tagy();
     res.render('admin/upload_form', {
-        data
+        data:Ziskej_tagy()
     });
 }
 

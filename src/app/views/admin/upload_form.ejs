@@ -40,14 +40,13 @@
                 <input name="autori" type="text" id="author" placeholder="Autoři" class="form-control" required>
             </div>
             <div id="tagy">
-                <% for(let i in data) { %>
+                <p>Tagy</p>
+                <% for(let i = 0; i < Object.keys(data).length; i++) { %>
                 <div class="row">
                     <div class="col">
-                        <label for="tags">Tagy</label>
-                        <input name="tagy" type="text" id="tags" class="form-control" value="Obor:" readonly>
+                        <input name="tagy" type="text" id="tags" class="form-control" value="<%= Object.keys(data)[i] %>:" readonly>
                     </div>
                     <div class="col">
-                        <label for="tags"> </label>
                         <select name="moznosti" class="form-control">
                             <option> </option>
                             <option value="1">Zkušební možnost 1</option>
