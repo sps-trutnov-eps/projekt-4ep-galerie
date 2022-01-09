@@ -32,13 +32,13 @@
                 <input name="autori" type="text" id="author" placeholder="Autoři" class="form-control" required>
             </div>
             <div id="tagy">
+                <p>Tagy</p>
+                <% for(let i = 0; i < Object.keys(data).length; i++) { %>
                 <div class="row">
                     <div class="col">
-                        <label for="tags">Tagy</label>
-                        <input name="tagy" type="text" id="tags" class="form-control" value="Obor:" readonly>
+                        <input name="tagy" type="text" id="tags" class="form-control" value="<%= Object.keys(data)[i] %>:" readonly>
                     </div>
                     <div class="col">
-                        <label for="tags"> </label>
                         <select name="moznosti" class="form-control">
                             <option> </option>
                             <option value="1">Zkušební možnost 1</option>
@@ -47,52 +47,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <br>
-                        <input name="tagy" type="text" id="tags" class="form-control" value="Ročník:" readonly>
-                    </div>
-                    <div class="col">
-                        <br>
-                        <select name="moznosti" class="form-control">
-                            <option> </option>
-                            <option value="1">Zkušební možnost 1</option>
-                            <option value="2">Zkušební možnost 2</option>
-                            <option value="3">Zkušební možnost 3</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <br>
-                        <input name="tagy" type="text" id="tags" class="form-control" value="Programovací jazyk:"
-                            readonly>
-                    </div>
-                    <div class="col">
-                        <br>
-                        <select name="moznosti" class="form-control">
-                            <option> </option>
-                            <option value="1">Zkušební možnost 1</option>
-                            <option value="2">Zkušební možnost 2</option>
-                            <option value="3">Zkušební možnost 3</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <br>
-                        <input name="tagy" type="text" id="tags" class="form-control" value="Rok vzniku:" readonly>
-                    </div>
-                    <div class="col">
-                        <br>
-                        <select name="moznosti" class="form-control">
-                            <option> </option>
-                            <option value="1">Zkušební možnost 1</option>
-                            <option value="2">Zkušební možnost 2</option>
-                            <option value="3">Zkušební možnost 3</option>
-                        </select>
-                    </div>
-                </div>
+                <% } %>
             </div>
             <div>
                 <label for="pics">Vložte obrázky</label>
