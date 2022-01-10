@@ -40,10 +40,10 @@
                     </div>
                     <div class="col">
                         <select name="moznosti" class="form-control">
-                            <option> </option>
-                            <option value="1">Zkušební možnost 1</option>
-                            <option value="2">Zkušební možnost 2</option>
-                            <option value="3">Zkušební možnost 3</option>
+                                <option value="" disabled selected> </option>
+                            <% for(let y = 0; y < data[`${Object.keys(data)[i]}`].length; y++) {%>
+                                <option value="<%= data[`${Object.keys(data)[i]}`][y] %>"><%= data[`${Object.keys(data)[i]}`][y] %></option>
+                            <% } %>
                         </select>
                     </div>
                 </div>
