@@ -19,7 +19,9 @@
 </head>
 
 <body>
+
     <%- include("../stejne/hlavicka.ejs") -%>
+    <main id="main">
     <div id="container">
             <div>
                 <h1 id="Nadpis"><%= data.nadpis %></h1>
@@ -28,23 +30,16 @@
         <img id="hlavni-obrazek" src="/img/<%= data.id %>/<%= data.obrazky[0] %>" alt="Hlavní obrázek">
         <div id="kontakt">
             <p id="autori">Autoři: <%= data.autor %></p>
-            <div id="tagy">
-                <p id="tags" style="    margin-bottom: 0px; margin-top: 0;">Tagy:
-                <% for (let i in data.tagy) { %>
-                    <%= data.tagy[i] %>
-                <% } %>
-                </p>
-            </div>
         </div>
-        <main id="main">
-            <div>
-                <h2 id="popis-div">Popis</h2>
-                <p id="popis-p"><%= data.popis_full %></p>
+
+            <h2 id="popis-div">Popis:</h2>
+            <div id="popis">
+                <p id=""><%= data.popis_full %></p>
             </div>
 
             <% if(data.obrazky.length > 1) { %>
                 <div id="galerie-obrazku">
-                    <h2>Galerie</h2>
+                    <h2>Galerie:</h2>
                         <div id="myCarousel" class="carousel slide" data-ride="carousel">
                             <!-- Indikatory kolecka -->
                             <ol class="carousel-indicators">
@@ -117,7 +112,7 @@
                         break;
                    }
                    case 2: {
-                        alert("Již jste pro projekt <%= data.nadpis %> hlasoval!");
+                        alert("Již jste pro projekt <%= data.nadpis %> hlasoval/a!");
 
                         break;
                    }
