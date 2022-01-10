@@ -86,11 +86,10 @@
                 <% } %>
 
             <div id="recenzediv">
-                <h1 id="recenzce">Uživatelská recenze</h1>
-                <br>
-                <button id="tlacik1" onclick="SendInfo('like')" style="font-size:50px"><i class="fa fa-thumbs-up"></i></button>
+                <h2 id="recenzce">Uživatelská recenze</h2>
+                <p><button id="tlacik1" onclick="SendInfo('like')" style="font-size:50px"><i class="fa fa-thumbs-up"></i></button>
                 <%= data.like + "/" + data.dislike %>
-                <button id="tlacik2" onclick="SendInfo('dislike')" style="font-size:50px"><i class="fa fa-thumbs-down"></i></button>
+                <button id="tlacik2" onclick="SendInfo('dislike')" style="font-size:50px"><i class="fa fa-thumbs-down"></i></button></p>
             </div>
         </main>
     </div>

@@ -1,3 +1,6 @@
+html {
+    height: 100%;
+}
 body {
     font-family: 'Segoe UI', sans-serif; 
     margin: 0;
@@ -15,6 +18,7 @@ body {
     left: 25%;
     position: relative;
     border: darkgrey 2px solid;
+    text-align: center;
 }
 
 #copyright {
@@ -52,6 +56,7 @@ body {
 }
 
 #Nadpis{
+    text-align: left;
     padding-left: 18px;
     color: black;
     font-size: 50px;
@@ -64,17 +69,19 @@ body {
 
 #hlavni-obrazek{
     opacity: 1;
-    height: 600px;
-    width: 900px;
+    height: 55vh;
+    width: 80vh;
     border-radius: 5%;
 }
 
 #datum{
     margin-top: 0%;
     padding-left: 35px;
+    text-align: left;
 }
 
 #autori{
+    text-align: left;
     margin-bottom: 0;
     padding-left: 125px;
     font-size: 1.5rem;
@@ -84,10 +91,11 @@ body {
 }
 
 #popis-p{
+    text-align: left;
     opacity: 1;
-    width: 800px;
-    margin-left: 50px;
-    padding-left: 5px;
+    width: 80vh;
+    margin-left: auto;
+    margin-right: auto;
     padding-top: 5px;
     border-radius: 1%;
     min-height: 250px;
@@ -100,6 +108,7 @@ body {
 }
 
 #tagy{
+    text-align: left;
     padding-right: 50px;
     padding-bottom: 25px;
     margin-top: 0;
@@ -111,17 +120,17 @@ body {
 }
 
 #tags{
+    text-align: left;
     margin: 0;
-    font-size: 1rem;
+    font-size: 1.5rem;
     margin-top: 0;
     margin-bottom: 0;
     max-width: 400px;
 }
 
 #popis-div{
-    font-size: 1.75rem;
     margin: 0;
-    padding-left: 30px;
+    text-align: center;
 }
 
 #recenzce{
@@ -134,8 +143,8 @@ body {
     align-items: center;
     align-self: center;
     align-content: center;
-    margin-left: 250px;
-    margin-bottom: 15px;
+    /*margin-left: 250px;
+    margin-bottom: 15px;*/
 }
 
 #tlacik2{
@@ -143,8 +152,8 @@ body {
     align-items: center;
     align-self: center;
     align-content: center;
-    margin-left: 250px;
-    margin-bottom: 15px;
+    /*margin-left: 250px;
+    margin-bottom: 15px;*/
 }
 
 #tlacik1:hover{
