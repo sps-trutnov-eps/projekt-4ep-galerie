@@ -87,9 +87,8 @@
                 <h1 id="recenzce">Uživatelská recenze</h1>
                 <br>
                 <button id="tlacik1" onclick="SendInfo('like')" style="font-size:50px"><i class="fa fa-thumbs-up"></i></button>
+                <%= data.like + "/" + data.dislike %>
                 <button id="tlacik2" onclick="SendInfo('dislike')" style="font-size:50px"><i class="fa fa-thumbs-down"></i></button>
-                <% var procenta = (data.like/(data.like+data.dislike))*100 %>
-                <%= procenta.toFixed(2) + " %" %>
             </div>
         </main>
     </div>
