@@ -5,7 +5,10 @@ body {
     min-height: 100%;
     width: 100%;
 }
-
+main
+{
+    margin-bottom: 80px;
+}
 #container {
     width: 900px;
     background-color: white; 

@@ -22,7 +22,7 @@
         ],
         "id": "1",
         "dislike": 35,
-        "like": 19
+        "like": 20
     },
     "2": {
         "autor": "Tada",
@@ -53,7 +53,7 @@
         ],
         "id": "3",
         "like": 3,
-        "dislike": 1
+        "dislike": 2
     },
     "next_id": 4
 }
