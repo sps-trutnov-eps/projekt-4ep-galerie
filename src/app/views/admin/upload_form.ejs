@@ -44,13 +44,13 @@
                 <% for(let i = 0; i < Object.keys(data).length; i++) { %>
                 <div class="row">
                     <div class="col">
-                        <input name="tagy" type="text" id="tags" class="form-control" value="<%= Object.keys(data)[i] %>:" readonly>
+                        <input type="text" class="form-control" value="<%= Object.keys(data)[i] %>:" readonly>
                     </div>
                     <div class="col">
-                        <select name="moznosti" class="form-control">
+                        <select class="form-control" name="tagy" id="tags">
                                 <option value="" disabled selected> </option>
                             <% for(let y = 0; y < data[`${Object.keys(data)[i]}`].length; y++) {%>
-                                <option value="<%= data[`${Object.keys(data)[i]}`][y] %>"><%= data[`${Object.keys(data)[i]}`][y] %></option>
+                                <option value="<%= data[`${Object.keys(data)[i]}`][y] %>" required><%= data[`${Object.keys(data)[i]}`][y] %></option>
                             <% } %>
                         </select>
                     </div>
