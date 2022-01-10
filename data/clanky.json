@@ -13,15 +13,15 @@
         ],
         "obrazky": [
             "WallpaperDog-5558057.jpg",
-			"asus_1.jpg",
-			"asus_2.jpg",
-			"asus_3.jpg",
-			"dell_1.jpg",
-			"dell_2.jpg",
-			"dell_3.jpg"
+            "asus_1.jpg",
+            "asus_2.jpg",
+            "asus_3.jpg",
+            "dell_1.jpg",
+            "dell_2.jpg",
+            "dell_3.jpg"
         ],
         "id": "1",
-        "dislike": 34,
+        "dislike": 35,
         "like": 19
     },
     "2": {
@@ -52,7 +52,7 @@
             "E9P4cBlXsAQg8UD.png"
         ],
         "id": "3",
-        "like": 2,
+        "like": 3,
         "dislike": 1
     },
     "next_id": 4
