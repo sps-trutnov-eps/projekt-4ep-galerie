@@ -28,10 +28,11 @@
         <div id="kontakt">
             <p id="autori">Autoři: <%= data.autor %></p>
             <div id="tagy">
-                <p id="tags" style="    margin-bottom: 0px; margin-top: 0;">Tagy:</p>
+                <p id="tags" style="    margin-bottom: 0px; margin-top: 0;">Tagy:
                 <% for (let i in data.tagy) { %>
                     <%= data.tagy[i] %>
                 <% } %>
+                </p>
             </div>
         </div>
         <main id="main">
