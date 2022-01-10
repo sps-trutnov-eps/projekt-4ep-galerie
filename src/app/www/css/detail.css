@@ -55,47 +55,66 @@ main
 }
 
 #Nadpis{
-    padding-left: 18px;
+    text-align: center;
     color: black;
     font-size: 50px;
     font-weight: bold;
     margin-top: 0;
     margin-bottom: -5px;
-    left: 30%;
+
     opacity: 1;
 }
 
 #hlavni-obrazek{
     opacity: 1;
-    height: 600px;
-    width: 900px;
+    width: 40vw;
+    height: 50vh;
     border-radius: 5%;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    left: 30% !important;
 }
 
 #datum{
     margin-top: 0%;
-    padding-left: 35px;
+    text-align: center;
 }
 
 #autori{
     margin-bottom: 0;
-    padding-left: 125px;
-    font-size: 1.5rem;
+    padding-left: 44px;
+    font-size: 25px;
     margin-top: 0;
     max-width: 800px;
     text-size-adjust: calc(1);
+    position: 0;
 }
 
-#popis-p{
+#galerie-obrazku h2{
+    padding-left: 44px;
+    font-size: 25px;
+    margin-bottom: 2px;
+}
+
+#popis{
     opacity: 1;
-    width: 800px;
-    margin-left: 50px;
-    padding-left: 5px;
-    padding-top: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 1%;
-    min-height: 250px;
+    /*min-height: 250px;*/
     background-color: lightgray;
     border: darkgrey 2px solid;
+    width: 40vw;
+    height: 50vh;
+}
+
+#popis p{
+    color: black;
+    font-size: 15px;
+    padding-left: 2px;
 }
 
 #mininadpis{
@@ -122,9 +141,12 @@ main
 }
 
 #popis-div{
-    font-size: 1.75rem;
+    margin-top: 20px !important;
+    margin-bottom: 2px !important;
+    font-size: 25px;
     margin: 0;
     padding-left: 30px;
+    padding-left: 44px;
 }
 
 #recenzce{
