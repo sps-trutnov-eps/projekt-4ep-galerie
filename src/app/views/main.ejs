@@ -51,14 +51,16 @@
                     
                     <% for(let i in zobrazovane_projekty){ %>
                         <div class="col-6 m-0 p-0 projekt_container row" data-tagy="<%= data.projekty[i].tagy %>" >
-                            <div class="col-6  projekt_img_container p-0"><img class="p-0  shadow-block"
-                                    src="img/<%= i %>/<%= data.projekty[i].obrazky[0] %>" height="350px"
-                                    frameborder="0" />
+                            <div class="col-6  projekt_img_container p-0"><img class="p-0  "
+                                    src="img/<%= i %>/<%= data.projekty[i].obrazky[0] %>" frameborder="0" />
                             </div>
-                            <p class="col-6">
-                                <%= zobrazovane_projekty[i].popis_short %>
-                                    <br><a href="/projekty/detail/<%= i %>">Zobrazit více</a>
-                            </p>
+                            <div class="col-6">
+                                <h3><%= zobrazovane_projekty[i].nadpis %></h3>
+                                <p style="font-size: .5em; word-break: break-all;">
+                                    <%= zobrazovane_projekty[i].popis_short %>
+                                </p>
+                                <br><a href="/projekty/detail/<%= i %>">Zobrazit více</a>
+                            </div>
                         </div>
                     <% } %>
                 </div>
