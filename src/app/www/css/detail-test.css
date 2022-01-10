@@ -3,14 +3,14 @@ html {
 }
 body {
     font-family: 'Segoe UI', sans-serif; 
-    background-color: white;
+    /*background-color: white;*/
     margin: 0;
     opacity: 0.999;
     min-height: 100%;
     width: 100%;
 }
 
-#logo {
+/*#logo {
     height: 75px;
     padding-bottom: 15px;
     padding-top: 15px;
@@ -23,24 +23,24 @@ body {
     align-self: left;
     align-items: left;
     position: sticky;
-}
+}*/
 
 #container {
     width: 900px;
     background-color: white; 
     padding: 20px; 
-    margin: 0;
+    /*margin: 0;*/
     opacity: 1;
     padding-bottom: 0px;
-    margin-bottom: 25px;
+    /*margin-bottom: 25px;*/
     left: 25%;
     position: relative;
     border: darkgrey 2px solid;
-    margin-top: -4px;
+    /*margin-top: -4px;*/
     
 }
 
-#paticka {
+/*#paticka {
     height: 50px;
     font-size: 25px;
     font-weight: normal;
@@ -52,7 +52,7 @@ body {
     padding-bottom: 0px;
     margin-left: 0;
     margin-right: 0;
-}
+}*/
 
 #copyright {
     text-align: center;
@@ -88,28 +88,15 @@ body {
     opacity:1;
 }
 
-#nadpis{
+#Nadpis{
     padding-left: 18px;
     color: black;
-    font-size: 40px;
-    font-style: italic;
+    font-size: 50px;
     font-weight: bold;
     margin-top: 0;
     margin-bottom: -5px;
     left: 30%;
     opacity: 1;
-}
-
-#nadpis {
-    animation: color-change 1.5s infinite;
-}
-
-@keyframes color-change {
-    20%{color: black;}
-    40%{color: #3d7eb3;}
-    60%{color: #619ecf;}
-    80%{color: #3d7eb3;}
-    100%{color: black;}
 }
 
 #hlavni-obrazek{

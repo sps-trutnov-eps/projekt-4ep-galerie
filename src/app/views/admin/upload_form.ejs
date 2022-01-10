@@ -14,15 +14,7 @@
 </head>
 
 <body>
-    <header>
-        <div id="zahlavi_logo">
-            <div>
-                <img id="logo" src="/imgLogo/logo-spstrutnov-4.svg" alt="">
-            </div>
-            <h1 id="hlavni_nadpis">SPŠ Galerie</h1>
-        </div>
-
-    </header>
+    <%- include("../stejne/hlavicka.ejs") -%>
     <main>
         <form id="myForm" action="/admin/sendImg" method="post" enctype="multipart/form-data">
             <label for="nadpis">Jméno projektu</label>
@@ -40,13 +32,13 @@
                 <input name="autori" type="text" id="author" placeholder="Autoři" class="form-control" required>
             </div>
             <div id="tagy">
+                <p>Tagy</p>
+                <% for(let i = 0; i < Object.keys(data).length; i++) { %>
                 <div class="row">
                     <div class="col">
-                        <label for="tags">Tagy</label>
-                        <input name="tagy" type="text" id="tags" class="form-control" value="Obor:" readonly>
+                        <input name="tagy" type="text" id="tags" class="form-control" value="<%= Object.keys(data)[i] %>:" readonly>
                     </div>
                     <div class="col">
-                        <label for="tags"> </label>
                         <select name="moznosti" class="form-control">
                             <option> </option>
                             <option value="1">Zkušební možnost 1</option>
@@ -55,52 +47,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <br>
-                        <input name="tagy" type="text" id="tags" class="form-control" value="Ročník:" readonly>
-                    </div>
-                    <div class="col">
-                        <br>
-                        <select name="moznosti" class="form-control">
-                            <option> </option>
-                            <option value="1">Zkušební možnost 1</option>
-                            <option value="2">Zkušební možnost 2</option>
-                            <option value="3">Zkušební možnost 3</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <br>
-                        <input name="tagy" type="text" id="tags" class="form-control" value="Programovací jazyk:"
-                            readonly>
-                    </div>
-                    <div class="col">
-                        <br>
-                        <select name="moznosti" class="form-control">
-                            <option> </option>
-                            <option value="1">Zkušební možnost 1</option>
-                            <option value="2">Zkušební možnost 2</option>
-                            <option value="3">Zkušební možnost 3</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <br>
-                        <input name="tagy" type="text" id="tags" class="form-control" value="Rok vzniku:" readonly>
-                    </div>
-                    <div class="col">
-                        <br>
-                        <select name="moznosti" class="form-control">
-                            <option> </option>
-                            <option value="1">Zkušební možnost 1</option>
-                            <option value="2">Zkušební možnost 2</option>
-                            <option value="3">Zkušební možnost 3</option>
-                        </select>
-                    </div>
-                </div>
+                <% } %>
             </div>
             <div>
                 <label for="pics">Vložte obrázky</label>
@@ -119,11 +66,7 @@
 
 
     </main>
-    <footer class="sticky-footer">
-        <div id="footer">
-            <p>By 4.EP 2022 & Jakub Šenkýř</p>
-        </div>
-    </footer>
+    <%- include("../stejne/paticka.ejs") -%>
 
 </body>
 <script>

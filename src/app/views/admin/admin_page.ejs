@@ -7,19 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/admin_page.css">
     <link rel="stylesheet" href="../css/stejne.css">
+    <link rel="stylesheet" href="../css/stickyfooter.css">
     <title>Admin page</title>
    </head>
 
 <body class="my_container">
-    <header>
-        <div id="zahlavi_logo">
-            <div>
-                <img id="logo" src="/imgLogo/logo-spstrutnov-4.svg" alt="">
-            </div>
-            <h1 id="hlavni_nadpis">SPŠ Galerie</h1>
-        </div>
-        
-    </header>
+    <div>
+        <a id="upload" href="/src/app/views/admin/upload_form.ejs">Upload</a>
+        <a href="src/app/views/admin/edit.ejs">Edit</a>
+    </div>
+    <%- include("../stejne/hlavicka.ejs") -%>
+
     <main>
         <div class="container">
             <div>
@@ -44,11 +42,7 @@
             </div>
         </div>
     </main>
-    <footer class="sticky-footer">
-        <div id="footer">
-            <p>By 4.EP 2022 & Jakub Šenkýř</p>
-        </div>
-    </footer>
+    <%- include("../stejne/paticka.ejs") -%>
     <script>
         function SendLoginInfo(){
             fetch('/admin/loginInfo', {

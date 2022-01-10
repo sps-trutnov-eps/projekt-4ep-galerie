@@ -6,6 +6,7 @@ header
     padding: 30px;
     z-index: 100;
     box-shadow: 2px 1px 15px 5px rgba(0,0,0,0.35);
+    margin-bottom: 0px;
 }
 #logo {
     /*float: left;*/
@@ -35,12 +36,10 @@ a:hover{
 }
 #footer
 {
-    margin-top: 2em;
-    background: #051640;
+    background-color: #051640 !important; 
     /*padding: 15px;*/
     z-index: 100;
     box-shadow: 2px 1px 15px 5px rgba(0,0,0,0.35);
-    position: fixed;
     bottom: 0;
     color: rgb(78,87,110);
     padding-left: 10px;
@@ -52,5 +51,6 @@ footer p {
     padding: 10px;
     text-align: center;
     color: white;
+    background-color: #051640;
   }
 
