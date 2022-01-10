@@ -27,30 +27,34 @@ header
     text-decoration: none;
     font-size: 15px;
 }
+
 a{
-    text-decoration: none;
+    text-decoration: none !important;
 }
 a:hover{
-    text-decoration: none;
+    text-decoration: none !important;
     color: rgb(171,186,223);
 }
-#footer
+footer
 {
     background-color: #051640 !important; 
     /*padding: 15px;*/
     z-index: 100;
     box-shadow: 2px 1px 15px 5px rgba(0,0,0,0.35);
-    bottom: 0;
     color: rgb(78,87,110);
     padding-left: 10px;
     padding-top: 13px;
     padding-bottom: 3px;
     vertical-align: middle;
+    position: relative;
+    width: 100%;
+    bottom: 0;
 }
 footer p {
     padding: 10px;
     text-align: center;
     color: white;
     background-color: #051640;
+    margin: 0;
   }
 

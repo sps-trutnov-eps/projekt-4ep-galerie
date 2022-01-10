@@ -21,14 +21,14 @@
             "dell_3.jpg"
         ],
         "id": "1",
-        "dislike": 34,
-        "like": 20
+        "dislike": 35,
+        "like": 19
     },
     "2": {
         "autor": "Tada",
         "datum": "12/19/2021",
         "nadpis": "Test",
-        "popis_short": "Dobri projekt",
+        "popis_short": "AHOJ",
         "popis_full": "Je to fajn",
         "tagy": [
             "IT",
@@ -39,7 +39,7 @@
         ],
         "id": "2",
         "like": 10,
-        "dislike": 6
+        "dislike": 7
     },
     "3": {
         "autor": "Polik",
@@ -52,7 +52,7 @@
             "E9P4cBlXsAQg8UD.png"
         ],
         "id": "3",
-        "like": 2,
+        "like": 3,
         "dislike": 1
     },
     "next_id": 4

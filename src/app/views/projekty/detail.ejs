@@ -86,10 +86,15 @@
                 <% } %>
 
             <div id="recenzediv">
-                <h2 id="recenzce">Uživatelská recenze</h2>
-                <p><button id="tlacik1" onclick="SendInfo('like')" style="font-size:50px"><i class="fa fa-thumbs-up"></i></button>
-                <%= data.like + "/" + data.dislike %>
-                <button id="tlacik2" onclick="SendInfo('dislike')" style="font-size:50px"><i class="fa fa-thumbs-down"></i></button></p>
+                <h1 id="recenzce">Uživatelská recenze</h1>
+                <br>
+
+                <span class="hodnoceni">
+                    <button id="tlacik1" onclick="SendInfo('like')" style="font-size:50px"><i class="fa fa-thumbs-up"></i></button>
+                    <%= data.like + "/" + data.dislike %>
+                    <button id="tlacik2" onclick="SendInfo('dislike')" style="font-size:50px"><i class="fa fa-thumbs-down"></i></button>
+                </span>
+
             </div>
         </main>
     </div>
@@ -112,19 +117,21 @@
                         break;
                    }
                    case 2: {
-                        alert("Již jste hlasoval!");
+                        alert("Již jste pro projekt <%= data.nadpis %> hlasoval!");
+
                         break;
                    }
                    default: {
-                       console.log("Halo");
+                       console.log("Error");
                        break;
                    }
                 }
             })
         }
     </script>
+    <%- include("../stejne/paticka.ejs") -%>
+
 </body>
 
-<%- include("../stejne/paticka.ejs") -%>
 
 </html>
