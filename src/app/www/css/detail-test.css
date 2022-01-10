@@ -1,58 +1,21 @@
-html {
-    height: 100%;
-}
 body {
     font-family: 'Segoe UI', sans-serif; 
-    /*background-color: white;*/
     margin: 0;
     opacity: 0.999;
     min-height: 100%;
     width: 100%;
 }
 
-/*#logo {
-    height: 75px;
-    padding-bottom: 15px;
-    padding-top: 15px;
-    font-size: 35px;
-    font-weight: normal;
-    opacity: 1;
-    background-color: #223974;
-    width: 100%;
-    text-align: left;
-    align-self: left;
-    align-items: left;
-    position: sticky;
-}*/
-
 #container {
     width: 900px;
     background-color: white; 
     padding: 20px; 
-    /*margin: 0;*/
     opacity: 1;
     padding-bottom: 0px;
-    /*margin-bottom: 25px;*/
     left: 25%;
     position: relative;
     border: darkgrey 2px solid;
-    /*margin-top: -4px;*/
-    
 }
-
-/*#paticka {
-    height: 50px;
-    font-size: 25px;
-    font-weight: normal;
-    opacity: 1;
-    background-color: #223974;
-    width: 1000px;
-    color: white;
-    width: auto;
-    padding-bottom: 0px;
-    margin-left: 0;
-    margin-right: 0;
-}*/
 
 #copyright {
     text-align: center;
@@ -132,10 +95,6 @@ body {
     border: darkgrey 2px solid;
 }
 
-#galerie-obrazku{
-    height: 250px;
-}
-
 #mininadpis{
     padding-left: 8px;
 }
@@ -163,20 +122,6 @@ body {
     font-size: 1.75rem;
     margin: 0;
     padding-left: 30px;
-}
-
-#galerii{
-    text-align: center;
-}
-
-#obrazekgalerie{
-    max-height: 250px;
-    max-width: 250px;
-    min-width: 250px;
-    min-height: 250px;
-    margin-bottom: 25px;
-    border-radius: 2%;
-    margin-left: 35px;
 }
 
 #recenzce{
@@ -226,4 +171,16 @@ body {
     opacity: 1;
     color: red;
     transition: 2s;
+}
+
+#myCarousel {
+    margin: auto;
+    width: 40vw;
+    height: 50vh;
+}
+
+#myCarousel img {
+    width: 40vw;
+    height: 50vh;
+    object-fit: contain;
 }
