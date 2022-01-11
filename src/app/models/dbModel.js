@@ -1,6 +1,6 @@
 const path = require('path');
 const JSONdb = require('simple-json-db');
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const db = new JSONdb(path.join(__dirname, '..', '..', '..', 'data', 'clanky.json'));
 const udaje = new JSONdb(path.join(__dirname, '..', '..', '..', 'data', 'udaje.json'));
 
