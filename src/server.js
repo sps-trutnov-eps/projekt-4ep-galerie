@@ -1,12 +1,10 @@
 const path = require('path');
 const http = require('http');
 
-const app = require(path.join(__dirname, 'app'));
+const { host, port } = require(path.join(__dirname, 'config'));
 
-const server = http.createServer(app);
+const server = http.createServer(require(path.join(__dirname, 'app')));
 
-const { port, hostname } = require(path.join(__dirname, 'config'));
-
-server.listen(port, hostname, () => {
-    console.log(`Server běží na http://${hostname}:${port}...`);
+server.listen(port, host, () => {
+    console.log(`Server běží na http://${host}:${port}...`);
 });
