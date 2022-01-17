@@ -10,3 +10,9 @@ exports.Ziskej_tagy = () => {
 exports.Pocet_projektu = () => {
     return db_projekty.JSON().length;
 }
+
+exports.nacistProjekt = (id) => {
+    let data = db_projekty.get(id);
+    data.id = id;
+    return data;
+}
