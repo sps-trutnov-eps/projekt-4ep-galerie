@@ -25,6 +25,8 @@ app.use(express.static(path.join(__dirname, 'www')));
 app.use(express.urlencoded({ "extended": true }));
 app.use(express.json());
 
+app.get('/', (res, req) => req.redirect('/projekty'));
+
 app.use('/admin', require(path.join(__dirname, 'routers', 'adminRouter')));
 app.use('/projekty', require(path.join(__dirname, 'routers', 'projektyRouter')));
 
