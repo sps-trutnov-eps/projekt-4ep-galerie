@@ -1,6 +1,7 @@
 const path = require('path');
-const JSONdb = require('simple-json-db');
 const bcrypt = require("bcryptjs");
+const JSONdb = require('simple-json-db');
+
 const db = new JSONdb(path.join(__dirname, '..', '..', '..', 'data', 'clanky.json'));
 const udaje = new JSONdb(path.join(__dirname, '..', '..', '..', 'data', 'udaje.json'));
 
@@ -8,10 +9,12 @@ exports.nacist = (id) => {
     var clanek = db.get(id);
     return clanek;
 }
+
 exports.dalsi_ID = () => 
 {
     return db.JSON()["next_id"];
 }
+
 exports.nacistVse = () => {
     var clanky = db.JSON();
     delete clanky["next_id"];
@@ -56,6 +59,7 @@ exports.deleteArticle = (id) => {
     var odpoved = db.delete(id);
     return odpoved;
 }
+
 // docasne, mozna se pozdeji smaze ¯\_(ツ)_/¯
 exports.mainPageArticles = () => {
     var clanky = this.getArticleNames();
@@ -78,6 +82,7 @@ exports.mainPageArticles = () => {
     }
     return vybraneClanky;
 }
+
 exports.newDbItem = (name, desc_short, desc_full, author, tags,obrazky, like, dislike) => {
     let id = db.get('next_id')
     db.set('next_id',db.get('next_id')+1)
@@ -100,6 +105,7 @@ exports.nacistDetail = (id) =>
     data.id = id;
     return data;
 }
+
 exports.compareAdmin = (req, res, next) => {
     console.log('compareAdmin Sekce --------------------')
     bcrypt.hash(process.env.ADMIN_PASSWORD, 5, function (err, hash) {
@@ -119,8 +125,6 @@ exports.compareAdmin = (req, res, next) => {
         });
 
     }); 
-
-
 }
 
 exports.aktualizovatHodnoceni = (id, typ) => {
@@ -132,4 +136,20 @@ exports.aktualizovatHodnoceni = (id, typ) => {
         projekt.dislike++;
     }
     db.set(id, projekt)
-} 
+}
+
+exports.vypsat = () => {
+    let data = db.JSON();
+    let clanky = [];
+
+    for(let i = 0; i < data.length; i++){
+        clanky.push(data[i])
+        console.log(data[i]);
+    }
+
+
+
+
+
+    return clanky;
+}

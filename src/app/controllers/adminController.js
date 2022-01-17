@@ -1,7 +1,5 @@
-const express = require('express');
-const session = require('express-session');
-const dbModel = require(require('path').join(__dirname, '..', 'models', 'dbModel'));
-const { Ziskej_tagy } = require(require('path').join(__dirname, '..', 'models', 'tagy_model'));
+const dbModel = require(require('path').join(__dirname, '..', 'models', 'adminModel'));
+const { Ziskej_tagy } = require(require('path').join(__dirname, '..', 'models', 'projektyModel'));
 const multer = require('multer');
 
 exports.upload = (req, res) => {
@@ -13,6 +11,7 @@ exports.upload = (req, res) => {
 exports.admin = (req, res) => {
     res.render('admin/admin_page');
 }
+
 exports.adminEdit = (req, res) => {
     res.render('admin/edit');
 }
@@ -22,12 +21,15 @@ exports.getArticleData = (req, res) => {
     var data = dbModel.nacist(name);
     res.send(data);
 }
+
 exports.getArticleNames = (req, res) => {
     res.send(dbModel.getArticleNames());
 }
+
 exports.getArticleTitles = (req, res) => {
     res.send(dbModel.getArticleTitles());
 }
+
 exports.editArticle = (req, res) => {
     var id = req.body[0];
     var items = req.body[1];
@@ -63,13 +65,16 @@ exports.postLoginInfo = (req, res) => {
     
     res.send({"status":100})
 }
+
 exports.compareAdmin = (req, res, next) => {
     dbModel.compareAdmin(req, res, next);
 }
+
 exports.pre_upload = (req, res,next) => 
 {
     next();
 }
+
 exports.uploadImg = (req, res,next) => {
     const upload = multer({
         storage: multer.diskStorage({
@@ -102,6 +107,7 @@ exports.uploadImg = (req, res,next) => {
         next();
     });
 }
+
 exports.uploadArticle = (req, res,next) => {
     console.log(res.locals.nazvy_souboru);
     let name = req.body.nazev;
@@ -116,6 +122,7 @@ exports.uploadArticle = (req, res,next) => {
     dbModel.newDbItem(name, desc_short, desc_full, author, tags,obrazky, hodnoceniLike, hodnoceniDislike);
     return res.redirect('/admin/edit')
 }
+
 exports.detail = (rq, res) =>
 {
     let id = rq.params.id;
@@ -123,31 +130,11 @@ exports.detail = (rq, res) =>
     res.render('projekty/detail', {data, id});
 }
 
-exports.hodnoceni = (rq, res) =>
-{
-    var susenky = rozdelitCookie(rq);
-    if(rq.headers.cookie == undefined)
-    {
-        res.cookie(rq.body.id, "zahlasovano" + rq.body.id);      
-            dbModel.aktualizovatHodnoceni(rq.body.id, rq.body.hodnoceni);
-            return res.send({"msg":{"status":1}})
-    }
-    else
-    {
-        for (i in susenky){
-            if(susenky[rq.body.id] != "zahlasovano" + rq.body.id)
-            {
-                res.cookie(rq.body.id, "zahlasovano" + rq.body.id);      
-                dbModel.aktualizovatHodnoceni(rq.body.id, rq.body.hodnoceni);
-                return res.send({"msg":{"status":1}})
-            }
-            else
-            {
-                return res.send({"msg":{"status":2}})
-            }
-        }
-    }
-    res.send('Vsechno OK!'); 
+exports.logout = (req, res) => {
+    req.session.username = undefined;
+    req.session.password = undefined;
+    req.session.userid = undefined;
+    return res.send({"msg":{"status":100, "text":"Úspěšně odhlášeno!"}})
 }
 
 function rozdelitCookie (request) {
@@ -160,11 +147,4 @@ function rozdelitCookie (request) {
     });
 
     return list;
-}
-
-exports.logout = (req, res) => {
-    req.session.username = undefined;
-    req.session.password = undefined;
-    req.session.userid = undefined;
-    return res.send({"msg":{"status":100, "text":"Úspěšně odhlášeno!"}})
 }
