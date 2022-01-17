@@ -136,15 +136,3 @@ exports.logout = (req, res) => {
     req.session.userid = undefined;
     return res.send({"msg":{"status":100, "text":"Úspěšně odhlášeno!"}})
 }
-
-function rozdelitCookie (request) {
-    var list = {},
-        rc = request.headers.cookie;
-
-    rc && rc.split(';').forEach(function( cookie ) {
-        var parts = cookie.split('=');
-        list[parts.shift().trim()] = decodeURI(parts.join('='));
-    });
-
-    return list;
-}

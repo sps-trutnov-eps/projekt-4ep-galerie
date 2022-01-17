@@ -5,14 +5,13 @@ const JSONdb = require('simple-json-db');
 const db = new JSONdb(path.join(__dirname, '..', '..', '..', 'data', 'clanky.json'));
 const udaje = new JSONdb(path.join(__dirname, '..', '..', '..', 'data', 'udaje.json'));
 
-exports.nacist = (id) => {
-    var clanek = db.get(id);
-    return clanek;
+exports.dalsi_ID = () => {
+    return db.JSON()["next_id"];
 }
 
-exports.dalsi_ID = () => 
-{
-    return db.JSON()["next_id"];
+exports.nacist = (id) => {
+    let clanek = db.get(id);
+    return clanek;
 }
 
 exports.nacistVse = () => {
@@ -99,8 +98,7 @@ exports.newDbItem = (name, desc_short, desc_full, author, tags,obrazky, like, di
     });
 }
 
-exports.nacistDetail = (id) =>
-{
+exports.nacistDetail = (id) => {
     let data = db.get(id);
     data.id = id;
     return data;
@@ -146,10 +144,6 @@ exports.vypsat = () => {
         clanky.push(data[i])
         console.log(data[i]);
     }
-
-
-
-
 
     return clanky;
 }
