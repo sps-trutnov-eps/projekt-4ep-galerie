@@ -14,7 +14,7 @@ app.use('/', session({
     saveUninitialized: false,
     cookie: { 
         sameSite: true,
-        expires: 300000 //5 minut 60000 = 1 minuta
+        expires: 300000 // 5 minut (60000 = 1 minuta)
     },
 }));
 
