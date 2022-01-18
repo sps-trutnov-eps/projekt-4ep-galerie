@@ -41,8 +41,8 @@ exports.deleteProject = (id) => {
 
 exports.newDbItem = (name, desc_short, desc_full, author, tags,obrazky, like, dislike) => {
     let id = db.get('next_id')
-    db.set('next_id',db.get('next_id')+1)
-    db.set(id  , {
+    db.set('next_id', id + 1)
+    db.set(id, {
         "autor": author,
         "datum": new Date().toLocaleDateString(),
         "nadpis": name,
@@ -50,8 +50,8 @@ exports.newDbItem = (name, desc_short, desc_full, author, tags,obrazky, like, di
         "popis_full": desc_full,
         "tagy": tags,
         "obrazky": obrazky,
-        "Like": like,
-        "Dislike": dislike
+        "like": like,
+        "dislike": dislike
     });
 }
 
