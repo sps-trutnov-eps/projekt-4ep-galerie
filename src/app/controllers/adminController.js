@@ -123,13 +123,6 @@ exports.uploadArticle = (req, res,next) => {
     return res.redirect('/admin/edit')
 }
 
-exports.detail = (rq, res) =>
-{
-    let id = rq.params.id;
-    var data = dbModel.nacistDetail(id);
-    res.render('projekty/detail', {data, id});
-}
-
 exports.logout = (req, res) => {
     req.session.username = undefined;
     req.session.password = undefined;

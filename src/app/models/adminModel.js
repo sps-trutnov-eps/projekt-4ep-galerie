@@ -124,26 +124,3 @@ exports.compareAdmin = (req, res, next) => {
 
     }); 
 }
-
-exports.aktualizovatHodnoceni = (id, typ) => {
-    let projekt = db.get(id);
-    if(typ == "like"){
-        projekt.like++;
-    }
-    else{
-        projekt.dislike++;
-    }
-    db.set(id, projekt)
-}
-
-exports.vypsat = () => {
-    let data = db.JSON();
-    let clanky = [];
-
-    for(let i = 0; i < data.length; i++){
-        clanky.push(data[i])
-        console.log(data[i]);
-    }
-
-    return clanky;
-}

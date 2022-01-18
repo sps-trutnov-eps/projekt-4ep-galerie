@@ -19,7 +19,7 @@ exports.hodnoceni = (req, res) =>
     if(req.headers.cookie == undefined)
     {
         res.cookie(req.body.id, "zahlasovano" + req.body.id);      
-            dbModel.aktualizovatHodnoceni(req.body.id, req.body.hodnoceni);
+        projektyModel.aktualizovatHodnoceni(req.body.id, req.body.hodnoceni);
             return res.send({"msg":{"status":1}})
     }
     else
@@ -28,7 +28,7 @@ exports.hodnoceni = (req, res) =>
             if(susenky[req.body.id] != "zahlasovano" + req.body.id)
             {
                 res.cookie(req.body.id, "zahlasovano" + req.body.id);      
-                dbModel.aktualizovatHodnoceni(req.body.id, req.body.hodnoceni);
+                projektyModel.aktualizovatHodnoceni(req.body.id, req.body.hodnoceni);
                 return res.send({"msg":{"status":1}})
             }
             else

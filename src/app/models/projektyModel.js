@@ -16,3 +16,26 @@ exports.nacistProjekt = (id) => {
     data.id = id;
     return data;
 }
+
+exports.vypsat = () => {
+    let data = db_projekty.JSON();
+    let clanky = [];
+
+    for(let i = 0; i < data.length; i++){
+        clanky.push(data[i])
+        console.log(data[i]);
+    }
+
+    return clanky;
+}
+
+exports.aktualizovatHodnoceni = (id, typ) => {
+    let projekt = db_projekty.get(id);
+    if(typ == "like"){
+        projekt.like++;
+    }
+    else{
+        projekt.dislike++;
+    }
+    db_projekty.set(id, projekt)
+}
