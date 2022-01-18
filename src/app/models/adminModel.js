@@ -1,8 +1,8 @@
 const path = require('path');
 const bcrypt = require("bcryptjs");
-const JSONdb = require('simple-json-db');
+const jsondb = require('simple-json-db');
 
-const db = new JSONdb(path.join(__dirname, '..', '..', '..', 'data', 'projekty.json'));
+const db = new jsondb(path.join(__dirname, '..', '..', '..', 'data', 'projekty.json'));
 
 exports.editProject = (id, items) => {
     var project = db.get(id);
