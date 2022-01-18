@@ -54,7 +54,7 @@ exports.detail = (req, res) => {
     let data = projektyModel.nacistProjekt(id);
 
     res.render('projekty/detail', {
-        data,
+        data, id
     });
 }
 
