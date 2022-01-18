@@ -14,23 +14,28 @@ exports.dalsiId = () => {
 
 exports.nacistProjekt = (id) => {
     let data = db.get(id);
+
     data.id = id;
+
     return data;
 }
 
 exports.nacistVsechny = () => {
     let projekty = db.JSON();
+
     delete projekty['next_id'];
+
     return projekty;
 }
 
 exports.aktualizovatHodnoceni = (id, typ) => {
     let projekt = db.get(id);
-    if(typ == "like"){
+
+    if(typ == "like") {
         projekt.like++;
-    }
-    else{
+    } else {
         projekt.dislike++;
     }
+
     db.set(id, projekt)
 }

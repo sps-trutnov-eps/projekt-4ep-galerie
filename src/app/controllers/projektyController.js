@@ -19,7 +19,7 @@ exports.hodnoceni = (req, res) => {
     {
         res.cookie(req.body.id, "zahlasovano" + req.body.id);      
         model.aktualizovatHodnoceni(req.body.id, req.body.hodnoceni);
-            return res.send({"msg":{"status":1}})
+        return res.send({"msg":{"status":1}})
     }
     else
     {
@@ -53,8 +53,8 @@ exports.detail = (req, res) => {
     });
 }
 
-let rozdelitCookie = (req) => {
-    let rc = req.headers.cookie;
+let rozdelitCookie = (request) => {
+    let rc = request.headers.cookie;
     let list = {};
 
     rc && rc.split(';').forEach(cookie => {
