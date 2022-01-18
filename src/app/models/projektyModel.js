@@ -4,7 +4,7 @@ const JSONdb = require('simple-json-db');
 const dbTagy = new JSONdb(path.join(__dirname, '..', '..', '..', 'data', 'tagy.json'));
 const db = new JSONdb(path.join(__dirname, '..', '..', '..', 'data', 'projekty.json'));
 
-exports.Ziskej_tagy = () => {
+exports.ziskejTagy = () => {
     return dbTagy.JSON();
 }
 
@@ -22,17 +22,6 @@ exports.nacistVsechny = () => {
     let projekty = db.JSON();
     delete projekty['next_id'];
     return projekty;
-}
-
-exports.vypsat = () => {
-    let data = db.JSON();
-    let clanky = [];
-
-    for(let i = 0; i < data.length; i++){
-        clanky.push(data[i])
-    }
-
-    return clanky;
 }
 
 exports.aktualizovatHodnoceni = (id, typ) => {

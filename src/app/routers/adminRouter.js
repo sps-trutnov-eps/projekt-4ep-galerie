@@ -5,8 +5,8 @@ const router = express.Router();
 
 const controller = require(path.join(__dirname, '..', 'controllers', 'adminController'));
 
-const verify = (req,res,next) => {
-    if(req.session.userid == 'admin' /*req.session.password == 'a'*/) {
+const verify = (req, res, next) => {
+    if(req.session.userid == 'admin') {
         next();
     }
     else {

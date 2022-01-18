@@ -5,7 +5,7 @@ const projektyModel = require(require('path').join(__dirname, '..', 'models', 'p
 
 exports.upload = (req, res) => {
     res.render('admin/upload_form', {
-        data: projektyModel.Ziskej_tagy()
+        data: projektyModel.ziskejTagy()
     });
 }
 

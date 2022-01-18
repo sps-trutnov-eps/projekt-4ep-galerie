@@ -2,18 +2,19 @@ const path = require('path');
 
 const model = require(path.join(__dirname, '..', 'models', 'projektyModel'));
 
-exports.main = (req, res) => 
-{
+exports.main = (req, res) => {
     let data = {
-        tagy: model.Ziskej_tagy(),
-        projekty:model.nacistVsechny()
+        tagy: model.ziskejTagy(),
+        projekty: model.nacistVsechny()
     };
-    res.render('main',{data});
+    res.render('projekty/main', {
+        data,
+    });
 }
 
-exports.hodnoceni = (req, res) =>
-{
-    var susenky = rozdelitCookie(req);
+exports.hodnoceni = (req, res) => {
+    let susenky = rozdelitCookie(req);
+
     if(req.headers.cookie == undefined)
     {
         res.cookie(req.body.id, "zahlasovano" + req.body.id);      
@@ -52,12 +53,12 @@ exports.detail = (req, res) => {
     });
 }
 
-function rozdelitCookie (req) {
-    var list = {},
-        rc = req.headers.cookie;
+let rozdelitCookie = (req) => {
+    let rc = req.headers.cookie;
+    let list = {};
 
-    rc && rc.split(';').forEach(function( cookie ) {
-        var parts = cookie.split('=');
+    rc && rc.split(';').forEach(cookie => {
+        let parts = cookie.split('=');
         list[parts.shift().trim()] = decodeURI(parts.join('='));
     });
 
