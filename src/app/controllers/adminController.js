@@ -1,11 +1,12 @@
+const path = require('path');
 const multer = require('multer');
 
-const adminModel = require(require('path').join(__dirname, '..', 'models', 'adminModel'));
-const projektyModel = require(require('path').join(__dirname, '..', 'models', 'projektyModel'));
+const tagyModel = require(path.join(__dirname, '..', 'models', 'tagyModel'));
+const projektyModel = require(path.join(__dirname, '..', 'models', 'projektyModel'));
 
 exports.upload = (req, res) => {
     res.render('admin/upload_form', {
-        data: projektyModel.ziskejTagy()
+        data: tagyModel.ziskejTagy()
     });
 }
 
@@ -24,23 +25,23 @@ exports.getProjectData = (req, res) => {
 }
 
 exports.getProjectNames = (req, res) => {
-    res.send(adminModel.getProjectNames());
+    res.send(projektyModel.getProjectNames());
 }
 
 exports.getProjectTitles = (req, res) => {
-    res.send(adminModel.getProjectTitles());
+    res.send(projektyModel.getProjectTitles());
 }
 
 exports.editProject = (req, res) => {
     var id = req.body[0];
     var items = req.body[1];
-    adminModel.editProject(id, items);
+    projektyModel.editProject(id, items);
     res.send({"msg":"Projekt změněn!"});
 }
 
 exports.deleteProject = (req, res) => {
     var id = req.body.ID;
-    var odpoved = adminModel.deleteProject(id);
+    var odpoved = projektyModel.deleteProject(id);
     var msg = {};
     switch(odpoved) {
         case true: {
@@ -67,7 +68,7 @@ exports.postLoginInfo = (req, res) => {
 }
 
 exports.compareAdmin = (req, res, next) => {
-    adminModel.compareAdmin(req, res, next);
+    projektyModel.compareAdmin(req, res, next);
 }
 
 exports.pre_upload = (req, res,next) => 
@@ -117,7 +118,7 @@ exports.uploadProject = (req, res,next) => {
     let hodnoceniLike = 0;
     let hodnoceniDislike = 0;
     
-    adminModel.newDbItem(name, desc_short, desc_full, author, tags,obrazky, hodnoceniLike, hodnoceniDislike);
+    projektyModel.newDbItem(name, desc_short, desc_full, author, tags,obrazky, hodnoceniLike, hodnoceniDislike);
     return res.redirect('/admin/edit')
 }
 

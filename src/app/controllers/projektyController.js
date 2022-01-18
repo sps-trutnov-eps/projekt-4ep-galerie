@@ -1,11 +1,12 @@
 const path = require('path');
 
-const model = require(path.join(__dirname, '..', 'models', 'projektyModel'));
+const tagyModel = require(path.join(__dirname, '..', 'models', 'tagyModel'));
+const projektyModel = require(path.join(__dirname, '..', 'models', 'projektyModel'));
 
 exports.main = (req, res) => {
     let data = {
-        tagy: model.ziskejTagy(),
-        projekty: model.nacistVsechny()
+        tagy: tagyModel.ziskejTagy(),
+        projekty: projektyModel.nacistVsechny()
     };
     res.render('projekty/main', {
         data,
@@ -18,7 +19,7 @@ exports.hodnoceni = (req, res) => {
     if(req.headers.cookie == undefined)
     {
         res.cookie(req.body.id, "zahlasovano" + req.body.id);      
-        model.aktualizovatHodnoceni(req.body.id, req.body.hodnoceni);
+        projektyModel.aktualizovatHodnoceni(req.body.id, req.body.hodnoceni);
         return res.send({"msg":{"status":1}})
     }
     else
@@ -27,7 +28,7 @@ exports.hodnoceni = (req, res) => {
             if(susenky[req.body.id] != "zahlasovano" + req.body.id)
             {
                 res.cookie(req.body.id, "zahlasovano" + req.body.id);      
-                model.aktualizovatHodnoceni(req.body.id, req.body.hodnoceni);
+                projektyModel.aktualizovatHodnoceni(req.body.id, req.body.hodnoceni);
                 return res.send({"msg":{"status":1}})
             }
             else
@@ -46,7 +47,7 @@ exports.prehled = (req, res) => {
 exports.detail = (req, res) => {
     let id = req.params.id;
 
-    let data = model.nacistProjekt(id);
+    let data = projektyModel.nacistProjekt(id);
 
     res.render('projekty/detail', {
         data, id
