@@ -2,27 +2,7 @@ const path = require('path');
 const bcrypt = require("bcryptjs");
 const JSONdb = require('simple-json-db');
 
-const db = new JSONdb(path.join(__dirname, '..', '..', '..', 'data', 'clanky.json'));
-const udaje = new JSONdb(path.join(__dirname, '..', '..', '..', 'data', 'udaje.json'));
-
-exports.dalsi_ID = () => {
-    return db.JSON()["next_id"];
-}
-
-exports.nacist = (id) => {
-    let clanek = db.get(id);
-    return clanek;
-}
-
-exports.nacistVse = () => {
-    var clanky = db.JSON();
-    delete clanky["next_id"];
-    return clanky;
-}
-
-exports.nacistUdaje = () => {
-    return udaje.JSON();
-}
+const db = new JSONdb(path.join(__dirname, '..', '..', '..', 'data', 'projekty.json'));
 
 exports.editArticle = (id, items) => {
     var Article = db.get(id);

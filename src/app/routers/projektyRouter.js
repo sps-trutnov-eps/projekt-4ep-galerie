@@ -8,7 +8,6 @@ router.post('/hodnoceni', controller.hodnoceni);
 
 router.get('/detail/:id', controller.detail);
 router.get('/prehled', controller.prehled); 
-router.get('/vypsat', controller.vypsat);
 router.get('/', controller.main);
 
 module.exports = router;

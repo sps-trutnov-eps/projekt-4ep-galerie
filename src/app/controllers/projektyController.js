@@ -44,10 +44,6 @@ exports.prehled = (request, response) => {
     response.render('projekty/prehled');
 }
 
-exports.vypsat = (request, response) => {
-    dbModel.vypsatVse();
-}
-
 exports.detail = (req, res) => {
     let id = req.params.id;
 

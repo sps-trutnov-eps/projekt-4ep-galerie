@@ -1,4 +1,5 @@
 const dbModel = require(require('path').join(__dirname, '..', 'models', 'adminModel'));
+const projektyModel = require(require('path').join(__dirname, '..', 'models', 'projektyModel'));
 const { Ziskej_tagy } = require(require('path').join(__dirname, '..', 'models', 'projektyModel'));
 const multer = require('multer');
 
@@ -17,8 +18,8 @@ exports.adminEdit = (req, res) => {
 }
 
 exports.getArticleData = (req, res) => {
-    var name = req.params.article;
-    var data = dbModel.nacist(name);
+    var id = req.params.id;
+    var data = projektyModel.nacistProjekt(id);
     res.send(data);
 }
 

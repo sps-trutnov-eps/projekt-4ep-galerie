@@ -18,7 +18,7 @@ const verify = (req,res,next) => {
 
 router.get('/upload', verify, controller.upload);
 router.get('/getArticleNames', verify, controller.getArticleNames);
-router.get('/edit/:article',verify, controller.getArticleData)
+router.get('/edit/:id',verify, controller.getArticleData)
 router.get('/edit', verify, controller.adminEdit);
 router.get('/getArticleTitles', verify, controller.getArticleTitles);
 router.get('/compare', controller.compareAdmin);
