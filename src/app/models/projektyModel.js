@@ -8,8 +8,8 @@ exports.Ziskej_tagy = () => {
     return dbTagy.JSON();
 }
 
-exports.Pocet_projektu = () => {
-    return db.JSON().length;
+exports.dalsiId = () => {
+    return db.JSON()['next_id'];
 }
 
 exports.nacistProjekt = (id) => {

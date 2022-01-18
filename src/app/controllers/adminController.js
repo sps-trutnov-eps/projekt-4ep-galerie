@@ -79,7 +79,7 @@ exports.pre_upload = (req, res,next) =>
 exports.uploadImg = (req, res,next) => {
     const upload = multer({
         storage: multer.diskStorage({
-            destination: './app/www/img/' + adminModel.dalsi_ID(),
+            destination: './app/www/img/' + projektyModel.dalsiId(),
             filename: (req, file, res) => {
                 res(null, file.originalname)
             }
