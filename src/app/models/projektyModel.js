@@ -4,6 +4,10 @@ const jsondb = require('simple-json-db');
 
 const db = new jsondb(path.join(__dirname, '..', '..', '..', 'data', 'projekty.json'));
 
+if(!db.has('next_id')) {
+    db.set('next_id', 1);
+}
+
 exports.dalsiId = () => {
     return db.JSON()['next_id'];
 }
