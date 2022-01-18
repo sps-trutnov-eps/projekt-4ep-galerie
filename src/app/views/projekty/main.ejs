@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 
 <head>
     <meta charset="UTF-8">
@@ -15,15 +15,10 @@
 
 <body>
     <div class="custom_container">
-        <script src="/script/tagy.js"></script>
         <script>
-
             var tagicky = '<%- JSON.stringify(data.projekty) %>';
             var vysledek = JSON.parse(tagicky);
             var zobrazovane_projekty = [];
-
-
-
         </script>
         <%- include("../stejne/hlavicka.ejs") -%>
             <div class="tagy_container">
@@ -67,13 +62,11 @@
                             </div>
 
                         </div>
-                        <% } %>
+                    <% } %>
                 </div>
-
             </main>
-            <%- include("../stejne/paticka.ejs") -%>
+        <%- include("../stejne/paticka.ejs") -%>
     </div>
-
 
     <script>
         let zaskrtle_tagy = [];
@@ -111,6 +104,8 @@
 
         }
     </script>
+
+    <script src="/script/tagy.js"></script>
 </body>
 
 </html>
