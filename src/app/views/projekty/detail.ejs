@@ -54,7 +54,6 @@
                                 <img src="/img/<%= data.id %>/<%= data.obrazky[1] %>" alt="galerie">
                             </div>
                             <% for (let i = 2; i < data.obrazky.length; i++) { %>
-                            <% console.log(i) %>
                             <div class="item">
                                 <img src="/img/<%= data.id %>/<%= data.obrazky[i] %>" alt="galerie">
                             </div>
@@ -103,7 +102,6 @@
                     hodnoceni: hodnoceni
                 })
             }).then(response => response.json()).then(data => {
-                console.log(data.msg.status);
                 switch(data.msg.status) {
                    case 1: {
                         location.reload();
@@ -111,11 +109,10 @@
                    }
                    case 2: {
                         alert("Již jste pro projekt <%= data.nadpis %> hlasoval/a!");
-
                         break;
                    }
                    default: {
-                       console.log("Error");
+                       console.log("Error", data.msg.status);
                        break;
                    }
                 }

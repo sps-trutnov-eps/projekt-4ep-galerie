@@ -56,7 +56,6 @@ exports.newDbItem = (name, desc_short, desc_full, author, tags,obrazky, like, di
 }
 
 exports.compareAdmin = (req, res, next) => {
-    console.log('compareAdmin Sekce --------------------')
     bcrypt.hash(process.env.ADMIN_PASSWORD, 5, function (err, hash) {
         // porovnávání hashem s heslem
         bcrypt.compare(req.session.password, hash, function (err, result) {

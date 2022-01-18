@@ -148,7 +148,6 @@ window.onload = () => {
 
     document.getElementById('logoutbtn').addEventListener('click', (e) => {
         fetch('/admin/logout', {method:"POST"}).then(res=>res.json()).then(data=>{
-            console.log(data)
             if (data.msg.status == 100) {
                 location.replace('/')
             }

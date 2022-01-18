@@ -62,7 +62,6 @@ exports.deleteArticle = (req, res) => {
 exports.postLoginInfo = (req, res) => {
     req.session.username = req.body.username;
     req.session.password = req.body.password;
-    console.log('loginAdmin Sekce --------------------')
     
     res.send({"status":100})
 }
@@ -100,7 +99,6 @@ exports.uploadImg = (req, res,next) => {
             
         }else
         {   
-            console.log(req.files);
             res.locals.nazvy_souboru=[];
             for(let i in req.files)
                 res.locals.nazvy_souboru.push(req.files[i].originalname);  
@@ -110,7 +108,6 @@ exports.uploadImg = (req, res,next) => {
 }
 
 exports.uploadArticle = (req, res,next) => {
-    console.log(res.locals.nazvy_souboru);
     let name = req.body.nazev;
     let desc_short = req.body.kratky_popis;
     let desc_full = req.body.dlouhy_popis;

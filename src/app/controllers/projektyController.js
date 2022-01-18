@@ -8,7 +8,6 @@ exports.main = (req, res) =>
         tagy: model.Ziskej_tagy(),
         projekty:model.nacistVsechny()
     };
-    console.log(data);
     res.render('main',{data});
 }
 
