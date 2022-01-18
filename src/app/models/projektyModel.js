@@ -17,6 +17,12 @@ exports.nacistProjekt = (id) => {
     return data;
 }
 
+exports.nacistVsechny = () => {
+    let projekty = db_projekty.JSON();
+    delete projekty['next_id'];
+    return projekty;
+}
+
 exports.vypsat = () => {
     let data = db_projekty.JSON();
     let clanky = [];

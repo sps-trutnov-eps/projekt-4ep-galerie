@@ -1,13 +1,12 @@
 const path = require('path');
 
 const projektyModel = require(path.join(__dirname, '..', 'models', 'projektyModel'));
-const dbModel = require(path.join(__dirname, '..', 'models', 'adminModel'));
 
 exports.main = (req, res) => 
 {
     let data = {
         tagy: projektyModel.Ziskej_tagy(),
-        projekty:dbModel.nacistVse()
+        projekty:projektyModel.nacistVsechny()
     };
     console.log(data);
     res.render('main',{data});
