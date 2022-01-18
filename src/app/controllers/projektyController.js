@@ -1,12 +1,12 @@
 const path = require('path');
 
-const projektyModel = require(path.join(__dirname, '..', 'models', 'projektyModel'));
+const model = require(path.join(__dirname, '..', 'models', 'projektyModel'));
 
 exports.main = (req, res) => 
 {
     let data = {
-        tagy: projektyModel.Ziskej_tagy(),
-        projekty:projektyModel.nacistVsechny()
+        tagy: model.Ziskej_tagy(),
+        projekty:model.nacistVsechny()
     };
     console.log(data);
     res.render('main',{data});
@@ -18,7 +18,7 @@ exports.hodnoceni = (req, res) =>
     if(req.headers.cookie == undefined)
     {
         res.cookie(req.body.id, "zahlasovano" + req.body.id);      
-        projektyModel.aktualizovatHodnoceni(req.body.id, req.body.hodnoceni);
+        model.aktualizovatHodnoceni(req.body.id, req.body.hodnoceni);
             return res.send({"msg":{"status":1}})
     }
     else
@@ -27,7 +27,7 @@ exports.hodnoceni = (req, res) =>
             if(susenky[req.body.id] != "zahlasovano" + req.body.id)
             {
                 res.cookie(req.body.id, "zahlasovano" + req.body.id);      
-                projektyModel.aktualizovatHodnoceni(req.body.id, req.body.hodnoceni);
+                model.aktualizovatHodnoceni(req.body.id, req.body.hodnoceni);
                 return res.send({"msg":{"status":1}})
             }
             else
@@ -39,23 +39,23 @@ exports.hodnoceni = (req, res) =>
     res.send('Vsechno OK!'); 
 }
 
-exports.prehled = (request, response) => {
+exports.prehled = (req, res) => {
     response.render('projekty/prehled');
 }
 
 exports.detail = (req, res) => {
     let id = req.params.id;
 
-    let data = projektyModel.nacistProjekt(id);
+    let data = model.nacistProjekt(id);
 
     res.render('projekty/detail', {
         data, id
     });
 }
 
-function rozdelitCookie (request) {
+function rozdelitCookie (req) {
     var list = {},
-        rc = request.headers.cookie;
+        rc = req.headers.cookie;
 
     rc && rc.split(';').forEach(function( cookie ) {
         var parts = cookie.split('=');

@@ -1,11 +1,11 @@
-const dbModel = require(require('path').join(__dirname, '..', 'models', 'adminModel'));
-const projektyModel = require(require('path').join(__dirname, '..', 'models', 'projektyModel'));
-const { Ziskej_tagy } = require(require('path').join(__dirname, '..', 'models', 'projektyModel'));
 const multer = require('multer');
+
+const adminModel = require(require('path').join(__dirname, '..', 'models', 'adminModel'));
+const projektyModel = require(require('path').join(__dirname, '..', 'models', 'projektyModel'));
 
 exports.upload = (req, res) => {
     res.render('admin/upload_form', {
-        data:Ziskej_tagy()
+        data: projektyModel.Ziskej_tagy()
     });
 }
 
@@ -24,23 +24,23 @@ exports.getArticleData = (req, res) => {
 }
 
 exports.getArticleNames = (req, res) => {
-    res.send(dbModel.getArticleNames());
+    res.send(adminModel.getArticleNames());
 }
 
 exports.getArticleTitles = (req, res) => {
-    res.send(dbModel.getArticleTitles());
+    res.send(adminModel.getArticleTitles());
 }
 
 exports.editArticle = (req, res) => {
     var id = req.body[0];
     var items = req.body[1];
-    dbModel.editArticle(id, items);
+    adminModel.editArticle(id, items);
     res.send({"msg":"Článek změněn!"});
 }
 
 exports.deleteArticle = (req, res) => {
     var id = req.body.ID;
-    var odpoved = dbModel.deleteArticle(id);
+    var odpoved = adminModel.deleteArticle(id);
     var msg = {};
     switch(odpoved) {
         case true: {
@@ -68,7 +68,7 @@ exports.postLoginInfo = (req, res) => {
 }
 
 exports.compareAdmin = (req, res, next) => {
-    dbModel.compareAdmin(req, res, next);
+    adminModel.compareAdmin(req, res, next);
 }
 
 exports.pre_upload = (req, res,next) => 
@@ -79,7 +79,7 @@ exports.pre_upload = (req, res,next) =>
 exports.uploadImg = (req, res,next) => {
     const upload = multer({
         storage: multer.diskStorage({
-            destination: './app/www/img/' + dbModel.dalsi_ID(),
+            destination: './app/www/img/' + adminModel.dalsi_ID(),
             filename: (req, file, res) => {
                 res(null, file.originalname)
             }
@@ -120,7 +120,7 @@ exports.uploadArticle = (req, res,next) => {
     let hodnoceniLike = 0;
     let hodnoceniDislike = 0;
     
-    dbModel.newDbItem(name, desc_short, desc_full, author, tags,obrazky, hodnoceniLike, hodnoceniDislike);
+    adminModel.newDbItem(name, desc_short, desc_full, author, tags,obrazky, hodnoceniLike, hodnoceniDislike);
     return res.redirect('/admin/edit')
 }
 

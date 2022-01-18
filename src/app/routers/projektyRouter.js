@@ -1,8 +1,10 @@
 const path = require('path');
-const express = require('express');
 const { resourceLimits } = require('worker_threads');
-const controller = require(path.join(__dirname, '..', 'controllers', 'projektyController'));
+
+const express = require('express');
 const router = express.Router();
+
+const controller = require(path.join(__dirname, '..', 'controllers', 'projektyController'));
 
 router.post('/hodnoceni', controller.hodnoceni);
 

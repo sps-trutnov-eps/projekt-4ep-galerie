@@ -1,30 +1,31 @@
 const path = require('path');
 const JSONdb = require('simple-json-db');
-const db_tagy = new JSONdb(path.join(__dirname, '..', '..', '..', 'data', 'tagy.json'));
-const db_projekty = new JSONdb(path.join(__dirname, '..', '..', '..', 'data', 'projekty.json'));
+
+const dbTagy = new JSONdb(path.join(__dirname, '..', '..', '..', 'data', 'tagy.json'));
+const db = new JSONdb(path.join(__dirname, '..', '..', '..', 'data', 'projekty.json'));
 
 exports.Ziskej_tagy = () => {
-    return db_tagy.JSON();
+    return dbTagy.JSON();
 }
 
 exports.Pocet_projektu = () => {
-    return db_projekty.JSON().length;
+    return db.JSON().length;
 }
 
 exports.nacistProjekt = (id) => {
-    let data = db_projekty.get(id);
+    let data = db.get(id);
     data.id = id;
     return data;
 }
 
 exports.nacistVsechny = () => {
-    let projekty = db_projekty.JSON();
+    let projekty = db.JSON();
     delete projekty['next_id'];
     return projekty;
 }
 
 exports.vypsat = () => {
-    let data = db_projekty.JSON();
+    let data = db.JSON();
     let clanky = [];
 
     for(let i = 0; i < data.length; i++){
@@ -35,12 +36,12 @@ exports.vypsat = () => {
 }
 
 exports.aktualizovatHodnoceni = (id, typ) => {
-    let projekt = db_projekty.get(id);
+    let projekt = db.get(id);
     if(typ == "like"){
         projekt.like++;
     }
     else{
         projekt.dislike++;
     }
-    db_projekty.set(id, projekt)
+    db.set(id, projekt)
 }

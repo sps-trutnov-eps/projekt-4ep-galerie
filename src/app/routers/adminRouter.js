@@ -1,7 +1,9 @@
 const path = require('path');
+
 const express = require('express');
-const controller = require(path.join(__dirname, '..', 'controllers', 'adminController'));
 const router = express.Router();
+
+const controller = require(path.join(__dirname, '..', 'controllers', 'adminController'));
 
 const verify = (req,res,next) => {
     console.log('adminVerify sekce ------------------------------');
