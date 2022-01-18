@@ -147,10 +147,10 @@ window.onload = () => {
     })
 
     document.getElementById('logoutbtn').addEventListener('click', (e) => {
-        console.log(e.target)
         fetch('/admin/logout', {method:"POST"}).then(res=>res.json()).then(data=>{
+            console.log(data)
             if (data.msg.status == 100) {
-                location.reload()
+                location.replace('/')
             }
         }).catch(e=>console.log(e))
     })

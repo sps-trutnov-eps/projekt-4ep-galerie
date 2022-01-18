@@ -78,12 +78,6 @@ exports.newDbItem = (name, desc_short, desc_full, author, tags,obrazky, like, di
     });
 }
 
-exports.nacistDetail = (id) => {
-    let data = db.get(id);
-    data.id = id;
-    return data;
-}
-
 exports.compareAdmin = (req, res, next) => {
     console.log('compareAdmin Sekce --------------------')
     bcrypt.hash(process.env.ADMIN_PASSWORD, 5, function (err, hash) {
@@ -92,13 +86,10 @@ exports.compareAdmin = (req, res, next) => {
           // porovnaní údajů
           if(req.session.username == process.env.ADMIN_USERNAME && result == true){
             req.session.userid = 'admin';
-            console.log("admin je prihlasen");
-            console.log(req.session);
             res.redirect('/admin/edit');
           }
           else{
-              console.log("Wrong username or password/ Admin neni prihlasen");
-              res.redirect('/')
+              res.redirect('/admin')
           }
         });
 

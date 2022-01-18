@@ -29,7 +29,6 @@ exports.vypsat = () => {
 
     for(let i = 0; i < data.length; i++){
         clanky.push(data[i])
-        console.log(data[i]);
     }
 
     return clanky;

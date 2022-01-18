@@ -30,6 +30,7 @@ router.post('/deleteArticle', verify, controller.deleteArticle);
 
 router.post('/loginInfo', controller.postLoginInfo);
 router.post('/logout', controller.logout)
+
 router.get('/', controller.admin);
 
 module.exports = router;
