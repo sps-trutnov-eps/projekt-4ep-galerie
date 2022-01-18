@@ -5,17 +5,17 @@ const JSONdb = require('simple-json-db');
 const db = new JSONdb(path.join(__dirname, '..', '..', '..', 'data', 'projekty.json'));
 
 exports.editProject = (id, items) => {
-    var Project = db.get(id);
-    Project.autor = (items?.autor===undefined?Project.autor:items.autor);
-    Project.datum = (items?.datum===undefined?Project.datum:items.datum);
-    Project.nadpis = (items?.nadpis===undefined?Project.nadpis:items.nadpis);
-    Project.popis_short = (items?.popis_short===undefined?Project.popis_short:items.popis_short);
-    Project.popis_full = (items?.popis_full===undefined?Project.popis_full:items.popis_full);
-    Project.tagy = (items?.tagy===undefined?Project.tagy:items.tagy);
-    Project.like = (items?.like===undefined?Project.like:items.like);
-    Project.dislike = (items?.dislike===undefined?Project.dislike:items.dislike);
-    Project.obrazky = (items?.obrazky===undefined?Project.obrazky:items.obrazky);
-    db.set(id, Project);
+    var project = db.get(id);
+    project.autor = (items?.autor===undefined?project.autor:items.autor);
+    project.datum = (items?.datum===undefined?project.datum:items.datum);
+    project.nadpis = (items?.nadpis===undefined?project.nadpis:items.nadpis);
+    project.popis_short = (items?.popis_short===undefined?project.popis_short:items.popis_short);
+    project.popis_full = (items?.popis_full===undefined?project.popis_full:items.popis_full);
+    project.tagy = (items?.tagy===undefined?project.tagy:items.tagy);
+    project.like = (items?.like===undefined?project.like:items.like);
+    project.dislike = (items?.dislike===undefined?project.dislike:items.dislike);
+    project.obrazky = (items?.obrazky===undefined?project.obrazky:items.obrazky);
+    db.set(id, project);
 }
 
 exports.getProjectNames = () => {

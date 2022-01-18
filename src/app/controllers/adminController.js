@@ -35,7 +35,7 @@ exports.editProject = (req, res) => {
     var id = req.body[0];
     var items = req.body[1];
     adminModel.editProject(id, items);
-    res.send({"msg":"Článek změněn!"});
+    res.send({"msg":"Projekt změněn!"});
 }
 
 exports.deleteProject = (req, res) => {
@@ -44,15 +44,15 @@ exports.deleteProject = (req, res) => {
     var msg = {};
     switch(odpoved) {
         case true: {
-            msg = {"msg":"Clanek byl vymazan uspesne."};
+            msg = {"msg":"Projekt byl vymazán úspěšně."};
             break;
         }
         case undefined: {
-            msg = {"msg":"Clanek nenalezen."};
+            msg = {"msg":"Projekt nenalezen."};
             break;
         }
         default: {
-            msg = {"msg":"Neznama chyba"};
+            msg = {"msg":"Neznámá chyba."};
             break;
         }
     }

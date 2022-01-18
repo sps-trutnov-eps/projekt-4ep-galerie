@@ -98,11 +98,11 @@ window.onload = () => {
                 headers: {'Content-Type':'application/json'},
                 body:JSON.stringify({'ID': project})
             }).then(res=>res.json()).then(data=>{
-                if (data.msg === "Clanek byl vymazan uspesne.") {
-                    M.toast({html: '<span class="light-green-text lighten-2" style="font-weight:bold;">Článek byl úspěšně smazán!</span>'});
+                if (data.msg === "Projekt byl vymazán úspěšně.") {
+                    M.toast({html: '<span class="light-green-text lighten-2" style="font-weight:bold;">Projekt byl úspěšně smazán!</span>'});
                 }
-                else if (data.msg === "Clanek nenalezen.") {
-                    M.toast({html: 'Článek již neexistuje!'});
+                else if (data.msg === "Projekt nenalezen.") {
+                    M.toast({html: 'Projekt již neexistuje!'});
                 }
                 else {
                     M.toast({html: 'Neznámá chyba!'});
