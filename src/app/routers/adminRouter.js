@@ -15,16 +15,16 @@ const verify = (req, res, next) => {
 }
 
 router.get('/upload', verify, controller.upload);
-router.get('/getArticleNames', verify, controller.getArticleNames);
-router.get('/edit/:id',verify, controller.getArticleData)
+router.get('/getProjectNames', verify, controller.getProjectNames);
+router.get('/edit/:id',verify, controller.getProjectData)
 router.get('/edit', verify, controller.adminEdit);
-router.get('/getArticleTitles', verify, controller.getArticleTitles);
+router.get('/getProjectTitles', verify, controller.getProjectTitles);
 router.get('/compare', controller.compareAdmin);
 
-router.post('/newArticle', verify, controller.uploadArticle);
-router.post('/sendImg', controller.pre_upload, controller.uploadImg, controller.uploadArticle);
-router.post('/editArticle', verify, controller.editArticle);
-router.post('/deleteArticle', verify, controller.deleteArticle);
+router.post('/newProject', verify, controller.uploadProject);
+router.post('/sendImg', controller.pre_upload, controller.uploadImg, controller.uploadProject);
+router.post('/editProject', verify, controller.editProject);
+router.post('/deleteProject', verify, controller.deleteProject);
 
 router.post('/loginInfo', controller.postLoginInfo);
 router.post('/logout', controller.logout)

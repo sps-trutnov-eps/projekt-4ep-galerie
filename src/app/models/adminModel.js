@@ -4,37 +4,37 @@ const JSONdb = require('simple-json-db');
 
 const db = new JSONdb(path.join(__dirname, '..', '..', '..', 'data', 'projekty.json'));
 
-exports.editArticle = (id, items) => {
-    var Article = db.get(id);
-    Article.autor = (items?.autor===undefined?Article.autor:items.autor);
-    Article.datum = (items?.datum===undefined?Article.datum:items.datum);
-    Article.nadpis = (items?.nadpis===undefined?Article.nadpis:items.nadpis);
-    Article.popis_short = (items?.popis_short===undefined?Article.popis_short:items.popis_short);
-    Article.popis_full = (items?.popis_full===undefined?Article.popis_full:items.popis_full);
-    Article.tagy = (items?.tagy===undefined?Article.tagy:items.tagy);
-    Article.like = (items?.like===undefined?Article.like:items.like);
-    Article.dislike = (items?.dislike===undefined?Article.dislike:items.dislike);
-    Article.obrazky = (items?.obrazky===undefined?Article.obrazky:items.obrazky);
-    db.set(id, Article);
+exports.editProject = (id, items) => {
+    var Project = db.get(id);
+    Project.autor = (items?.autor===undefined?Project.autor:items.autor);
+    Project.datum = (items?.datum===undefined?Project.datum:items.datum);
+    Project.nadpis = (items?.nadpis===undefined?Project.nadpis:items.nadpis);
+    Project.popis_short = (items?.popis_short===undefined?Project.popis_short:items.popis_short);
+    Project.popis_full = (items?.popis_full===undefined?Project.popis_full:items.popis_full);
+    Project.tagy = (items?.tagy===undefined?Project.tagy:items.tagy);
+    Project.like = (items?.like===undefined?Project.like:items.like);
+    Project.dislike = (items?.dislike===undefined?Project.dislike:items.dislike);
+    Project.obrazky = (items?.obrazky===undefined?Project.obrazky:items.obrazky);
+    db.set(id, Project);
 }
 
-exports.getArticleNames = () => {
+exports.getProjectNames = () => {
     return Object.keys(db.JSON());
 }
 
-exports.getArticleTitles = () => {
+exports.getProjectTitles = () => {
     var data = [];
-    var articles = db.JSON();
-    for (var i = 0; i < Object.keys(articles).length; i++) {
-        var name = Object.keys(articles)[i];
+    var projects = db.JSON();
+    for (var i = 0; i < Object.keys(projects).length; i++) {
+        var name = Object.keys(projects)[i];
         var obj = {};
-        obj[name] = Object.values(articles)[i].nadpis;
+        obj[name] = Object.values(projects)[i].nadpis;
         data.push(obj);
     }
     return data;
 }
 
-exports.deleteArticle = (id) => {
+exports.deleteProject = (id) => {
     var odpoved = db.delete(id);
     return odpoved;
 }

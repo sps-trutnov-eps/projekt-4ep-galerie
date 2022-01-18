@@ -17,30 +17,30 @@ exports.adminEdit = (req, res) => {
     res.render('admin/edit');
 }
 
-exports.getArticleData = (req, res) => {
+exports.getProjectData = (req, res) => {
     var id = req.params.id;
     var data = projektyModel.nacistProjekt(id);
     res.send(data);
 }
 
-exports.getArticleNames = (req, res) => {
-    res.send(adminModel.getArticleNames());
+exports.getProjectNames = (req, res) => {
+    res.send(adminModel.getProjectNames());
 }
 
-exports.getArticleTitles = (req, res) => {
-    res.send(adminModel.getArticleTitles());
+exports.getProjectTitles = (req, res) => {
+    res.send(adminModel.getProjectTitles());
 }
 
-exports.editArticle = (req, res) => {
+exports.editProject = (req, res) => {
     var id = req.body[0];
     var items = req.body[1];
-    adminModel.editArticle(id, items);
+    adminModel.editProject(id, items);
     res.send({"msg":"Článek změněn!"});
 }
 
-exports.deleteArticle = (req, res) => {
+exports.deleteProject = (req, res) => {
     var id = req.body.ID;
-    var odpoved = adminModel.deleteArticle(id);
+    var odpoved = adminModel.deleteProject(id);
     var msg = {};
     switch(odpoved) {
         case true: {
@@ -107,7 +107,7 @@ exports.uploadImg = (req, res,next) => {
     });
 }
 
-exports.uploadArticle = (req, res,next) => {
+exports.uploadProject = (req, res,next) => {
     let name = req.body.nazev;
     let desc_short = req.body.kratky_popis;
     let desc_full = req.body.dlouhy_popis;
