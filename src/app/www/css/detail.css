@@ -115,6 +115,7 @@ main
     color: black;
     font-size: 15px;
     padding-left: 2px;
+    word-break: break-word;
 }
 
 #mininadpis{
