@@ -8,10 +8,10 @@ window.onload = () => {
             var text = input.value.split(' ')[0];
             input.value = "";
 
-            var articles = fetch(`/admin/edit/${text}`).then(res=>res.json()).then((data)=>{
+            var projects = fetch(`/admin/edit/${text}`).then(res=>res.json()).then((data)=>{
                 if (typeof(data) === 'object') {
-                    (document.getElementById('article').hidden)?document.getElementById('article').hidden = false:null;
-                    document.getElementById('articleID').innerHTML = text;
+                    (document.getElementById('project').hidden)?document.getElementById('project').hidden = false:null;
+                    document.getElementById('projectID').innerHTML = text;
                     document.getElementById('autor').innerHTML = data.autor;
                     document.getElementById('datum').innerHTML = data.datum;
                     document.getElementById('nadpis').innerHTML = data.nadpis;
@@ -41,7 +41,7 @@ window.onload = () => {
     var navInstance = M.Dropdown.init(nav);
 
 
-    var titles = fetch('/admin/getArticleTitles').then(res => res.json()).then(data=>{
+    var titles = fetch('/admin/getProjectTitles').then(res => res.json()).then(data=>{
         data.pop() // POKUD TOHLE Z NĚJAKÉHO ZPŮSOBU ODSTRANÍ NEŽÁDOUCÍ ČLÁNEK, TAK PROSÍM PODĚKUJTE OSOBĚ, KTERÁ PŘIDALA "next_id" DO SCHEMATU ČLÁNKŮ, DĚKUJI
         for (var i = 0; i < data.length; i++) {
             options.data[`${Object.keys(data[i])} ${data[i][Object.keys(data[i])]}`] = null;
@@ -83,26 +83,26 @@ window.onload = () => {
         })
     }
 
-    document.getElementById('articleDelete').addEventListener('click', (e) => {
-        var modalArticle = document.getElementById('modalArticle')
-        modalArticle.innerHTML = `<strong>${document.getElementById('articleID').innerHTML}</strong>`;
+    document.getElementById('projectDelete').addEventListener('click', (e) => {
+        var modalProject = document.getElementById('modalProject')
+        modalProject.innerHTML = `<strong>${document.getElementById('projectID').innerHTML}</strong>`;
     })
     
-    document.getElementById('confirmArticleDelete').addEventListener('click', (e) => {
-        var input = document.getElementById('inputArticleDelete').value.toUpperCase();
-        var article = document.getElementById('modalArticle').innerHTML.slice(8,-9);
+    document.getElementById('confirmProjectDelete').addEventListener('click', (e) => {
+        var input = document.getElementById('inputProjectDelete').value.toUpperCase();
+        var project = document.getElementById('modalProject').innerHTML.slice(8,-9);
         
-        if (input === article) {
-            fetch('/admin/deleteArticle', {
+        if (input === project) {
+            fetch('/admin/deleteProject', {
                 method: 'POST',
                 headers: {'Content-Type':'application/json'},
-                body:JSON.stringify({'ID': article})
+                body:JSON.stringify({'ID': project})
             }).then(res=>res.json()).then(data=>{
-                if (data.msg === "Clanek byl vymazan uspesne.") {
-                    M.toast({html: '<span class="light-green-text lighten-2" style="font-weight:bold;">Článek byl úspěšně smazán!</span>'});
+                if (data.msg === "Projekt byl vymazán úspěšně.") {
+                    M.toast({html: '<span class="light-green-text lighten-2" style="font-weight:bold;">Projekt byl úspěšně smazán!</span>'});
                 }
-                else if (data.msg === "Clanek nenalezen.") {
-                    M.toast({html: 'Článek již neexistuje!'});
+                else if (data.msg === "Projekt nenalezen.") {
+                    M.toast({html: 'Projekt již neexistuje!'});
                 }
                 else {
                     M.toast({html: 'Neznámá chyba!'});
@@ -117,7 +117,7 @@ window.onload = () => {
         e.target.CALLBACK_VALUE.children[1].innerHTML = input
     })
     
-    document.getElementById('sendChangedArticle').addEventListener('click', (e) => {
+    document.getElementById('sendChangedProject').addEventListener('click', (e) => {
         var items = {
             'autor':document.getElementById('autor').innerHTML,
             'datum':document.getElementById('datum').innerHTML,
@@ -129,14 +129,14 @@ window.onload = () => {
             "dislike":parseInt(document.getElementById('dislike').innerHTML),
             "obrazky":document.getElementById('obrazky').innerHTML.split(',')
         }
-        var data = [document.getElementById('articleID').innerHTML, items]
-        fetch('/admin/editArticle', {
+        var data = [document.getElementById('projectID').innerHTML, items]
+        fetch('/admin/editProject', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(data)
         }).then(res=>res.json()).then(data=>{
             M.toast({html: `<span class="light-green-text lighten-2" style="font-weight:bold;">${data.msg}</span>`});
-            var articleTitles = fetch('/admin/getArticleTitles').then(res => res.json()).then(data=>{
+            var projectTitles = fetch('/admin/getProjectTitles').then(res => res.json()).then(data=>{
                 var tmpData = {}
                 for (var i = 0; i < data.length; i++) {
                     tmpData[`${Object.keys(data[i])} ${data[i][Object.keys(data[i])]}`] = null;
@@ -147,10 +147,9 @@ window.onload = () => {
     })
 
     document.getElementById('logoutbtn').addEventListener('click', (e) => {
-        console.log(e.target)
         fetch('/admin/logout', {method:"POST"}).then(res=>res.json()).then(data=>{
             if (data.msg.status == 100) {
-                location.reload()
+                location.replace('/')
             }
         }).catch(e=>console.log(e))
     })

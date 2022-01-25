@@ -1,3 +1,18 @@
+html{
+    height: 100%;
+}
+
+body{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+main{
+    height: 67%;
+}
+
+
 #password{
     font-size: 15pt; 
     padding: 5px;
@@ -12,22 +27,18 @@
 #login{
     padding-top: 20px;
 }
-#button_edit{
-    font-size: 16pt;
-    margin-left: 10px;
-    background: #374e88;
-    color: white;
-    border-radius: 1px solid white;
-    padding: 10px;
+
+#upload{
+    float:right;
+    color:rgb(171,186,223) !important;
+    text-decoration: none;
+    font-size: 15px;
 }
-#button_upload{
-    font-size: 16pt;
-    margin-right: 10px;
-    background: #374e88;
-    color: white;
-    border-radius: 1px solid white;
-    padding: 10px;
+
+#upload:hover{
+    color:rgb(171,186,223);
 }
+
 #name{
     font-size: 26pt; 
     border-top: black solid 2px; 
@@ -43,14 +54,7 @@
     height: 500px;
 
 }
-#submit{
-    margin-top: 50px;
-    padding: 10px;
-    font-size: 15pt;
-    background: #374e88;
-    color: white;
-    border-radius: 1px solid white;
-}
+
 #prihlasovaci_jmeno{
     margin-bottom: 1px;
     text-align: left;
@@ -59,9 +63,12 @@
     margin-bottom: 1px;
     text-align: left;
 }
-.my_container{
+/*.my_container{
     width: 100%;
+    height: 100%;
+    margin: 0;
 }
+*/
 #footer{
     position: fixed;
     width: 100%;
@@ -82,21 +89,21 @@ body{
 #tlacitko_edit{
     text-align: center;
 }
-#button_edit:hover{
+button{
+    border: 1px solid white;
+    border-radius: 3px;
+    color: white;
+    background-color: #223974;
     font-weight: bold;
-    color: #374e88;
+    font-size: 25px;
+    margin: 10px;
+    padding: 5px;
+  }
+  button:hover{
+    transition: 0,5s;
     background-color: white;
-    border-radius: 1px solid #374e88;
-}
-#button_upload:hover{
+    color: #223974;
     font-weight: bold;
-    color: #374e88;
-    background-color: white;
-    border-radius: 1px solid #374e88;
-}
-#submit:hover{
-    font-weight: bold;
-    color: #374e88;
-    background-color: white;
-    border-radius: 1px solid #374e88;
-}
+    border: 1px solid #223974;
+    border-radius: 3px;
+  }

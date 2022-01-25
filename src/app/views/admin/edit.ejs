@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="../css/upload_form.css">
+    <link rel="stylesheet" href="/css/upload_form.css">
     <title>Document</title>
 </head>
 <body>
@@ -32,18 +32,18 @@
           <div class="row">
             <div class="input-field col s12">
               <input type="text" id="autocomplete-input" placeholder="ID ČLÁNKU NEBO NADPIS" class="autocomplete">
-              <label for="autocomplete-input">Article</label>
+              <label for="autocomplete-input">Project</label>
             </div>
           </div>
         </div>
     </div>
 
-    <table id="article" class="highlight" hidden>
+    <table id="project" class="highlight" hidden>
       <thead>
         <tr>
-            <th id="articleID" style="font-size: 1.5em;"></th>
+            <th id="projectID" style="font-size: 1.5em;"></th>
             <th class="center">DATA</th>
-            <th class="right"><a id="articleDelete" href="#modal1" style="font-weight: lighter;" class="waves-effect waves-light btn red modal-trigger">DELETE</a></th>
+            <th class="right"><a id="projectDelete" href="#modal1" style="font-weight: lighter;" class="waves-effect waves-light btn red modal-trigger">DELETE</a></th>
         </tr>
       </thead>
       <tbody>
@@ -101,7 +101,7 @@
       <tfoot>
         <tr>
           <td>&nbsp;</td>
-          <td class="center"><a id="sendChangedArticle" class="waves-effect waves-light btn-large">ODESLAT</a></td>
+          <td class="center"><a id="sendChangedProject" class="waves-effect waves-light btn-large">ODESLAT</a></td>
           <td>&nbsp;</td>
         </tr>
       </tfoot>
@@ -113,13 +113,13 @@
     <div id="modal1" class="modal">
       <div class="modal-content">
         <h4 class="center">UPOZORNĚNÍ</h4>
-        <p class="flow-text center">Právě se chystáte odebrat článek <span id="modalArticle" class="red pulse card-panel" style="user-select: none;"></span></p>
+        <p class="flow-text center">Právě se chystáte odebrat článek <span id="modalProject" class="red pulse card-panel" style="user-select: none;"></span></p>
         <br>
         <p class="center">Pokud opravdu chcete tento článek odebrat, napište zde jeho celý název: </p>
-        <input type="text" id="inputArticleDelete" class="center" style="font-size: 2em; text-transform: uppercase;">
+        <input type="text" id="inputProjectDelete" class="center" style="font-size: 2em; text-transform: uppercase;">
       </div>
       <div class="modal-footer">
-        <a href="#!" id="confirmArticleDelete" class="modal-close waves-effect waves-green btn-flat red white-text">POTVRDIT</a>
+        <a href="#!" id="confirmProjectDelete" class="modal-close waves-effect waves-green btn-flat red white-text">POTVRDIT</a>
         <a href="#!" class="modal-close waves-effect waves-green btn-flat">ZRUŠIT</a>
       </div>
     </div>
@@ -140,6 +140,6 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="/admin/edit.js"></script>
+    <script src="/script/edit.js"></script>
 </body>
 </html>

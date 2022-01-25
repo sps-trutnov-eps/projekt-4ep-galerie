@@ -1,57 +1,23 @@
-html {
-    height: 100%;
-}
 body {
     font-family: 'Segoe UI', sans-serif; 
-    background-color: white;
     margin: 0;
     opacity: 0.999;
     min-height: 100%;
     width: 100%;
 }
-
-#logo {
-    height: 75px;
-    padding-bottom: 15px;
-    padding-top: 15px;
-    font-size: 35px;
-    font-weight: normal;
-    opacity: 1;
-    background-color: #223974;
-    width: 100%;
-    text-align: left;
-    align-self: left;
-    align-items: left;
-    position: sticky;
+main
+{
+    margin-bottom: 80px;
 }
-
 #container {
     width: 900px;
     background-color: white; 
     padding: 20px; 
-    margin: 0;
     opacity: 1;
     padding-bottom: 0px;
-    margin-bottom: 25px;
     left: 25%;
     position: relative;
     border: darkgrey 2px solid;
-    margin-top: -4px;
-    
-}
-
-#paticka {
-    height: 50px;
-    font-size: 25px;
-    font-weight: normal;
-    opacity: 1;
-    background-color: #223974;
-    width: 1000px;
-    color: white;
-    width: auto;
-    padding-bottom: 0px;
-    margin-left: 0;
-    margin-right: 0;
 }
 
 #copyright {
@@ -88,65 +54,67 @@ body {
     opacity:1;
 }
 
-#nadpis{
-    padding-left: 18px;
+#Nadpis{
+    text-align: center;
     color: black;
-    font-size: 40px;
-    font-style: italic;
+    font-size: 50px;
     font-weight: bold;
     margin-top: 0;
     margin-bottom: -5px;
-    left: 30%;
+
     opacity: 1;
-}
-
-#nadpis {
-    animation: color-change 1.5s infinite;
-}
-
-@keyframes color-change {
-    20%{color: black;}
-    40%{color: #3d7eb3;}
-    60%{color: #619ecf;}
-    80%{color: #3d7eb3;}
-    100%{color: black;}
 }
 
 #hlavni-obrazek{
     opacity: 1;
-    height: 600px;
-    width: 900px;
+    width: 40vw;
+    height: 50vh;
     border-radius: 5%;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    left: 30% !important;
 }
 
 #datum{
     margin-top: 0%;
-    padding-left: 35px;
+    text-align: center;
 }
 
 #autori{
     margin-bottom: 0;
-    padding-left: 125px;
-    font-size: 1.5rem;
+    padding-left: 44px;
+    font-size: 25px;
     margin-top: 0;
     max-width: 800px;
     text-size-adjust: calc(1);
+    position: 0;
 }
 
-#popis-p{
+#galerie-obrazku h2{
+    padding-left: 44px;
+    font-size: 25px;
+    margin-bottom: 2px;
+}
+
+#popis{
     opacity: 1;
-    width: 800px;
-    margin-left: 50px;
-    padding-left: 5px;
-    padding-top: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 1%;
-    min-height: 250px;
+    /*min-height: 250px;*/
     background-color: lightgray;
     border: darkgrey 2px solid;
+    width: 40vw;
+    height: 50vh;
 }
 
-#galerie-obrazku{
-    height: 250px;
+#popis p{
+    color: black;
+    font-size: 15px;
+    padding-left: 2px;
 }
 
 #mininadpis{
@@ -173,23 +141,12 @@ body {
 }
 
 #popis-div{
-    font-size: 1.75rem;
+    margin-top: 20px !important;
+    margin-bottom: 2px !important;
+    font-size: 25px;
     margin: 0;
     padding-left: 30px;
-}
-
-#galerii{
-    text-align: center;
-}
-
-#obrazekgalerie{
-    max-height: 250px;
-    max-width: 250px;
-    min-width: 250px;
-    min-height: 250px;
-    margin-bottom: 25px;
-    border-radius: 2%;
-    margin-left: 35px;
+    padding-left: 44px;
 }
 
 #recenzce{
@@ -198,23 +155,25 @@ body {
 }
 
 #tlacik1{
-    text-align: center;
-    align-items: center;
-    align-self: center;
-    align-content: center;
-    margin-left: 250px;
-    margin-bottom: 15px;
+    width: auto;
+    height: auto;
+    margin-right: 5px;
 }
 
 #tlacik2{
+    width: auto;
+    height: auto;
+    margin-left: 5px;
+}
+
+/*
+    margin-left: 250px;
+    margin-bottom: 15px;
     text-align: center;
     align-items: center;
     align-self: center;
     align-content: center;
-    margin-left: 250px;
-    margin-bottom: 15px;
-}
-
+*/
 #tlacik1:hover{
     opacity: 0.5;
     color: green;
@@ -239,4 +198,25 @@ body {
     opacity: 1;
     color: red;
     transition: 2s;
+}
+
+#myCarousel {
+    margin: auto;
+    width: 40vw;
+    height: 50vh;
+}
+
+#myCarousel img {
+    width: 40vw;
+    height: 50vh;
+    object-fit: contain;
+}
+
+.hodnoceni {
+    color: black;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
 }

@@ -1,6 +1,6 @@
 {
   "name": "projekt-galerie",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "Projekt absolventů maturujících v roce 2022, galerie školních projektů",
   "main": "server.js",
   "scripts": {
@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/sps-trutnov/projekt-galerie#readme",
   "dependencies": {
-    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.2",
