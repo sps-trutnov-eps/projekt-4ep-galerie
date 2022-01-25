@@ -1,3 +1,39 @@
 {
-    "next_id": 1
+    "1": {
+        "autor": "snj",
+        "datum": "25. 1. 2022",
+        "nadpis": "EP projekt",
+        "popis_short": "Toto je EP projekt.",
+        "popis_full": "Opravdu jde jenom o EP projekt.",
+        "tagy": [
+            "EPS",
+            "2",
+            "C#",
+            "2022"
+        ],
+        "obrazky": [
+            "obrazek.png"
+        ],
+        "like": 0,
+        "dislike": 0
+    },
+    "2": {
+        "autor": "snj",
+        "datum": "25. 1. 2022",
+        "nadpis": "IT projekt",
+        "popis_short": "Toto je IT projekt",
+        "popis_full": "Skutečně jde jen o IT projekt.",
+        "tagy": [
+            "ITM",
+            "2",
+            "Python",
+            "2022"
+        ],
+        "obrazky": [
+            "obrazek.png"
+        ],
+        "like": 0,
+        "dislike": 0
+    },
+    "next_id": 3
 }
