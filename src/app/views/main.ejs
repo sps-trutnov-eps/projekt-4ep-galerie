@@ -51,21 +51,22 @@
                 <div class="projekty d-flex justify-content-center row col-12 m-0 mt-5 m-0-a">
 
                     <% for(let i in zobrazovane_projekty){ %>
-                        <div class="col-lg-5 col-sm-12 m-1 p-0 projekt_container row"
-                            data-tagy="<%= data.projekty[i].tagy %>">
-                            <div class="col-md-6 col-sm-12  projekt_img_container p-0"><img class="p-0  "
-                                    src="img/<%= i %>/<%= data.projekty[i].obrazky[0] %>" frameborder="0" />
-                            </div>
-                            <div class="col-md-6 col-sm-12 row-sm">
-                                <h3 class="d-flex justify-content-center">
-                                    <%= zobrazovane_projekty[i].nadpis %>
-                                </h3>
-                                <p  style="font-size: .5em; word-break: break-all;">
-                                    <span class="d-lg-block d-sm-none"><%= zobrazovane_projekty[i].popis_short %></span>
+                        <div class="projektos">
+                            <div class="zobrazovane_projekty">
+                                <div class="col-6 m-0 p-0 projekt_container row" data-tagy="<%= data.projekty[i].tagy %>" style="border: 3px solid green;">
+                                    <div class="col-6  projekt_img_container p-0">
+                                            <img class="p-0  shadow-block"
+                                            src="img/<%= i %>/<%= data.projekty[i].obrazky[0] %>" height="350px" width="100%"
+                                            frameborder="0" />
+                                    </div>
+                                </div>
+                               
+                        
+                                <p class="col-6">
+                                    <%= zobrazovane_projekty[i].popis_short %>
                                         <br><a href="/projekty/detail/<%= i %>">Zobrazit více</a>
                                 </p>
                             </div>
-
                         </div>
                         <% } %>
                 </div>
