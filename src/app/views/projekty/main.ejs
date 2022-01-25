@@ -56,7 +56,7 @@
                         <p style="font-size: .5em; word-break: break-all;">
                             <% let text = "" %> 
                             <% if (zobrazovane_projekty[i].popis_short.length > 50){ %>
-                                <% text = zobrazovane_projekty[i].popis_short.slice(0, 250) %>
+                                <% text = zobrazovane_projekty[i].popis_short.slice(0, 350) + "..." %>
                             <% } %> 
                             <span class="d-lg-block d-sm-none"><%= text %></span>
                             <br><a href="/projekty/detail/<%= i %>">Zobrazit více</a>
