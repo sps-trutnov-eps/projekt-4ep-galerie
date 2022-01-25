@@ -90,5 +90,20 @@
         "like": 0,
         "dislike": 0
     },
-    "next_id": 6
+    "6": {
+        "autor": "snj",
+        "datum": "25. 1. 2022",
+        "nadpis": "Video v příloze",
+        "popis_short": "Tento projekt má v příloze video.",
+        "popis_full": "Skutečně, tento projekt má v příloze místo obrázku video.",
+        "tagy": [
+            "SEL",
+            "3",
+            "HTML/CSS",
+            "2022"
+        ],
+        "like": 0,
+        "dislike": 0
+    },
+    "next_id": 7
 }
