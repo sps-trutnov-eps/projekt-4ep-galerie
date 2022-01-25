@@ -100,3 +100,35 @@ body
   background: #223974;
   text-align: center;
 }
+button{
+  border: 1px solid white;
+  border-radius: 300px;
+  color: white;
+  background-color: #223974;
+  font-weight: bold;
+}
+button:hover{
+  transition: 0,5s;
+  background-color: white;
+  color: #223974;
+  font-weight: bold;
+}
+.projektos{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  
+}
+.zobrazovane_projekty > div{
+  width: 100%;
+  text-align: center;
+}
+
+.zobrazovane_projekty{
+  text-align: center;
+  border: red 3px solid; /* pro orientaci */
+  margin-bottom: 0.5em;
+}
+.nazevAzobrazitvice{
+  border: 3px solid purple; /* pro orientaci */
+}
