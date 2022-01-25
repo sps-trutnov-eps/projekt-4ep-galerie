@@ -53,5 +53,42 @@
         "like": 0,
         "dislike": 0
     },
-    "next_id": 4
+    "4": {
+        "autor": "snj",
+        "datum": "25. 1. 2022",
+        "nadpis": "Skript v popisu",
+        "popis_short": "Tento projekt obsahuje skript v popisu",
+        "popis_full": "<script>alert('Tohle by se nemělo zobrazit!');</script>",
+        "tagy": [
+            "SEL",
+            "2",
+            "JavaScript",
+            "2022"
+        ],
+        "obrazky": [
+            "obrazek.png"
+        ],
+        "like": 0,
+        "dislike": 0,
+        "id": "4"
+    },
+    "5": {
+        "autor": "snj",
+        "datum": "25. 1. 2022",
+        "nadpis": "Skript v popisu",
+        "popis_short": "Tento projekt obsahuje skript v popisu",
+        "popis_full": "<script>alert('Tohle by se nemělo zobrazit!');</script>",
+        "tagy": [
+            "SEL",
+            "2",
+            "JavaScript",
+            "2022"
+        ],
+        "obrazky": [
+            "obrazek.png"
+        ],
+        "like": 0,
+        "dislike": 0
+    },
+    "next_id": 6
 }
