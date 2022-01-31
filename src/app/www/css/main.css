@@ -1,0 +1,102 @@
+.custom_container
+{
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+}
+
+main
+{
+    height: 100%;
+
+    padding: 10px;
+    z-index: 1;
+}
+.shadow-block
+{
+  box-shadow: 2px 1px 15px 5px rgba(0,0,0,0.35);
+}
+.m-0-a
+{
+  margin:0 auto;
+}
+
+
+.projekt_container
+{
+  background-color: #005cbe;
+  box-shadow: 2px 1px 15px 5px rgba(0,0,0,0.35);
+  max-height: 250px;
+  font-size: 2.2em;
+  font-weight: 300;
+  padding: 5px;
+  color: white;
+}
+
+.projekt_container a{
+  color: white;
+  font-weight: 400;
+  text-decoration: underline ;
+  text-decoration-color: transparent;
+  transition: 250ms;
+}
+.projekt_container a:hover
+{
+  color: white;
+  text-decoration-color: white ;
+}
+.projekt_img_container
+{
+  width: 100%;
+}
+.projekt_img_container img
+{
+  height: 25vh;
+  width: 100%;
+  object-fit: contain;
+}
+html
+{
+  height: 100%;
+}
+body
+{
+  height: 100%;
+}
+
+.filtrDiv {
+    float: left;
+    background-color: #007bff;
+    color: #ffffff;
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    margin: 2px;
+    display: none;
+  }
+  
+  .show {
+    display: block;
+  }
+  
+  .container {
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  
+
+	.ob_filter 
+	{
+		display: none;
+	}
+
+	.ob_show 
+	{
+	  display: block;
+	}
+
+.tagy_container
+{
+  background: #223974;
+  text-align: center;
+}

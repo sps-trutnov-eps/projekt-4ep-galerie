@@ -1,0 +1,126 @@
+.filtrDiv {
+  float: left;
+  background-color: #007bff;
+  color: #ffffff;
+  width: 100px;
+  line-height: 100px;
+  text-align: center;
+  margin: 2px;
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.container {
+  margin-top: 20px;
+  overflow: hidden;  
+}
+
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+
+
+#vyhledavani{
+    margin-top: 500px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.containerSTlacitky{
+display: none;
+position: absolute;
+background-color: #f9f9f9;
+min-width: 160px;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+z-index: 1;
+
+}
+
+.dropbtn {
+background-color: #223974;
+color: white;
+padding: 16px;
+font-size: 16px;
+border: none;
+cursor: pointer;
+}
+
+.dropdown{
+position: relative;
+display: inline-block;
+cursor: pointer;
+}
+
+.containerSTlacitky a {
+color: black;
+padding: 12px 16px;
+text-decoration: none;
+display: block;
+}
+
+.containerSTlacitky a:hover {background-color: #bbbbbb}
+
+.dropdown:hover .containerSTlacitky {
+display: block;
+}
+
+a[class*="filter_btn"].active 
+{
+  background-color: #666;
+  color: white;
+}
+  
+.ob_filter 
+{
+  display: none;
+}
+
+.ob_show 
+{
+  display: block;
+}
+
+.vyhledavani{
+  padding: 14px 2px;
+  line-height: 2px;
+  border-color: #223974;
+  font-size: 16px;
+  width: 210px;
+}
+
+table{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tlacitko{
+  font-size: 15px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #0095ff;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  width: 70px;
+}
+
+.na_projekty{
+  border-style: solid;
+  border-color: black;
+  margin-top: 50px;
+}
