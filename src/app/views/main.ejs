@@ -57,12 +57,11 @@
                                     src="img/<%= i %>/<%= data.projekty[i].obrazky[0] %>" frameborder="0" />
                             </div>
                             <div class="col-md-6 col-sm-12 row-sm">
-                                <h3 class="d-flex justify-content-center">
+                                <a href="/projekty/detail/<%= i %>"><h3 class="d-flex justify-content-center">
                                     <%= zobrazovane_projekty[i].nadpis %>
-                                </h3>
+                                </h3></a>
                                 <p  style="font-size: .5em; word-break: break-all;">
                                     <span class="d-lg-block d-sm-none"><%= zobrazovane_projekty[i].popis_short %></span>
-                                        <br><a href="/projekty/detail/<%= i %>">Zobrazit více</a>
                                 </p>
                             </div>
 
