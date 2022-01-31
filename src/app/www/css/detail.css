@@ -55,14 +55,13 @@ main
 }
 
 #Nadpis{
-    text-align: center;
     color: black;
     font-size: 50px;
     font-weight: bold;
     margin-top: 0;
     margin-bottom: -5px;
-
     opacity: 1;
+    word-break: break-word;
 }
 
 #hlavni-obrazek{
@@ -78,18 +77,29 @@ main
 }
 
 #datum{
-    margin-top: 0%;
-    text-align: center;
+    margin-top: 10px;
 }
 
 #autori{
     margin-bottom: 0;
     padding-left: 44px;
-    font-size: 25px;
+    font-size: 18px;
     margin-top: 0;
     max-width: 800px;
     text-size-adjust: calc(1);
     position: 0;
+    font-weight: bold;
+}
+
+#data-autori
+{
+    word-break: break-word;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40vw;
+    height: 5vh;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
 #galerie-obrazku h2{
@@ -109,6 +119,30 @@ main
     border: darkgrey 2px solid;
     width: 40vw;
     height: 50vh;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+/* Šířka scrollbaru */
+#popis::-webkit-scrollbar, #data-autori::-webkit-scrollbar{
+    width: 10px;
+}
+
+#popis::-webkit-scrollbar-track, #data-autori::-webkit-scrollbar-track{
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+   
+/* Nastavení barvy scrollbaru */
+#popis::-webkit-scrollbar-thumb, #data-autori::-webkit-scrollbar-thumb{
+    background: #374e88; 
+    border-radius: 10px;    
+}
+  
+/* Změna barvy scrollbaru po najetí myší */
+#popis::-webkit-scrollbar-thumb:hover, #data-autori::-webkit-scrollbar-hover{
+    background: #293a64; 
 }
 
 #popis p{
@@ -144,7 +178,8 @@ main
 #popis-div{
     margin-top: 20px !important;
     margin-bottom: 2px !important;
-    font-size: 25px;
+    font-size: 18px;
+    font-weight: bold;
     margin: 0;
     padding-left: 30px;
     padding-left: 44px;
@@ -152,6 +187,7 @@ main
 
 #recenzce{
     padding-top: 30px;
+    font-size: 2em;
     text-align: center;
 }
 
