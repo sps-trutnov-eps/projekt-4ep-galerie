@@ -1,3 +1,39 @@
 {
-    "next_id": 1
+    "1": {
+        "autor": "fgfdgdsg",
+        "datum": "31. 1. 2022",
+        "nadpis": "dsad",
+        "popis_short": "vcvvcx",
+        "popis_full": "nbvvcbxcvds",
+        "tagy": [
+            "ITM",
+            "1",
+            "C/C++",
+            "2016"
+        ],
+        "obrazky": [
+            "pig.png"
+        ],
+        "like": 0,
+        "dislike": 0
+    },
+    "2": {
+        "autor": "ggfcvbvc",
+        "datum": "31. 1. 2022",
+        "nadpis": "dsadsadsa",
+        "popis_short": "fdfvcvv",
+        "popis_full": "vcbbvcbg",
+        "tagy": [
+            "EPS",
+            "4",
+            "HTML/CSS",
+            "2021"
+        ],
+        "obrazky": [
+            "HSBC.png"
+        ],
+        "like": 0,
+        "dislike": 0
+    },
+    "next_id": 3
 }
