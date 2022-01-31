@@ -7,10 +7,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/css/upload_form.css">
+    <link rel="stylesheet" href="/css/stejne.css">
+    <link rel="stylesheet" href="/css/edit.css">
     <title>Document</title>
 </head>
 <body>
-  
+  <%- include("../stejne/hlavicka.ejs") -%>
   <ul id="dropdown1" class="dropdown-content">
     <li class="divider"></li>
     <li><a href="/admin/upload">UPLOAD</a></li>
@@ -142,4 +144,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="/script/edit.js"></script>
 </body>
+<%- include("../stejne/paticka.ejs") -%>
 </html>

@@ -7,10 +7,9 @@
 
 main
 {
-    height: 100%;
-
-    padding: 10px;
-    z-index: 1;
+  height: 100%;
+  padding: 10px;
+  z-index: 1;
 }
 .shadow-block
 {

@@ -17,7 +17,7 @@
     <%- include("../stejne/hlavicka.ejs") -%>
     <main>
         <form id="myForm" action="/admin/sendImg" method="post" enctype="multipart/form-data">
-            <label for="nadpis">Jméno projektu</label>
+            <label id="Name" for="nadpis">Jméno projektu</label>
             <input name="nazev" type="text" id="projectName" class="form-control" required>
             <div>
                 <label for="popis_short">Krátký popis</label>
