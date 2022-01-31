@@ -121,12 +121,22 @@
                 //Pro vsechny zaskrtle tagy...
                 for (let i = 0; i < zaskrtle_tagy.length; i++) {
                     //Pro vsechny tagy jednoho projektu...
+                    let nalezen = false;
                     for (let k = 0; k < tagy_projektu.length; k++) {
+                        if(zaskrtle_tagy[i] != tagy_projektu[k])
+                        {
+                            nalezen = true;
+                            break;
+                        }
                         //Kontrola zda mezi zaskrtlymi tagy jsou tagy projektu
                         if (zaskrtle_tagy[i] == tagy_projektu[k] && tagy_projektu[k] != "") {
                             projekty[p].setAttribute("style", "display:visible;");
                             break;
                         }
+                    }
+                    if(nalezen==true)
+                    {
+                        
                     }
                 }
             }
