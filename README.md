@@ -7,8 +7,10 @@
 2. do složky `/src` doplnit soubor `.env` obsahující text
 
     > HOST=localhost
-
     > PORT=8000
+    > ADMIN_USERNAME=admin
+    > ADMIN_PASSWORD=admin
+    > SECRET_KEY=admin
 
     > ADMIN_USERNAME=<jmeno_administratora>
     
