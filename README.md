@@ -1,4 +1,5 @@
 # Projekt absolventů maturujících v roce 2022
+
 ## Galerie školních projektů
 
 #### Postup zprovoznění ve vývojovém režimu:
@@ -11,6 +12,12 @@
     > ADMIN_PASSWORD=admin
     > SECRET_KEY=admin
 
+    > ADMIN_USERNAME=<jmeno_administratora>
+    
+    > ADMIN_PASSWORD=<heslo_administratora>
+    
+    > SECRET_KEY=<tajny_text_slouzici_k_zabezpeceni_session>
+    
 3. ve složce `/src` spustit příkazovou řádku
 4. spustit příkaz `npm install`
 5. spustit příkaz `npm install nodemon` (pokud není `nodemon` nainstalován globálně)
