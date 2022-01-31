@@ -70,7 +70,32 @@
 
 </body>
 <script>
+    (function(){
+        var a = document.getElementById('formFileMultiple')
+        var regex = /jpg|jpeg|png/;
+        a.addEventListener("change", (e) => {
+            var files = e.target.files
+            var queue = 0;
+            for (var i = 0; i < files.length; i++) {
+                console.log(files[i].size)
+                if (regex.test(files[i].name)) {
+                    queue++;
+                }
+                else {
+                    queue--;
+                }
+            }
+            if (queue == files.length) {
+                console.log("all files good")
+            }
+            else {
+                e.target.value = ''
+                alert("Soubory neměly vhodnou příponu, nahrajte prosím obrázky znovu!");
+            }
+        })
+    })()
     function SendInfo() {
+        console.log("vyber begin")
         let allAreFilled = true;
         document.getElementById("myForm").querySelectorAll("[required]").forEach(function (i) {
             if (!allAreFilled) return;
@@ -78,7 +103,7 @@
         })
         if (!allAreFilled) {
 
-        }
+        }/*
         if (allAreFilled) {
             fetch('/admin/newArticle', {
                 method: 'POST',
@@ -93,7 +118,8 @@
                     tags: tags.value
                 }),
             })
-        }
+        }*/
+        console.log("vyber done")
     }
 </script>
 
