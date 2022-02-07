@@ -104,25 +104,10 @@ exports.uploadImg = (req, res, next) => {
 }
 
 exports.uploadProject = (req, res, next) => {
-    let name = req.body.nazev.trim();
-    while(name.search('<') != -1 && name.search('>') != -1) {
-        name = name.replace('<', '&lt;').replace('>', '&gt;');
-    }
-    
-    let desc_short = req.body.kratky_popis.trim();
-    while(desc_short.search('<') != -1 && desc_short.search('>') != -1) {
-        desc_short = desc_short.replace('<', '&lt;').replace('>', '&gt;');
-    }
-
-    let desc_full = req.body.dlouhy_popis.trim();
-    while(desc_full.search('<') != -1 && desc_full.search('>') != -1) {
-        desc_full = desc_full.replace('<', '&lt;').replace('>', '&gt;');
-    }
-
-    let author = req.body.autori.trim();
-    while(author.search('<') != -1 && author.search('>') != -1) {
-        author = author.replace('<', '&lt;').replace('>', '&gt;');
-    }
+    let name = req.body.nazev.trim().replace(/[<>]/g, ' ');
+    let desc_short = req.body.kratky_popis.trim().replace(/[<>]/g, ' ');;
+    let desc_full = req.body.dlouhy_popis.trim().replace(/[<>]/g, ' ');;
+    let author = req.body.autori.trim().replace(/[<>]/g, ' ');;
 
     let tags = req.body.tagy;
     let obrazky = res.locals.nazvy_souboru;

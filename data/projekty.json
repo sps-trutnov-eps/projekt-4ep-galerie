@@ -55,16 +55,16 @@
         "id": "3"
     },
     "4": {
-        "autor": "&lt;script&gt;window.alert('Ha ha!');&lt;/script&gt;",
+        "autor": " script window.alert('Ha ha!'); /script ",
         "datum": "7. 2. 2022",
-        "nadpis": "&lt;script&gt;window.alert('Ha ha!');&lt;/script&gt;",
-        "popis_short": "&lt;script&gt;window.alert('Ha ha!');&lt;/script&gt;",
-        "popis_full": "&lt;script&gt;window.alert('Ha ha!');&lt;/script&gt;",
+        "nadpis": " script window.alert('Ha ha!'); /script ",
+        "popis_short": " script window.alert('Ha ha!'); /script ",
+        "popis_full": " script window.alert('Ha ha!'); /script ",
         "tagy": [
-            "SEL",
-            "4",
-            "JavaScript",
-            "2022"
+            "ITM",
+            "3",
+            "HTML/CSS",
+            "2020"
         ],
         "obrazky": [
             "obrazek.png"
