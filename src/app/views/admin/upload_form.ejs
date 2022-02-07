@@ -79,18 +79,23 @@
             for (var i = 0; i < files.length; i++) {
                 console.log(files[i].size)
                 if (regex.test(files[i].name)) {
-                    queue++;
+                    if (files[i].size < 5000) {
+                        queue++;
+                    }
+                    else {
+                        queue--;
+                    }
                 }
                 else {
                     queue--;
                 }
             }
             if (queue == files.length) {
-                console.log("all files good")
+                
             }
             else {
                 e.target.value = ''
-                alert("Soubory neměly vhodnou příponu, nahrajte prosím obrázky znovu!");
+                alert("Soubory neměly vhodnou příponu nebo byly moc velké (> 5 MB), nahrajte prosím obrázky znovu!");
             }
         })
     })()
