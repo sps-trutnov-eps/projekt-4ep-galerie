@@ -1,0 +1,39 @@
+header{
+    background: #223974;
+
+  }
+
+#footer{
+    background: #223974;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    height: 70px;
+
+    
+  }
+  
+footer p {
+    padding: 10px;
+    text-align: center;
+    color: white;
+  }
+#logo{
+  display: block;
+  margin-left: 400px;
+  width: 15%;
+  background: #223974;
+
+}
+#zahlavi_logo{
+    background: #223974;
+  }
+nav{
+    text-align: center;
+    padding: 6em;
+    border: 2px solid black;
+    margin-top: 10px;
+}
+nav a{
+    
+}
