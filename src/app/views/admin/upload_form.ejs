@@ -51,7 +51,7 @@
             </div>
             <div>
                 <label for="pics">Vložte obrázky</label>
-                <input class="form-control" type="file" accept=".jpg, .jpeg, .png" name="image" id="formFileMultiple"
+                <input onchange="extensionCheck()" class="form-control" type="file" accept=".jpg,.jpeg,.png" name="image" id="formFileMultiple"
                     multiple required>
             </div>
             <div id="uploadbutts">
@@ -67,34 +67,39 @@
 
     </main>
     <%- include("../stejne/paticka.ejs") -%>
+    <script>
+        function extensionCheck() {
+            let filesSelected = document.getElementById('formFileMultiple').files;
+            let count = 0;
+            let ok = true;
 
+            for(let i in filesSelected) {
+                if(!filesSelected[i].size) continue;
+
+                count += 1;
+
+                if(filesSelected[i].size > 10e6) {
+                    window.alert('Příloha je příliš veliká!');
+                    ok = false;
+                    break;
+                }
+
+                let extension = filesSelected[i].name.substring(filesSelected[i].name.length - 4);
+
+                if(extension != '.jpg' && extension != '.png' && extension != 'jpeg') {
+                    window.alert('Příloha nemá správný formát!');
+                    ok = false;
+                    break;
+                }
+            }
+
+            if(count < 1) {
+                window.alert('Nejsou vybrané žádné platné přílohy!');
+                ok = false;
+            }
+
+            document.getElementById('button2').disabled = !ok;
+        }
+    </script>
 </body>
-<script>
-    function SendInfo() {
-        let allAreFilled = true;
-        document.getElementById("myForm").querySelectorAll("[required]").forEach(function (i) {
-            if (!allAreFilled) return;
-            if (!i.value) allAreFilled = false;
-        })
-        if (!allAreFilled) {
-
-        }
-        if (allAreFilled) {
-            fetch('/admin/newArticle', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    name: projectName.value,
-                    desc_short: desc_short.value,
-                    desc_full: desc_full.value,
-                    author: author.value,
-                    tags: tags.value
-                }),
-            })
-        }
-    }
-</script>
-
 </html>
