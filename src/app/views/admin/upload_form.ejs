@@ -79,7 +79,7 @@
             for (var i = 0; i < files.length; i++) {
                 console.log(files[i].size)
                 if (regex.test(files[i].name)) {
-                    if (files[i].size < 5000) {
+                    if (files[i].size < 5000000) {
                         queue++;
                     }
                     else {
