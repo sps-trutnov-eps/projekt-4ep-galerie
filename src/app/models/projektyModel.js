@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const bcrypt = require("bcryptjs");
 const jsondb = require('simple-json-db');
 
@@ -71,7 +72,23 @@ exports.getProjectTitles = () => {
 }
 
 exports.deleteProject = (id) => {
+    let nextID = db.get('next_id')
+    const path = './app/www/img/' + id;
+    var projekt = db.get(id);
+    //odebrání obrázků
+    for (var i = 0; i < projekt.obrazky.length; i++) {
+        fs.unlink(path + '/' + projekt.obrazky[i],(err) => {
+            if(err) throw err;
+            console.log('picture deleted');
+        });
+    }
     var odpoved = db.delete(id);
+    //odebrání složky musí být prázdná
+    fs.rmdir(path,(err) => { 
+        if(err) throw err;
+        console.log('file deleted');
+    });
+    db.set('next_id', nextID - 1); //zmenšení next id
     return odpoved;
 }
 
