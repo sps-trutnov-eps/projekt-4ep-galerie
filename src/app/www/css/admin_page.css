@@ -3,13 +3,15 @@ html{
 }
 
 body{
+    position: relative;
     height: 100%;
     width: 100%;
     margin: 0;
+    overflow: auto;
 }
 
 main{
-    height: 67%;
+    height: 67.5%;
 }
 
 
@@ -48,7 +50,7 @@ main{
 .container{
     border-bottom: black solid 2px; 
     margin: 0 auto; 
-    margin-top: 20px; 
+    margin-top: 50px; 
     text-align: center; 
     width: 500px;
     height: 500px;
@@ -70,8 +72,9 @@ main{
 }
 */
 #footer{
-    position: fixed;
+    position: absolute;
     width: 100%;
+    bottom: 0;
 }
 body{
     margin: 0px;

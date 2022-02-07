@@ -1,31 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/global_tagy.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/global_tagy.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/stejne.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="/css/stejne.css">
+    <title>SPŠ Galerie</title>
 </head>
 
 <body>
     <div class="custom_container">
-        <script src="scripts\script_tagy.js"></script>
         <script>
-
             var tagicky = '<%- JSON.stringify(data.projekty) %>';
             var vysledek = JSON.parse(tagicky);
             var zobrazovane_projekty = [];
-
-
-
         </script>
-        <%- include("stejne/hlavicka.ejs") -%>
+        <%- include("../stejne/hlavicka.ejs") -%>
             <div class="tagy_container">
                 <% var tagy=data.tagy %>
                     <% var zobrazovane_projekty=data.projekty %>
@@ -67,13 +62,11 @@
                             </div>
 
                         </div>
-                        <% } %>
+                    <% } %>
                 </div>
-
             </main>
-            <%- include("stejne/paticka.ejs") -%>
+        <%- include("../stejne/paticka.ejs") -%>
     </div>
-
 
     <script>
         let zaskrtle_tagy = [];
@@ -87,7 +80,6 @@
             }))
         );
         function Filter_update() {
-            console.log(zaskrtle_tagy)
             if (zaskrtle_tagy.length == 0) {
                 let projekty = document.querySelectorAll('.projekt_container');
                 for (let p = 0; p < projekty.length; p++) {
