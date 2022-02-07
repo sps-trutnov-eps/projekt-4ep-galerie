@@ -21,8 +21,7 @@ router.get('/edit', verify, controller.adminEdit);
 router.get('/getProjectTitles', verify, controller.getProjectTitles);
 router.get('/compare', controller.compareAdmin);
 
-router.post('/newProject', verify, controller.uploadProject);
-router.post('/sendImg', controller.pre_upload, controller.uploadImg, controller.uploadProject);
+router.post('/sendImg', verify, controller.uploadImg, controller.uploadProject);
 router.post('/editProject', verify, controller.editProject);
 router.post('/deleteProject', verify, controller.deleteProject);
 
