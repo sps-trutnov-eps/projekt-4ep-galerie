@@ -1,3 +1,15 @@
 {
-    "next_id": 1
+    "2": {
+        "autor": "a",
+        "datum": "7. 2. 2022",
+        "nadpis": "a",
+        "popis_short": "a",
+        "popis_full": "a",
+        "obrazky": [
+            "99-997711_1080p-is-so-7-years-ago-4k- - kopie.png"
+        ],
+        "like": 0,
+        "dislike": 0
+    },
+    "next_id": 3
 }
