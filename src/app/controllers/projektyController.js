@@ -40,18 +40,18 @@ exports.hodnoceni = (req, res) => {
     res.send('Vsechno OK!'); 
 }
 
-exports.prehled = (req, res) => {
-    response.render('projekty/prehled');
-}
-
 exports.detail = (req, res) => {
     let id = req.params.id;
 
     let data = projektyModel.nacistProjekt(id);
 
-    res.render('projekty/detail', {
-        data, id
-    });
+    if(data) {
+        res.render('projekty/detail', {
+            data, id
+        });
+    } else {
+        res.redirect('/');
+    }
 }
 
 let rozdelitCookie = (request) => {

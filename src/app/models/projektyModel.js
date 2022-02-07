@@ -13,6 +13,10 @@ exports.dalsiId = () => {
 }
 
 exports.nacistProjekt = (id) => {
+    if(!db.has(id)) {
+        return false;
+    }
+
     let data = db.get(id);
 
     data.id = id;
