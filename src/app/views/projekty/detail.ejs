@@ -22,13 +22,14 @@
     <%- include("../stejne/hlavicka.ejs") -%>
     <main id="main">
     <div id="container">
-            <div>
+            <div class="row">
                 <h1 id="Nadpis"><%= data.nadpis %></h1>
                 <p id="datum"><%= data.datum %></p>
             </div>
         <img id="hlavni-obrazek" src="/img/<%= data.id %>/<%= data.obrazky[0] %>" alt="Hlavní obrázek">
         <div id="kontakt">
-            <p id="autori">Autoři: <%= data.autor %></p>
+            <p id="autori"><b>Autoři:</b></p>
+            <p id="data-autori"><%= data.autor %></p>
         </div>
 
         <h2 id="popis-div">Popis:</h2>
