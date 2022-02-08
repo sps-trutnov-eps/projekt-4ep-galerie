@@ -1,3 +1,39 @@
 {
-    "next_id": 1
+    "1": {
+        "autor": "unknown",
+        "datum": "8. 2. 2022",
+        "nadpis": "dasdasdas",
+        "popis_short": "saddas",
+        "popis_full": "dasdasdasduhsajdiujhdiujhsagdashdhbsahbdkjsakjdsalkjndlkjsad",
+        "tagy": [
+            "EPS",
+            "2",
+            "C#",
+            "2017"
+        ],
+        "obrazky": [
+            "Bez názvu.png"
+        ],
+        "like": 0,
+        "dislike": 0
+    },
+    "2": {
+        "autor": "unknown again",
+        "datum": "8. 2. 2022",
+        "nadpis": "sadsadsada",
+        "popis_short": "dsadasdasdsadas",
+        "popis_full": "daefrjhbdjhbdjhbdjhbdjhbdjhbdjhbdjhbdjhbdjhbdhbfdsahbfdsahbfdsafdssa",
+        "tagy": [
+            "ITM",
+            "3",
+            "HTML/CSS",
+            "2019"
+        ],
+        "obrazky": [
+            "Bez názvu1.png"
+        ],
+        "like": 0,
+        "dislike": 0
+    },
+    "next_id": 3
 }
