@@ -3,12 +3,12 @@ const path = require('path');
 const tagyModel = require(path.join(__dirname, '..', 'models', 'tagyModel'));
 const projektyModel = require(path.join(__dirname, '..', 'models', 'projektyModel'));
 
-exports.main = (req, res) => {
+exports.prehled = (req, res) => {
     let data = {
         tagy: tagyModel.ziskejTagy(),
         projekty: projektyModel.nacistVsechny()
     };
-    res.render('projekty/main', {
+    res.render('projekty/prehled', {
         data,
     });
 }
