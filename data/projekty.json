@@ -1,3 +1,219 @@
 {
-    "next_id": 1
+    "1": {
+        "autor": "snj",
+        "datum": "8. 2. 2022",
+        "nadpis": "1.S",
+        "popis_short": "Projekt 1.S",
+        "popis_full": "Toto je projekt 1.S",
+        "tagy": [
+            "SEL",
+            "1",
+            "C/C++",
+            "2022"
+        ],
+        "obrazky": [
+            "obrazek.png"
+        ],
+        "like": 0,
+        "dislike": 0
+    },
+    "2": {
+        "autor": "snj",
+        "datum": "8. 2. 2022",
+        "nadpis": "2.S",
+        "popis_short": "Projekt 2.S",
+        "popis_full": "Toto je projekt 2.S",
+        "tagy": [
+            "SEL",
+            "2",
+            "C/C++",
+            "2022"
+        ],
+        "obrazky": [
+            "obrazek.png"
+        ],
+        "like": 0,
+        "dislike": 0
+    },
+        "3": {
+        "autor": "snj",
+        "datum": "8. 2. 2022",
+        "nadpis": "3.S",
+        "popis_short": "Projekt 3.S",
+        "popis_full": "Toto je projekt 3.S",
+        "tagy": [
+            "SEL",
+            "3",
+            "C/C++",
+            "2022"
+        ],
+        "obrazky": [
+            "obrazek.png"
+        ],
+        "like": 0,
+        "dislike": 0
+    },
+    "4": {
+        "autor": "snj",
+        "datum": "8. 2. 2022",
+        "nadpis": "4.S",
+        "popis_short": "Projekt 4.S",
+        "popis_full": "Toto je projekt 4.S",
+        "tagy": [
+            "SEL",
+            "4",
+            "C/C++",
+            "2022"
+        ],
+        "obrazky": [
+            "obrazek.png"
+        ],
+        "like": 0,
+        "dislike": 0
+    },
+    "10": {
+        "autor": "snj",
+        "datum": "8. 2. 2022",
+        "nadpis": "1.IT",
+        "popis_short": "Projekt 1.IT",
+        "popis_full": "Toto je projekt 1.IT",
+        "tagy": [
+            "ITM",
+            "1",
+            "PHP",
+            "2022"
+        ],
+        "obrazky": [
+            "obrazek.png"
+        ],
+        "like": 0,
+        "dislike": 0
+    },
+    "20": {
+        "autor": "snj",
+        "datum": "8. 2. 2022",
+        "nadpis": "2.IT",
+        "popis_short": "Projekt 2.IT",
+        "popis_full": "Toto je projekt 2.IT",
+        "tagy": [
+            "ITM",
+            "2",
+            "PHP",
+            "2022"
+        ],
+        "obrazky": [
+            "obrazek.png"
+        ],
+        "like": 0,
+        "dislike": 0
+    },
+    "30": {
+        "autor": "snj",
+        "datum": "8. 2. 2022",
+        "nadpis": "3.IT",
+        "popis_short": "Projekt 3.IT",
+        "popis_full": "Toto je projekt 3.IT",
+        "tagy": [
+            "ITM",
+            "3",
+            "PHP",
+            "2022"
+        ],
+        "obrazky": [
+            "obrazek.png"
+        ],
+        "like": 0,
+        "dislike": 0
+    },
+    "40": {
+        "autor": "snj",
+        "datum": "8. 2. 2022",
+        "nadpis": "4.IT",
+        "popis_short": "Projekt 4.IT",
+        "popis_full": "Toto je projekt 4.IT",
+        "tagy": [
+            "ITM",
+            "4",
+            "PHP",
+            "2022"
+        ],
+        "obrazky": [
+            "obrazek.png"
+        ],
+        "like": 0,
+        "dislike": 0
+    },
+    "100": {
+        "autor": "snj",
+        "datum": "8. 2. 2022",
+        "nadpis": "1.EP",
+        "popis_short": "Projekt 1.EP",
+        "popis_full": "Toto je projekt 1.EP",
+        "tagy": [
+            "EPS",
+            "1",
+            "C#",
+            "2022"
+        ],
+        "obrazky": [
+            "obrazek.png"
+        ],
+        "like": 0,
+        "dislike": 0
+    },
+    "200": {
+        "autor": "snj",
+        "datum": "8. 2. 2022",
+        "nadpis": "2.EP",
+        "popis_short": "Projekt 2.EP",
+        "popis_full": "Toto je projekt 2.EP",
+        "tagy": [
+            "EPS",
+            "2",
+            "C#",
+            "2022"
+        ],
+        "obrazky": [
+            "obrazek.png"
+        ],
+        "like": 0,
+        "dislike": 0
+    },
+    "300": {
+        "autor": "snj",
+        "datum": "8. 2. 2022",
+        "nadpis": "3.EP",
+        "popis_short": "Projekt 3.EP",
+        "popis_full": "Toto je projekt 3.EP",
+        "tagy": [
+            "EPS",
+            "3",
+            "C#",
+            "2022"
+        ],
+        "obrazky": [
+            "obrazek.png"
+        ],
+        "like": 0,
+        "dislike": 0
+    },
+    "400": {
+        "autor": "snj",
+        "datum": "8. 2. 2022",
+        "nadpis": "4.EP",
+        "popis_short": "Projekt 4.EP",
+        "popis_full": "Toto je projekt 4.EP",
+        "tagy": [
+            "EPS",
+            "4",
+            "C#",
+            "2022"
+        ],
+        "obrazky": [
+            "obrazek.png"
+        ],
+        "like": 0,
+        "dislike": 0
+    },
+    "next_id": 1000
 }
