@@ -18,7 +18,7 @@ main{
   width: 500px;
   margin:0 auto;
   margin-top: 2em;
-  margin-bottom: 1em;
+  margin-bottom: 4em;
 }
 
 @media screen and (max-width: 700px){
