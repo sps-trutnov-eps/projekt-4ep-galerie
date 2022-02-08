@@ -47,7 +47,7 @@ footer
     padding-top: 13px;
     padding-bottom: 3px;
     vertical-align: middle;
-    position: relative;
+    position: fixed;
     width: 100%;
     bottom: 0;
 }
