@@ -15,6 +15,7 @@ header
 #nadpis
 {
     margin: 0 !important;
+    font-family: Georgia, 'Times New Roman', Times, serif !important; /* Zde je to definované pro všechno! Změnit font na ten, který se bude líbitgit */
     font-size: 80px;
     text-align: center;
     color: white;
