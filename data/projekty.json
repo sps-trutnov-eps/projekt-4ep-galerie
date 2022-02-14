@@ -1,24 +1,83 @@
 {
     "1": {
-        "autor": "Bruh",
+        "autor": "fgfdgdsg",
         "datum": "31. 1. 2022",
-        "nadpis": "Bruh",
-        "popis_short": "Bruh",
-        "popis_full": "Bruh",
+        "nadpis": "dsad",
+        "popis_short": "vcvvcx",
+        "popis_full": "nbvvcbxcvds",
         "tagy": [
             "EPS",
-            "2",
-            "Python",
-            "2018"
+            "1.",
+            "C/C++",
+            "2016"
         ],
         "obrazky": [
-            "1.PNG",
-            "2.PNG",
-            "3.PNG"
+            "pig.png"
         ],
         "like": 0,
-        "dislike": 1,
-        "id": "1"
+        "dislike": 0
     },
-    "next_id": 2
+    "2": {
+        "autor": "ggfcvbvc",
+        "datum": "31. 1. 2022",
+        "nadpis": "dsadsadsa",
+        "popis_short": "fdfvcvv",
+        "popis_full": "vcbbvcbg",
+        "tagy": [
+            "EPS",
+            "4.",
+            "HTML/CSS",
+            "2021"
+        ],
+        "obrazky": [
+            "HSBC.png"
+        ],
+        "like": 0,
+        "dislike": 0
+    },
+    "3": {
+        "autor": "ds",
+        "datum": "14. 2. 2022",
+        "nadpis": "dsa",
+        "popis_short": "dsa",
+        "popis_full": "dsad",
+        "tagy": [
+            "ITM",
+            "2.",
+            "C/C++",
+            "2015"
+        ],
+        "obrazky": [
+            "HSBC.png"
+        ],
+        "like": 0,
+        "dislike": 0
+    },
+    "4": {
+        "autor": "fsa",
+        "datum": "14. 2. 2022",
+        "nadpis": "ds",
+        "popis_short": "addsa",
+        "popis_full": "dsadsa",
+        "tagy": {
+            "Obor": [
+                "ITM"
+            ],
+            "Ročník": [
+                "1."
+            ],
+            "Jazyk": [
+                "C#"
+            ],
+            "Rok": [
+                "2015"
+            ]
+        },
+        "obrazky": [
+            "HSBC.png"
+        ],
+        "like": 0,
+        "dislike": 0
+    },
+    "next_id": 5
 }

@@ -23,7 +23,7 @@
         <%- include("../stejne/hlavicka.ejs") -%>
             <div class="tagy_container">
                 <% var tagy=data.tagy %>
-                    <% var zobrazovane_projekty=data.projekty %>
+                <% var zobrazovane_projekty=data.projekty %>
                         <%= tagy.pocet_projektu %>
                             <% for(var i=0; i < Object.keys(tagy).length; i++){ %>
                                 <div class="dropdown">
@@ -69,36 +69,67 @@
     </div>
 
     <script>
+        function Najdi_index(pole, hodnota)
+        {
+            for (let i = 0; i < pole.length; i++) {
+                 if(pole[i]==hodnota)
+                 {
+                     return i;
+                 }
+            }
+        }
         let zaskrtle_tagy = [];
-        document.querySelectorAll(".containerSTlacitky").forEach(element =>
-            document.querySelectorAll("input[type=checkbox]").forEach(checkboxy => checkboxy.addEventListener("change", (event) => {
-                if (checkboxy.checked == true && zaskrtle_tagy.includes(checkboxy.value) == false)
-                    zaskrtle_tagy.push(checkboxy.value);
-                if (checkboxy.checked == false && zaskrtle_tagy.includes(checkboxy.value) == true) {
-                    zaskrtle_tagy.pop(checkboxy.value);
+        //Aktualizace zaskrtlych tagu
+        //Prochazime vsechna dropdown menu
+        for (let i = 0; i < document.querySelectorAll(".containerSTlacitky").length; i++) 
+        {
+             //Prochazime vsechny checkboxy v dropdown menu
+            for (let l = 0; l < document.querySelectorAll(".containerSTlacitky")[i].querySelectorAll("input[type=checkbox]").length; l++) 
+            {
+                let checkbox = document.querySelectorAll(".containerSTlacitky")[i].querySelectorAll("input[type=checkbox]")[l];
+                checkbox.addEventListener("click",()=>{
+                 //Pokud je checkbox zasrtly a checkbox neni mezi zaskrtlymi tagy 
+                if (checkbox.checked == true && zaskrtle_tagy.includes(checkbox.value) == false)
+                    zaskrtle_tagy.push(checkbox.value);
+                    //Pokud je checkbox nezasrtly a checkbox je mezi zaskrtlymi tagy
+                else if (checkbox.checked == false && zaskrtle_tagy.includes(checkbox.value) == true) {
+                    let i = Najdi_index(zaskrtle_tagy,checkbox.value);
+                    zaskrtle_tagy.splice(i,1);
                 }
-            }))
-        );
-        function Filter_update() {
-            if (zaskrtle_tagy.length == 0) {
+            });
+            }
+        }
+
+        //Po kliknuti na filtrovaci tlacitko
+        function Filter_update() 
+        {
+            if (zaskrtle_tagy.length == 0)
+            {
                 let projekty = document.querySelectorAll('.projekt_container');
                 for (let p = 0; p < projekty.length; p++) {
                     projekty[p].setAttribute("style", "display:visible;");
                 }
                 return;
             }
-
+            //Ziskani vsech projektu
             let projekty = document.querySelectorAll('.projekt_container');
             for (let p = 0; p < projekty.length; p++) {
+                //Schovani projektu
                 projekty[p].setAttribute("style", "display:none;");
+                //Ziskani vsech tagu u jednoho projetu 
                 let tagy_projektu = projekty[p].getAttribute("data-tagy").split(',');
-                for (let i = 0; i < zaskrtle_tagy.length; i++) {
+                //Pro vsechny zaskrtle tagy...
+                for (let i = 0; i < zaskrtle_tagy.length; i++) 
+                {              
+                    //Pro vsechny tagy jednoho projektu...
                     for (let k = 0; k < tagy_projektu.length; k++) {
+                        
+                        //Kontrola zda mezi zaskrtlymi tagy jsou tagy projektu
                         if (zaskrtle_tagy[i] == tagy_projektu[k] && tagy_projektu[k] != "") {
                             projekty[p].setAttribute("style", "display:visible;");
                             break;
                         }
-                    }
+                    }               
                 }
             }
 
