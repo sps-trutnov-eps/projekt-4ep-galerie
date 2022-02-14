@@ -141,7 +141,7 @@ main
 }
   
 /* Změna barvy scrollbaru po najetí myší */
-#popis::-webkit-scrollbar-thumb:hover, #data-autori::-webkit-scrollbar-hover{
+#popis::-webkit-scrollbar-thumb:hover, #data-autori::-webkit-scrollbar-thumb:hover{
     background: #293a64; 
 }
 
