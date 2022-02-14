@@ -11,7 +11,7 @@ body
     float: left;
     background-color: #007bff;
     color: #ffffff;
-    width: 100px;
+    width: 200px;
     line-height: 100px;
     text-align: center;
     margin: 2px;
@@ -45,17 +45,18 @@ body
   }
 
 .containerSTlacitky{
-
+  align-items: center;
   transform: scaleY(0);
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 160px;
+  min-width: 7vw;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
   transition: 100ms;
 }
 
 .dropbtn {
+  width: 7vw;
   background-color: #223974;
   color: white;
   padding: 16px;
