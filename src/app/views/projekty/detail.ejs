@@ -36,6 +36,12 @@
         <div id="popis">
             <p id=""><%= data.popis_full %></p>
         </div>
+        <div>
+            <% for(var i=0; i < Object.keys(data.tagy).length; i++){ %>
+            <p><%= Object.keys(data.tagy)[i]  %></p>
+            <p><%= data.tagy[Object.keys(data.tagy)[i]]  %></p>
+            <% } %>
+        </div>
 
         <% if(data.obrazky.length > 1) { %>
             <div id="galerie-obrazku">
