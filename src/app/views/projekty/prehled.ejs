@@ -57,7 +57,9 @@
                             <% let text = "" %> 
                             <% if (zobrazovane_projekty[i].popis_short.length > 50){ %>
                                 <% text = zobrazovane_projekty[i].popis_short.slice(0, 350) + "..." %>
-                            <% } %> 
+                            <% } else { %>
+                                <%= zobrazovane_projekty[i].popis_short %>
+                            <% } %>
                             <span class="d-lg-block d-sm-none"><%= text %></span>
                         </p>
                     </div>
