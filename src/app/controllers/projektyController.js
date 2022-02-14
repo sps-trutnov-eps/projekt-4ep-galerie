@@ -3,12 +3,12 @@ const path = require('path');
 const tagyModel = require(path.join(__dirname, '..', 'models', 'tagyModel'));
 const projektyModel = require(path.join(__dirname, '..', 'models', 'projektyModel'));
 
-exports.main = (req, res) => {
+exports.prehled = (req, res) => {
     let data = {
         tagy: tagyModel.ziskejTagy(),
         projekty: projektyModel.nacistVsechny()
     };
-    res.render('projekty/main', {
+    res.render('projekty/prehled', {
         data,
     });
 }
@@ -40,18 +40,18 @@ exports.hodnoceni = (req, res) => {
     res.send('Vsechno OK!'); 
 }
 
-exports.prehled = (req, res) => {
-    response.render('projekty/prehled');
-}
-
 exports.detail = (req, res) => {
     let id = req.params.id;
 
     let data = projektyModel.nacistProjekt(id);
 
-    res.render('projekty/detail', {
-        data, id
-    });
+    if(data) {
+        res.render('projekty/detail', {
+            data, id
+        });
+    } else {
+        res.redirect('/');
+    }
 }
 
 let rozdelitCookie = (request) => {

@@ -71,12 +71,7 @@ exports.compareAdmin = (req, res, next) => {
     projektyModel.compareAdmin(req, res, next);
 }
 
-exports.pre_upload = (req, res,next) => 
-{
-    next();
-}
-
-exports.uploadImg = (req, res,next) => {
+exports.uploadImg = (req, res, next) => {
     const upload = multer({
         storage: multer.diskStorage({
             destination: './app/www/img/' + projektyModel.dalsiId(),
@@ -84,10 +79,10 @@ exports.uploadImg = (req, res,next) => {
                 res(null, file.originalname)
             }
         }),
-        fileFilter: function(req, file, cb){
+        fileFilter: function(req, file, cb) {
             const fileTypes = /jpeg|jpg|png/;
             const mimeType = fileTypes.test(file.mimetype);
-            if(mimeType){
+            if(mimeType) {
                 cb(null, true);
             } 
             else {
@@ -95,11 +90,11 @@ exports.uploadImg = (req, res,next) => {
             }
         }
     }).array('image');
+
     upload(req, res, (err) => {
-        if(err){
+        if(err) {
             
-        }else
-        {   
+        } else {   
             res.locals.nazvy_souboru=[];
             for(let i in req.files)
                 res.locals.nazvy_souboru.push(req.files[i].originalname);  
@@ -108,11 +103,12 @@ exports.uploadImg = (req, res,next) => {
     });
 }
 
-exports.uploadProject = (req, res,next) => {
-    let name = req.body.nazev;
-    let desc_short = req.body.kratky_popis;
-    let desc_full = req.body.dlouhy_popis;
-    let author = req.body.autori;
+exports.uploadProject = (req, res, next) => {
+    let name = req.body.nazev.trim().replace(/[<>]/g, ' ');
+    let desc_short = req.body.kratky_popis.trim().replace(/[<>]/g, ' ');;
+    let desc_full = req.body.dlouhy_popis.trim().replace(/[<>]/g, ' ');;
+    let author = req.body.autori.trim().replace(/[<>]/g, ' ');;
+
     let tags = req.body.tagy;
     let obrazky = res.locals.nazvy_souboru;
     let hodnoceniLike = 0;
@@ -127,4 +123,22 @@ exports.logout = (req, res) => {
     req.session.password = undefined;
     req.session.userid = undefined;
     res.send({"msg":{"status":100, "text":"Úspěšně odhlášeno!"}})
+}
+
+exports.isLogged = (req, res, next) => {
+    if (req.session.userid == undefined) {
+        next();
+    }
+    if (req.session.userid == 'admin') {
+        res.redirect("/admin/edit")
+    }
+}
+
+exports.verify = (req, res, next) => {
+    if(req.session.userid == 'admin') {
+        next();
+    }
+    else {
+        res.redirect('/')
+    }
 }

@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="/css/stejne.css">
     <link rel="stylesheet" href="/css/stickyfooter.css">
     <title>Admin page</title>
+
+    
+
    </head>
 
 <body class="my_container">
@@ -36,8 +39,19 @@
                 </div>
             </div>
             <div id="button_submit">
-                <button id="submit" onclick="SendLoginInfo()">Submit</button></a>
+                <input id="submit" type="submit" onclick="SendLoginInfo()" value="Přihlásit"></a>
             </div>
+
+            <script>
+                var input = document.getElementById("password");
+                    input.addEventListener("keyup", function(event) {
+                    if (event.keyCode === 13) {
+                        event.preventDefault();
+                        document.getElementById("submit").click();
+                    }
+                });
+            </script>
+
         </div>
     </main>
 
@@ -64,6 +78,6 @@
             })
         }
     </script>
-</body>
     <%- include("../stejne/paticka.ejs") -%>
+</body>
 </html>
