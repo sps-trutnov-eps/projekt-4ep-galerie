@@ -25,3 +25,9 @@ main{
   }
 }
 
+#Name {
+  margin-top: 20px;
+}
+footer{
+  position: absolute;
+}
