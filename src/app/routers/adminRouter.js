@@ -14,6 +14,15 @@ const verify = (req, res, next) => {
     }
 }
 
+const isLogged = (req, res, next) => {
+    if (req.session.userid == undefined) {
+        next();
+    }
+    if (req.session.userid == 'admin') {
+        res.redirect("/admin/edit")
+    }
+}
+
 router.get('/upload', verify, controller.upload);
 router.get('/getProjectNames', verify, controller.getProjectNames);
 router.get('/edit/:id',verify, controller.getProjectData)
@@ -28,6 +37,6 @@ router.post('/deleteProject', verify, controller.deleteProject);
 router.post('/loginInfo', controller.postLoginInfo);
 router.post('/logout', controller.logout)
 
-router.get('/', controller.admin);
+router.get('/', isLogged ,controller.admin);
 
 module.exports = router;
