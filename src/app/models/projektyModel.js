@@ -77,7 +77,7 @@ exports.getProjectTitles = () => {
 
 exports.deleteProject = (id) => {
     let nextID = db.get('next_id')
-    const path = './app/www/img/' + id;
+    const path = '../public/img/' + id;
     var projekt = db.get(id);
     //odebrání obrázků
     for (var i = 0; i < projekt.obrazky.length; i++) {

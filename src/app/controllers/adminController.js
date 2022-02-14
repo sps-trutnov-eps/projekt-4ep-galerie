@@ -74,7 +74,7 @@ exports.compareAdmin = (req, res, next) => {
 exports.uploadImg = (req, res, next) => {
     const upload = multer({
         storage: multer.diskStorage({
-            destination: './app/www/img/' + projektyModel.dalsiId(),
+            destination: '../public/img/' + projektyModel.dalsiId(),
             filename: (req, file, res) => {
                 res(null, file.originalname)
             }
