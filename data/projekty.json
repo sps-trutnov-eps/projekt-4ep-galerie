@@ -35,5 +35,49 @@
         "like": 0,
         "dislike": 0
     },
-    "next_id": 3
+    "3": {
+        "autor": "ds",
+        "datum": "14. 2. 2022",
+        "nadpis": "dsa",
+        "popis_short": "dsa",
+        "popis_full": "dsad",
+        "tagy": [
+            "ITM",
+            "2.",
+            "C/C++",
+            "2015"
+        ],
+        "obrazky": [
+            "HSBC.png"
+        ],
+        "like": 0,
+        "dislike": 0
+    },
+    "4": {
+        "autor": "fsa",
+        "datum": "14. 2. 2022",
+        "nadpis": "ds",
+        "popis_short": "addsa",
+        "popis_full": "dsadsa",
+        "tagy": {
+            "Obor": [
+                "ITM"
+            ],
+            "Ročník": [
+                "1."
+            ],
+            "Jazyk": [
+                "C#"
+            ],
+            "Rok": [
+                "2015"
+            ]
+        },
+        "obrazky": [
+            "HSBC.png"
+        ],
+        "like": 0,
+        "dislike": 0
+    },
+    "next_id": 5
 }

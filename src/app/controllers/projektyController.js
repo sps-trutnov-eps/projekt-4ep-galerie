@@ -4,6 +4,7 @@ const tagyModel = require(path.join(__dirname, '..', 'models', 'tagyModel'));
 const projektyModel = require(path.join(__dirname, '..', 'models', 'projektyModel'));
 
 exports.main = (req, res) => {
+    
     let data = {
         tagy: tagyModel.ziskejTagy(),
         projekty: projektyModel.nacistVsechny()
