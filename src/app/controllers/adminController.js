@@ -124,3 +124,21 @@ exports.logout = (req, res) => {
     req.session.userid = undefined;
     res.send({"msg":{"status":100, "text":"Úspěšně odhlášeno!"}})
 }
+
+exports.isLogged = (req, res, next) => {
+    if (req.session.userid == undefined) {
+        next();
+    }
+    if (req.session.userid == 'admin') {
+        res.redirect("/admin/edit")
+    }
+}
+
+exports.verify = (req, res, next) => {
+    if(req.session.userid == 'admin') {
+        next();
+    }
+    else {
+        res.redirect('/')
+    }
+}
