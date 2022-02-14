@@ -74,7 +74,7 @@ exports.compareAdmin = (req, res, next) => {
 exports.uploadImg = (req, res, next) => {
     const upload = multer({
         storage: multer.diskStorage({
-            destination: './app/www/img/' + projektyModel.dalsiId(),
+            destination: '../public/img/' + projektyModel.dalsiId(),
             filename: (req, file, res) => {
                 res(null, file.originalname)
             }
@@ -123,4 +123,22 @@ exports.logout = (req, res) => {
     req.session.password = undefined;
     req.session.userid = undefined;
     res.send({"msg":{"status":100, "text":"Úspěšně odhlášeno!"}})
+}
+
+exports.isLogged = (req, res, next) => {
+    if (req.session.userid == undefined) {
+        next();
+    }
+    if (req.session.userid == 'admin') {
+        res.redirect("/admin/edit")
+    }
+}
+
+exports.verify = (req, res, next) => {
+    if(req.session.userid == 'admin') {
+        next();
+    }
+    else {
+        res.redirect('/')
+    }
 }

@@ -1,0 +1,132 @@
+html{
+    height: 100%;
+}
+
+body{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+main{
+    height: 67%;
+    overflow: auto;
+}
+
+
+#password{
+    font-size: 15pt; 
+    padding: 5px;
+    width: 100%;
+}
+#username{
+    font-size: 15pt; 
+    padding: 5px;
+    margin-bottom: 1em;
+    width: 100%;
+}
+#login{
+    padding-top: 20px;
+}
+
+#upload{
+    float:right;
+    color:rgb(171,186,223) !important;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+#upload:hover{
+    color:rgb(171,186,223);
+}
+
+#name{
+    font-size: 26pt; 
+    border-top: black solid 2px; 
+    padding-top: 30px; 
+    font-weight: bold;
+}
+.container{
+    border-bottom: black solid 2px; 
+    margin: 0 auto; 
+    margin-top: 20px; 
+    text-align: center; 
+    width: 500px;
+    height: 500px;
+
+}
+
+#prihlasovaci_jmeno{
+    margin-bottom: 1px;
+    text-align: left;
+}
+#heslo{
+    margin-bottom: 1px;
+    text-align: left;
+}
+/*.my_container{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+*/
+#footer{
+    position: fixed;
+    width: 100%;
+}
+body{
+    margin: 0px;
+    position: fixed;
+}
+#text_jmeno_heslo{
+    text-align: left;
+}
+#button_submit{
+    text-align: right;
+    
+}
+#tlacitko_upload{
+    text-align: center;
+}
+#tlacitko_edit{
+    text-align: center;
+}
+button{
+    border: 1px solid white;
+    border-radius: 3px;
+    color: white;
+    background-color: #223974;
+    font-weight: bold;
+    font-size: 25px;
+    margin: 10px;
+    padding: 5px;
+  }
+  button:hover{
+    transition: 0,5s;
+    background-color: white;
+    color: #223974;
+    font-weight: bold;
+    border: 1px solid #223974;
+    border-radius: 3px;
+  }
+
+#submit{
+    border: 1px solid white;
+    border-radius: 3px;
+    color: white;
+    background-color: #223974;
+    font-weight: bold;
+    font-size: 25px;
+    margin: 10px;
+    padding: 5px;
+}
+#submit:hover{
+    transition: 0,5s;
+    background-color: white;
+    color: #223974;
+    font-weight: bold;
+    border: 1px solid #223974;
+    border-radius: 3px;
+}
+
+
