@@ -13,6 +13,10 @@ main{
     overflow: auto;
 }
 
+nav .brand-logo {
+    left: 50%;
+    transform: translateX(-50%);
+}
 
 #password{
     font-size: 15pt; 
