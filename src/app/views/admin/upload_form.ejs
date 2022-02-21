@@ -26,7 +26,7 @@
     <main>
         <form id="myForm" action="/admin/sendImg" method="post" enctype="multipart/form-data">
             <label for="nadpis">Jméno projektu</label>
-            <input name="nazev" type="text" id="projectName" class="form-control" required>
+            <input name="nazev" type="text" id="projectName" class="form-control" required maxlength="50">
             <div>
                 <label for="popis_short">Krátký popis</label>
                 <textarea name="kratky_popis" id="desc_short" class="form-control" required maxlength="50"></textarea>

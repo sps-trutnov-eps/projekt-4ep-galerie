@@ -21,6 +21,24 @@ main
   margin:0 auto;
 }
 
+/*.projekt_text{
+  text-align: left;
+  overflow: hidden;
+  white-space: normal;
+}*/
+
+.projekt_text h3 {
+  text-align: left;
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
+}
+
+.projekt_text h3:hover {
+  overflow: visible;
+  word-wrap: break-word;
+  height: auto;
+}
 
 .projekt_container
 {
