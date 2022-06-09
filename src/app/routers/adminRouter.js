@@ -17,7 +17,7 @@ router.post('/editProject', controller.verify, controller.editProject);
 router.post('/deleteProject', controller.verify, controller.deleteProject);
 
 router.post('/loginInfo', controller.postLoginInfo);
-router.post('/logout', controller.logout)
+router.post('/logout', controller.logout);
 
 router.get('/', controller.isLogged, controller.admin);
 

@@ -5,6 +5,7 @@ const tagyModel = require(path.join(__dirname, '..', 'models', 'tagyModel'));
 const projektyModel = require(path.join(__dirname, '..', 'models', 'projektyModel'));
 
 exports.upload = (req, res) => {
+   
     res.render('admin/upload_form', {
         data: tagyModel.ziskejTagy()
     });
@@ -113,8 +114,8 @@ exports.uploadProject = (req, res, next) => {
     let obrazky = res.locals.nazvy_souboru;
     let hodnoceniLike = 0;
     let hodnoceniDislike = 0;
-    
-    projektyModel.newDbItem(name, desc_short, desc_full, author, tags,obrazky, hodnoceniLike, hodnoceniDislike);
+    let tagy = tagyModel.rozdel_tagy(tags);
+    projektyModel.newDbItem(name, desc_short, desc_full, author, tagy,obrazky, hodnoceniLike, hodnoceniDislike);
     return res.redirect('/admin/edit')
 }
 
@@ -122,7 +123,7 @@ exports.logout = (req, res) => {
     req.session.username = undefined;
     req.session.password = undefined;
     req.session.userid = undefined;
-    res.send({"msg":{"status":100, "text":"Úspěšně odhlášeno!"}})
+    res.send({"msg":{"status":100, "text":"Úspěšně odhlášeno!"}});
 }
 
 exports.isLogged = (req, res, next) => {
