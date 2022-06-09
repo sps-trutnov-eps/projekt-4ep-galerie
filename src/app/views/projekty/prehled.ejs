@@ -18,12 +18,10 @@
         <script>
             var tagicky = '<%- JSON.stringify(data.projekty) %>';
             var vysledek = JSON.parse(tagicky);
-            var zobrazovane_projekty = [];
         </script>
         <%- include("../stejne/hlavicka.ejs") -%>
         <div class="tagy_container">
             <% var tagy=data.tagy %>
-            <% var zobrazovane_projekty=data.projekty %>
             <%= tagy.pocet_projektu %>
             <% for(var i=0; i < Object.keys(tagy).length; i++){ %>
             <div class="dropdown">
@@ -32,7 +30,8 @@
                 </button>
                 <div class="containerSTlacitky">
                     <% for(let k=0;k< tagy[Object.keys(tagy)[i]].length;k++) { %>
-                    <input class="random" value="<%=tagy[Object.keys(tagy)[i]][k]%>" type="checkbox"><label for="">
+                    <input class="random" data-tagySkupina="<%= Object.keys(tagy)[i] %>"
+                        value="<%=tagy[Object.keys(tagy)[i]][k]%>" type="checkbox"><label for="">
                         <%= tagy[Object.keys(tagy)[i]][k]%> %>
                     </label><br>
                     <% } %>
@@ -44,21 +43,22 @@
         <main>
             <div class="projekty d-flex justify-content-center row col-12 m-0 mt-5 m-0-a">
 
-                <% for(let i in zobrazovane_projekty){ %>
-                <div onclick="location.href='/projekty/detail/<%= i %>'" style="cursor: pointer;" class="col-lg-5 col-sm-12 m-1 p-0 projekt_container row" data-tagy="<%= data.projekty[i].tagy %>">
+                <% for(let i in data.projekty){ %>
+                <div onclick="location.href='/projekty/detail/<%= i %>'" style="cursor: pointer;" class="col-lg-5 col-sm-12 m-1 p-0 projekt_container row"
+                    data-tagy="<%= JSON.stringify(data.projekty[i].tagy) %>">
                     <div class="col-md-6 col-sm-12  projekt_img_container p-0"><img class="p-0  "
                             src="img/<%= i %>/<%= data.projekty[i].obrazky[0] %>" frameborder="0" />
                     </div>
                     <div class="col-md-6 col-sm-12 row-sm">
                         <h3 class="d-flex justify-content-center">
-                            <%= zobrazovane_projekty[i].nadpis %>
+                            <%= data.projekty[i].nadpis %>
                         </h3>
                         <p style="font-size: .5em; word-break: break-all;">
                             <% let text = "" %> 
-                            <% if (zobrazovane_projekty[i].popis_short.length > 50){ %>
-                                <% text = zobrazovane_projekty[i].popis_short.slice(0, 350) + "..." %>
+                            <% if (data.projekty[i].popis_short.length > 50){ %>
+                                <% text = data.projekty[i].popis_short.slice(0, 350) + "..." %>
                             <% } else { %>
-                                <%= zobrazovane_projekty[i].popis_short %>
+                                <% text = data.projekty[i].popis_short %>
                             <% } %>
                             <span class="d-lg-block d-sm-none"><%= text %></span>
                         </p>
@@ -72,38 +72,111 @@
     </div>
 
     <script>
-        let zaskrtle_tagy = [];
-        document.querySelectorAll(".containerSTlacitky").forEach(element =>
-            document.querySelectorAll("input[type=checkbox]").forEach(checkboxy => checkboxy.addEventListener("change", (event) => {
-                if (checkboxy.checked == true && zaskrtle_tagy.includes(checkboxy.value) == false)
-                    zaskrtle_tagy.push(checkboxy.value);
-                if (checkboxy.checked == false && zaskrtle_tagy.includes(checkboxy.value) == true) {
-                    zaskrtle_tagy.pop(checkboxy.value);
+        function Najdi_index(pole, hodnota) {
+            for (let i = 0; i < pole.length; i++) {
+                if (pole[i] == hodnota) {
+                    return i;
                 }
-            }))
-        );
+            }
+        }
+        let zaskrtle_tagy = {};
+        //Aktualizace zaskrtlych tagu
+        //Prochazime vsechna dropdown menu
+        for (let i = 0; i < document.querySelectorAll(".containerSTlacitky").length; i++) {
+            //Prochazime vsechny checkboxy v dropdown menu
+            for (let l = 0; l < document.querySelectorAll(".containerSTlacitky")[i].querySelectorAll("input[type=checkbox]").length; l++) {
+                let checkbox = document.querySelectorAll(".containerSTlacitky")[i].querySelectorAll("input[type=checkbox]")[l];
+                //Definovani prvku zaskrlych tagu
+                zaskrtle_tagy[checkbox.getAttribute("data-tagySkupina")] = [];
+            }
+        }
+        //-----------Pridavani zasktlych tagu-------------
+        //Aktualizace zaskrtlych tagu
+        //Prochazime vsechna dropdown menu
+        for (let i = 0; i < document.querySelectorAll(".containerSTlacitky").length; i++) {
+            //Prochazime vsechny checkboxy v dropdown menu
+            for (let l = 0; l < document.querySelectorAll(".containerSTlacitky")[i].querySelectorAll("input[type=checkbox]").length; l++) {
+                let checkbox = document.querySelectorAll(".containerSTlacitky")[i].querySelectorAll("input[type=checkbox]")[l];
+                //Event Click pro kazdy checkbox... 
+                checkbox.addEventListener("click", () => {
+                    //Pokud je checkbox zasrtly a checkbox neni mezi zaskrtlymi tagy 
+                    if (checkbox.checked == true && zaskrtle_tagy[checkbox.getAttribute("data-tagySkupina")].includes(checkbox.value) == false)
+                        zaskrtle_tagy[checkbox.getAttribute("data-tagySkupina")].push(checkbox.value);
+                    //Pokud je checkbox nezasrtly a checkbox je mezi zaskrtlymi tagy
+                    else if (checkbox.checked == false && zaskrtle_tagy[checkbox.getAttribute("data-tagySkupina")].includes(checkbox.value) == true) {
+                        let i = Najdi_index(zaskrtle_tagy[checkbox.getAttribute("data-tagySkupina")], checkbox.value);
+                        zaskrtle_tagy[checkbox.getAttribute("data-tagySkupina")].splice(i, 1);
+                    }
+                });
+            }
+        }
+        //Vrati bool
+        function AND_filtrace(projekt_tagy, zaskrtle_tagy) {
+            //klic = skupina
+            for (klic in zaskrtle_tagy) {
+                let nasel_se_ve_skupine = false;
+                if (zaskrtle_tagy[klic].length == 0) {
+                    nasel_se_ve_skupine = true;
+                    continue;
+                }
+                //Pro zasktle tagy
+                for (let i = 0; i < zaskrtle_tagy[klic].length; i++) {
+                    //Pro tagy projektu
+                    for (let k = 0; k < projekt_tagy[klic].length; k++) {
+                        if ((zaskrtle_tagy[klic][i]) == (projekt_tagy[klic][k]))
+                            nasel_se_ve_skupine = true;
+
+                    }
+                }
+                if (nasel_se_ve_skupine == false)
+                    return false;
+            }
+            return true;
+        }
+        function Pocet_skupin_zaskrtlych_tagu(zaskrtle_tagy) {
+            let pocet = 0;
+            Object.keys(zaskrtle_tagy).forEach((klic) => {
+                if (zaskrtle_tagy[klic].length > 0)
+                    pocet++;
+            });
+            return pocet;
+        }
+        //Po kliknuti na filtrovaci tlacitko
         function Filter_update() {
-            if (zaskrtle_tagy.length == 0) {
-                let projekty = document.querySelectorAll('.projekt_container');
+            let projekty = document.querySelectorAll('.projekt_container');
+            for (let p = 0; p < projekty.length; p++) {
+                projekty[p].setAttribute("style", "display:none;");
+            }
+            //Kontrola jestli jsou vubec nejake tagy zaskrtle...
+            let existuji_zaskrtle_tagy = false;
+            Object.keys(zaskrtle_tagy).forEach((klic) => {
+                if (zaskrtle_tagy[klic].length != 0) {
+                    existuji_zaskrtle_tagy = true;
+                }
+            });
+            //...pokud ne, tak vsechny zobraz
+            if (existuji_zaskrtle_tagy == false) {
                 for (let p = 0; p < projekty.length; p++) {
                     projekty[p].setAttribute("style", "display:visible;");
                 }
                 return;
             }
+            //... pokud ano, tak pokracuj dal
 
-            let projekty = document.querySelectorAll('.projekt_container');
-            for (let p = 0; p < projekty.length; p++) {
-                projekty[p].setAttribute("style", "display:none;");
-                let tagy_projektu = projekty[p].getAttribute("data-tagy").split(',');
-                for (let i = 0; i < zaskrtle_tagy.length; i++) {
-                    for (let k = 0; k < tagy_projektu.length; k++) {
-                        if (zaskrtle_tagy[i] == tagy_projektu[k] && tagy_projektu[k] != "") {
+            //Ziskani vsech projektu
+            //Pro vsechny zaskrtle tagy...
+            Object.keys(zaskrtle_tagy).forEach((klic) => {
+                //projdeme kazdy zaskrtly prvek od kazdeho druhu
+                for (let i = 0; i < zaskrtle_tagy[klic].length; i++) {
+                    //Pro kazdy projekt...
+                    for (let p = 0; p < projekty.length; p++) {
+                        //Zobrazit je ty, co splnuji nasleduji podminku
+                        projekty[p].setAttribute("style", "display:none;");
+                        if (AND_filtrace(JSON.parse(projekty[p].getAttribute("data-tagy")), zaskrtle_tagy) == true)
                             projekty[p].setAttribute("style", "display:visible;");
-                            break;
-                        }
                     }
                 }
-            }
+            })
 
         }
     </script>

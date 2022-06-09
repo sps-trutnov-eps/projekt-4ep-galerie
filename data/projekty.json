@@ -5,12 +5,20 @@
         "nadpis": "1.S",
         "popis_short": "Projekt 1.S",
         "popis_full": "Toto je projekt 1.S",
-        "tagy": [
-            "SEL",
-            "1",
-            "C/C++",
-            "2022"
-        ],
+        "tagy": {
+            "Obor": [
+                "SEL"
+            ],
+            "Ročník": [
+                "1"
+            ],
+            "Jazyk": [
+                "C/C++"
+            ],
+            "Rok": [
+                "2022"
+            ]
+        },
         "obrazky": [
             "obrazek.png"
         ],
@@ -23,30 +31,46 @@
         "nadpis": "2.S",
         "popis_short": "Projekt 2.S",
         "popis_full": "Toto je projekt 2.S",
-        "tagy": [
-            "SEL",
-            "2",
-            "C/C++",
-            "2022"
-        ],
+        "tagy": {
+            "Obor": [
+                "SEL"
+            ],
+            "Ročník": [
+                "2"
+            ],
+            "Jazyk": [
+                "C/C++"
+            ],
+            "Rok": [
+                "2022"
+            ]
+        },
         "obrazky": [
             "obrazek.png"
         ],
         "like": 0,
         "dislike": 0
     },
-        "3": {
+    "3": {
         "autor": "snj",
         "datum": "8. 2. 2022",
         "nadpis": "3.S",
         "popis_short": "Projekt 3.S",
         "popis_full": "Toto je projekt 3.S",
-        "tagy": [
-            "SEL",
-            "3",
-            "C/C++",
-            "2022"
-        ],
+        "tagy": {
+            "Obor": [
+                "SEL"
+            ],
+            "Ročník": [
+                "3"
+            ],
+            "Jazyk": [
+                "C/C++"
+            ],
+            "Rok": [
+                "2022"
+            ]
+        },
         "obrazky": [
             "obrazek.png"
         ],
@@ -59,12 +83,20 @@
         "nadpis": "4.S",
         "popis_short": "Projekt 4.S",
         "popis_full": "Toto je projekt 4.S",
-        "tagy": [
-            "SEL",
-            "4",
-            "C/C++",
-            "2022"
-        ],
+        "tagy": {
+            "Obor": [
+                "SEL"
+            ],
+            "Ročník": [
+                "4"
+            ],
+            "Jazyk": [
+                "C/C++"
+            ],
+            "Rok": [
+                "2022"
+            ]
+        },
         "obrazky": [
             "obrazek.png"
         ],
@@ -77,12 +109,20 @@
         "nadpis": "1.IT",
         "popis_short": "Projekt 1.IT",
         "popis_full": "Toto je projekt 1.IT",
-        "tagy": [
-            "ITM",
-            "1",
-            "PHP",
-            "2022"
-        ],
+        "tagy": {
+            "Obor": [
+                "ITM"
+            ],
+            "Ročník": [
+                "1"
+            ],
+            "Jazyk": [
+                "PHP"
+            ],
+            "Rok": [
+                "2022"
+            ]
+        },
         "obrazky": [
             "obrazek.png"
         ],
@@ -95,12 +135,20 @@
         "nadpis": "2.IT",
         "popis_short": "Projekt 2.IT",
         "popis_full": "Toto je projekt 2.IT",
-        "tagy": [
-            "ITM",
-            "2",
-            "PHP",
-            "2022"
-        ],
+        "tagy": {
+            "Obor": [
+                "ITM"
+            ],
+            "Ročník": [
+                "2"
+            ],
+            "Jazyk": [
+                "PHP"
+            ],
+            "Rok": [
+                "2022"
+            ]
+        },
         "obrazky": [
             "obrazek.png"
         ],
@@ -113,12 +161,20 @@
         "nadpis": "3.IT",
         "popis_short": "Projekt 3.IT",
         "popis_full": "Toto je projekt 3.IT",
-        "tagy": [
-            "ITM",
-            "3",
-            "PHP",
-            "2022"
-        ],
+        "tagy": {
+            "Obor": [
+                "ITM"
+            ],
+            "Ročník": [
+                "3"
+            ],
+            "Jazyk": [
+                "PHP"
+            ],
+            "Rok": [
+                "2022"
+            ]
+        },
         "obrazky": [
             "obrazek.png"
         ],
@@ -131,12 +187,20 @@
         "nadpis": "4.IT",
         "popis_short": "Projekt 4.IT",
         "popis_full": "Toto je projekt 4.IT",
-        "tagy": [
-            "ITM",
-            "4",
-            "PHP",
-            "2022"
-        ],
+        "tagy": {
+            "Obor": [
+                "ITM"
+            ],
+            "Ročník": [
+                "4"
+            ],
+            "Jazyk": [
+                "PHP"
+            ],
+            "Rok": [
+                "2022"
+            ]
+        },
         "obrazky": [
             "obrazek.png"
         ],
@@ -149,12 +213,20 @@
         "nadpis": "1.EP",
         "popis_short": "Projekt 1.EP",
         "popis_full": "Toto je projekt 1.EP",
-        "tagy": [
-            "EPS",
-            "1",
-            "C#",
-            "2022"
-        ],
+        "tagy": {
+            "Obor": [
+                "EPS"
+            ],
+            "Ročník": [
+                "1"
+            ],
+            "Jazyk": [
+                "C#"
+            ],
+            "Rok": [
+                "2022"
+            ]
+        },
         "obrazky": [
             "obrazek.png"
         ],
@@ -167,12 +239,20 @@
         "nadpis": "2.EP",
         "popis_short": "Projekt 2.EP",
         "popis_full": "Toto je projekt 2.EP",
-        "tagy": [
-            "EPS",
-            "2",
-            "C#",
-            "2022"
-        ],
+        "tagy": {
+            "Obor": [
+                "EPS"
+            ],
+            "Ročník": [
+                "2"
+            ],
+            "Jazyk": [
+                "C#"
+            ],
+            "Rok": [
+                "2022"
+            ]
+        },
         "obrazky": [
             "obrazek.png"
         ],
@@ -185,12 +265,20 @@
         "nadpis": "3.EP",
         "popis_short": "Projekt 3.EP",
         "popis_full": "Toto je projekt 3.EP",
-        "tagy": [
-            "EPS",
-            "3",
-            "C#",
-            "2022"
-        ],
+        "tagy": {
+            "Obor": [
+                "EPS"
+            ],
+            "Ročník": [
+                "3"
+            ],
+            "Jazyk": [
+                "C#"
+            ],
+            "Rok": [
+                "2022"
+            ]
+        },
         "obrazky": [
             "obrazek.png"
         ],
@@ -203,12 +291,20 @@
         "nadpis": "4.EP",
         "popis_short": "Projekt 4.EP",
         "popis_full": "Toto je projekt 4.EP",
-        "tagy": [
-            "EPS",
-            "4",
-            "C#",
-            "2022"
-        ],
+        "tagy": {
+            "Obor": [
+                "EPS"
+            ],
+            "Ročník": [
+                "4"
+            ],
+            "Jazyk": [
+                "C#"
+            ],
+            "Rok": [
+                "2022"
+            ]
+        },
         "obrazky": [
             "obrazek.png"
         ],
