@@ -123,7 +123,7 @@ exports.logout = (req, res) => {
     req.session.username = undefined;
     req.session.password = undefined;
     req.session.userid = undefined;
-    res.send({"msg":{"status":100, "text":"Úspěšně odhlášeno!"}})
+    res.send({"msg":{"status":100, "text":"Úspěšně odhlášeno!"}});
 }
 
 exports.isLogged = (req, res, next) => {

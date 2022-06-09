@@ -143,7 +143,7 @@ window.onload = () => {
                 }
                 instances[0].updateData(tmpData)
             }).catch(e=>console.log(e))
-        }).catch(e=>console.log(e));
+        }).catch(e=>console.log(e))
     })
 
     document.getElementById('logoutbtn').addEventListener('click', (e) => {
