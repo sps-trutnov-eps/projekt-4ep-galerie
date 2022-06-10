@@ -17,7 +17,7 @@ window.onload = () => {
                     document.getElementById('nadpis').innerHTML = data.nadpis;
                     document.getElementById('popis_short').innerHTML = data.popis_short;
                     document.getElementById('popis_full').innerHTML = data.popis_full;
-                    document.getElementById('tagy').innerHTML = data.tagy;
+                    document.getElementById('tagy').innerHTML = JSON.stringify(data.tagy);
                     document.getElementById('idclanku').innerHTML = data.id;
                     document.getElementById('like').innerHTML = data.like;
                     document.getElementById('dislike').innerHTML = data.dislike;
@@ -124,7 +124,7 @@ window.onload = () => {
             'nadpis':document.getElementById('nadpis').innerHTML,
             "popis_short":document.getElementById('popis_short').innerHTML,
             "popis_full":document.getElementById('popis_full').innerHTML,
-            "tagy":document.getElementById('tagy').innerHTML.split(','),
+            "tagy":JSON.parse(document.getElementById('tagy').innerHTML),
             "like":parseInt(document.getElementById('like').innerHTML),
             "dislike":parseInt(document.getElementById('dislike').innerHTML),
             "obrazky":document.getElementById('obrazky').innerHTML.split(',')
