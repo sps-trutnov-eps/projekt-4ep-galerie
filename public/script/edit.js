@@ -18,7 +18,6 @@ window.onload = () => {
                     document.getElementById('popis_short').innerHTML = data.popis_short;
                     document.getElementById('popis_full').innerHTML = data.popis_full;
                     document.getElementById('tagy').innerHTML = JSON.stringify(data.tagy);
-                    document.getElementById('idclanku').innerHTML = data.id;
                     document.getElementById('like').innerHTML = data.like;
                     document.getElementById('dislike').innerHTML = data.dislike;
                     document.getElementById('obrazky').innerHTML = data.obrazky;
