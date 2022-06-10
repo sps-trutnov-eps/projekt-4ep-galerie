@@ -47,6 +47,7 @@ exports.aktualizovatHodnoceni = (id, typ) => {
 
 exports.editProject = (id, items) => {
     var project = db.get(id);
+    delete project.id;
     project.autor = (items?.autor===undefined?project.autor:items.autor);
     project.datum = (items?.datum===undefined?project.datum:items.datum);
     project.nadpis = (items?.nadpis===undefined?project.nadpis:items.nadpis);

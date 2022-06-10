@@ -6,13 +6,13 @@ const projektyModel = require(path.join(__dirname, '..', 'models', 'projektyMode
 
 exports.upload = (req, res) => {
    
-    res.render('admin/upload_form', {
+    res.render('admin/upload', {
         data: tagyModel.ziskejTagy()
     });
 }
 
 exports.admin = (req, res) => {
-    res.render('admin/admin_page');
+    res.render('admin/index');
 }
 
 exports.adminEdit = (req, res) => {

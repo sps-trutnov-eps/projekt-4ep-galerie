@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="/css/upload_form.css">
+    <link rel="stylesheet" href="/css/upload.css">
     <title>SPŠ Galerie - Admin Edit</title>
 </head>
 <body>
@@ -78,11 +78,6 @@
           <td class="right"><a href="#editModal" class="waves-effect waves-light btn-small blue darken-2 modal-trigger iEditable">EDIT</a></td>
         </tr>
         <tr>
-          <td><strong>ID</strong></td>
-          <td id="idclanku" style="color: gray; font-style: italic; font-weight: bold;"></td>
-          <td></td>
-        </tr>
-        <tr>
           <td><strong>LIKE</strong></td>
           <td id="like"></td>
           <td class="right"><a href="#editModal" class="waves-effect waves-light btn-small blue darken-2 modal-trigger iEditable">EDIT</a></td>
@@ -113,9 +108,9 @@
     <div id="modal1" class="modal">
       <div class="modal-content">
         <h4 class="center">UPOZORNĚNÍ</h4>
-        <p class="flow-text center">Právě se chystáte odebrat článek <span id="modalProject" class="red pulse card-panel" style="user-select: none;"></span></p>
+        <p class="flow-text center">Právě se chystáte odebrat projekt <span id="modalProject" class="red pulse card-panel" style="user-select: none;"></span></p>
         <br>
-        <p class="center">Pokud opravdu chcete tento článek odebrat, napište zde jeho celý název: </p>
+        <p class="center">Pokud opravdu chcete tento projekt odebrat, napište zde jeho celý název: </p>
         <input type="text" id="inputProjectDelete" class="center" style="font-size: 2em; text-transform: uppercase;">
       </div>
       <div class="modal-footer">
