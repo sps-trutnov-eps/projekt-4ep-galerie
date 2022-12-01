@@ -1,8 +1,6 @@
-# Projekt absolventů maturujících v roce 2022
+# Galerie školních projektů
 
-## Galerie školních projektů
-
-#### Postup zprovoznění ve vývojovém režimu:
+## Postup zprovoznění ve vývojovém režimu:
 1. nainstalovat běhové prostředí [Node](https://nodejs.org/en/) 16.8.0 nebo novější
 2. do složky `/src` doplnit soubor `.env` obsahující text
 
@@ -20,3 +18,4 @@
 4. spustit příkaz `npm install`
 5. spustit příkaz `npm install nodemon` (pokud není `nodemon` nainstalován globálně)
 6. spustit příkaz `npm run dev`
+
